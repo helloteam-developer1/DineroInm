@@ -45,6 +45,10 @@ class User extends Authenticatable
         'rol'
     ];
 
+    public function informacion_pago(){
+        return $this->belongsTo(InformacionPago::class,'id','user_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

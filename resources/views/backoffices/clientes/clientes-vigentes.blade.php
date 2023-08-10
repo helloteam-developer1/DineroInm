@@ -142,8 +142,8 @@
                                                         </button>
                                                     </td>
                                                     <td>
-                                                        @if (empty($c->num_pagos_rest))
-                                                            Sin registros
+                                                        @if (is_null($c->num_pagos_rest))
+                                                            <p>Sin registros</p>
                                                         @else
                                                             {{$c->num_pagos_rest}}
                                                         @endif

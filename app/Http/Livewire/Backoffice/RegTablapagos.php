@@ -46,8 +46,9 @@ class RegTablapagos extends Component
                 }else{
                     $this->registro();
                 }
-                $this->pagosrestantes();    
-                $this->emit('registroP',$this->num_credito);
+                $this->pagosrestantes();
+                $ruta = route('tablaPagos',$this->num_credito);
+                $this->emit('registroP',$ruta);
             }
         }
     }

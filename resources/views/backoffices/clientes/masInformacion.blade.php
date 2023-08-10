@@ -40,23 +40,77 @@
                                         <th scope="col" class="px-5"><p class="encabezado-tabla">Rama de la empresa</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla">Telefono de Contacto</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla">Correo electronico</p></th>
+                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Banco</p></th>
+                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Numero de Cuenta</p></th>
+                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Clave Intervancaria</p></th>
+                                        <th scope="col" class="px-5"><p class="encabezado-tabla">Numero de Tarjeta</p></th>
+                                        <th scope="col" class="px-5"><p class="encabezado-tabla">MM</p></th>
+                                        <th scope="col" class="px-5"><p class="encabezado-tabla">YY</p></th>
                                         <th scope="col" class="px-5"><p class="encabezado-tabla">Documentacion Adjunta</p></th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="table-light">
-                                       @foreach ($user as $u)
-                                       <td>{{$u->ingreso}}</td>
-                                       <td>{{$u->credito}}</td>
-                                       <td>{{$u->curp}}</td>
-                                       <td>{{$u->fecha_nacimiento}}</td>
-                                       <td>{{$u->empresa_trabajo}}</td>
-                                       <td>{{$u->rama_empresa}}</td>
-                                       <td>{{$u->telefono_contacto}}</td>
-                                       <td>{{$u->email}}</td>
-                                       <td>
-                                           @livewire('backoffice.documentos',['user'=> $u], key($u->id))
-                                       </td>
+                                       @foreach ($user as $u) 
+                                        <td>{{$u->ingreso}}</td>
+                                        <td>{{$u->credito}}</td>
+                                        <td>{{$u->curp}}</td>
+                                        <td>{{$u->fecha_nacimiento}}</td>
+                                        <td>{{$u->empresa_trabajo}}</td>
+                                        <td>{{$u->rama_empresa}}</td>
+                                        <td>{{$u->telefono_contacto}}</td>
+                                        <td>{{$u->email}}</td>
+                                        <td>
+                                            @empty($u->informacion_pago->banco)
+                                                Sin datos
+                                            @else
+                                                {{$u->informacion_pago->banco}}
+                                            @endempty    
+                                        </td>
+                                        <td>
+                                            @empty($u->informacion_pago->num_cuenta)
+                                                Sin Datos
+                                            @else    
+
+                                            {{$u->informacion_pago->num_cuenta}}
+                                            @endempty
+                                        </td>
+                                        <td>
+                                            @empty($u->informacion_pago->clave_inter)
+                                                Sin Datos
+                                            @else    
+
+                                            {{$u->informacion_pago->clave_inter}}
+                                            @endempty
+                                        </td>
+                                        <td>
+                                            @empty($u->informacion_pago->num_tarjeta)
+                                                Sin Datos
+                                            @else    
+
+                                            {{$u->informacion_pago->num_tarjeta}}
+                                            @endempty
+                                        </td>
+                                        <td>
+                                            @empty($u->informacion_pago->fecha_mm)
+                                                Sin Datos
+                                            @else    
+
+                                            {{$u->informacion_pago->fecha_mm}}
+                                            @endempty
+                                        </td>
+                                        <td>
+                                            @empty($u->informacion_pago->fecha_yy)
+                                                Sin Datos
+                                            @else    
+
+                                            {{$u->informacion_pago->fecha_yy}}
+                                            @endempty
+                                        </td>
+                                        <td>
+                                            @livewire('backoffice.documentos',['user'=> $u], key($u->id))
+                                        </td>
                                        @endforeach
                                     </tr>
                                 </tbody>

@@ -53,7 +53,11 @@
                             <div class="col-12 col-sm-10 col-md-8 col-lg-10 offset-sm-2 offset-md-2 offset-lg-1">
                               <p class="text-secondary">¿Estás seguro de querer enviar la notificación a todos los clientes? Esta acción
                                   no se podrá deshacer.</p>
+                                    @error('mensaje')
+                                        <p style="color: red;">{{$message}}</p>
+                                    @enderror
                             </div>
+                            
                         </div>
                     </div>
                 </div>

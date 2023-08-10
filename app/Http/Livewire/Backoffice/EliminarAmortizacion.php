@@ -38,7 +38,8 @@ class EliminarAmortizacion extends Component
                 
                 Credito::where('num_credito','=',$datos)->update(['num_pagos'=>$contador,'fecha_termino'=>$fecha,'fecha_inicio'=>$fecha_inicio]);
             }
-            $this->emit('eliminar',$datos);
+            $ruta = route('tablaAmortizacion',$datos);
+            $this->emit('eliminar',$ruta);
         }else{
             $this->emit('error_a');
         }

@@ -159,7 +159,10 @@ return [
         'n_credito' => 'Número de Crédito',
         'numero_pagos' => 'Número de pago',
         'fecha_pago' => 'Fecha de pago',
-        'monto_pago' => 'Monto pago'
+        'monto_pago' => 'Monto pago',
+        'p_actual' => 'Contraseña actual',
+        'password' => 'Contraseña',
+        'password_confirmation' => 'Confirmación de contraseña'
     ],
 
 ];

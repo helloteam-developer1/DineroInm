@@ -90,7 +90,7 @@ class AcepSolicitud extends Component
                 $this->confirmacion = '$'.number_format(100000,2);
             }else{
                 if($nuevo1<=0){
-                    $this->addError('cero','El monto confirmación puede ser menor a 0');
+                    $this->addError('cero','El monto confirmación no puede ser menor a 0');
                 }else{
                     $this->confirmacion = '$'.number_format($nuevo1,2);
                     if(strcmp($this->monto,$this->confirmacion)!==0){

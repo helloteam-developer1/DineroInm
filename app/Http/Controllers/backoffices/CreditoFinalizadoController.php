@@ -39,7 +39,7 @@ class CreditoFinalizadoController extends Controller
                 $consulta = CreditoFinalizado::where('credito_actual','=','0')->paginate(5);
                 return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>$request->fecha_inicio,'fecha_termino'=>$request->fecha_termino]); 
             }
-            $consulta = CreditoFinalizado::orwhere('nombre','=',$request->busqueda)
+            $consulta = CreditoFinalizado::orwhere('nombre','LIKE','%'.$request->busqueda.'%')
             ->orwhere('num_creditos_fin','=',$request->busqueda)->paginate(5);
             return view('backoffices.clientes.credito-finalizado',['creditofinalizado'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>'','fecha_termino'=>$request->fecha_termino]); 
         }  

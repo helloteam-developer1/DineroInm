@@ -1,4 +1,3 @@
-
 <x-guest-layout>
     <p class="texto-solicita-verde" style="padding-bottom: 25px; padding-top:15px;">Recuperar contraseña</p>
         <center>            
@@ -26,7 +25,7 @@
                             @foreach ($errors->all() as $e)
                                 <p>{{$e}}</p>
                             @endforeach
-                            <button type="button" data-bs-dismiss="modal" class="btn-verde btn-md">Cerrar</button>
+                            <button type="button" data-bs-dismiss="modal" class="btn-verde btn-md" style="margin-top:1rem; background-color: #38A937; padding:9px; width:8.125rem; color:white; font-size:1.1rem; font-weight:600; border-radius:8px;">Cerrar</button>
                         </div>
                     </div>
                     </div>
@@ -58,7 +57,7 @@
 
                         <!-- Confirm Password -->
                         <div class="mt-4">
-                            <input id="password_confirmation" class="form-control"  placeholder="Contraseña nueva"
+                            <input id="password_confirmation" class="form-control"  placeholder="Confirmar contraseña"
                                                 type="password"
                                                 name="password_confirmation" required/>
                         </div>

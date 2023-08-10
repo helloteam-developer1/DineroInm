@@ -42,7 +42,7 @@ class Carteravencida extends Component
                 $this->emit('alert');
             }
         }else{
-            $this->addError('cartera','Error 505, No existe el numero de credito '.$num.' , por favor ponte en contacto con soporte tecnico');
+            $this->addError('cartera','Error 505, No existe el número de crédito '.$num.', por favor ponte en contacto con soporte técnico.');
         }
     }
 }

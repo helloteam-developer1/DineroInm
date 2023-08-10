@@ -25,6 +25,17 @@
             background-color: #39A935;
             margin-top: 10px;
         }
+        .div-confirmar{
+            display: flex;
+            justify-content: center;
+        }
+        .btn-confirmar{
+            color: white;
+            background-color: #39A935;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: none;
+        }
 
         .btn-cambio:hover {
             color: #F29100;
@@ -107,7 +118,7 @@
                 footer: 'Espere...',
                 showConfirmButton: false,
             }).then((result)=>{
-                window.location.href='http://dineroinmediato.test/tablaAmortizacion/'+num_credito    
+                window.location.href=num_credito;
             });
         });
         Livewire.on('registroP', num_credito => {
@@ -118,7 +129,7 @@
                 footer: 'Espere...',
                 showConfirmButton: false,
             }).then((result)=>{
-                window.location.href='http://dineroinmediato.test/tablaPagos/'+num_credito    
+                window.location.href=num_credito;
             });
         });
         Livewire.on('eliminar', num_credito => {
@@ -129,7 +140,7 @@
                 footer: 'Espere...',
                 showConfirmButton: false,
             }).then((result)=>{
-                window.location.href='http://dineroinmediato.test/tablaAmortizacion/'+num_credito    
+                window.location.href=num_credito    
             });
         });
         Livewire.on('eliminarP', num_credito => {
@@ -140,7 +151,7 @@
                 footer: 'Espere...',
                 showConfirmButton: false,
             }).then((result)=>{
-                window.location.href='http://dineroinmediato.test/tablaPagos/'+num_credito    
+                window.location.href=num_credito    
             });
         });
         

@@ -30,7 +30,8 @@ class EliminarTablapagos extends Component
             }else{
                 Credito::where('num_credito','=',$num_credito)->update(['num_pagos_rest'=>$contador]);
             }
-            $this->emit('eliminarP',$num_credito);
+            $ruta = route('tablaPagos',$num_credito);
+            $this->emit('eliminarP',$ruta);
         }else{
             $this->emit('error_p');
         }

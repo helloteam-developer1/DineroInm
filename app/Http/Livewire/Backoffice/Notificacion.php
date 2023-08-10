@@ -12,6 +12,10 @@ class Notificacion extends Component
     public $mensaje;
     public $caracteres=0;
 
+    protected $rules = [
+        'mensaje' => 'required|min:10'
+    ];
+
     public function render()
     {
         //$usuarios = User::orderby('id','DESC')->pluck('id');
@@ -23,6 +27,7 @@ class Notificacion extends Component
         $espacios  =preg_replace("/[[:space:]]/","",trim($this->mensaje));
         //contabilizo los caracteres y los muestro
         $this->caracteres = strlen($espacios);
+        $this->resetErrorBag();
     }
 
     public function clear(){
@@ -31,6 +36,7 @@ class Notificacion extends Component
     }
 
     public function save(){
+        $this->validate();
         $usuarios = User::orderby('id','DESC')->pluck('id');
         foreach($usuarios as $u){
             Notificaciones::create([

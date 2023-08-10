@@ -80,7 +80,8 @@
                                 </tbody>
                                         @else
                                     <tr>
-                                        <th colspan="2">Sin Registros</th>
+                                        <th>Información</th>
+                                        <th colspan="6">Sin Registros</th>
                                     </tr>
                                 @endif
                                         

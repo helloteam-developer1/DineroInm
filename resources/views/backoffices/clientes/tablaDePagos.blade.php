@@ -56,14 +56,14 @@
                     <div class="col-12 col-sm-12 col-md-10 col-lg-4 offset-md-1 offset-lg-4">
                         <div class="table-responsive text-center">
                             <table class="table table-bordered border-secondary">
+                                <thead>
+                                    <tr class="table-secondary">
+                                        <th scope="col"><p class="pt-3" style="font-size: 20px">Campos</p></th>
+                                        <th scope="col"><p class="pt-3" style="font-size: 20px">Información</p></th>
+                                    </tr>
+                                </thead>
                                 @if ($pagos->count())
                                     @foreach ($pagos as $p)
-                                        <thead>
-                                            <tr class="table-secondary">
-                                                <th scope="col"><p class="pt-3" style="font-size: 20px">Campos</p></th>
-                                                <th scope="col"><p class="pt-3" style="font-size: 20px">Información</p></th>
-                                            </tr>
-                                        </thead>
                                         <tbody>
                                             <tr class="table-light">
                                                 <td class="pt-3">Número de cuenta</td>
@@ -123,7 +123,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "
-                        style="background-color: #38a937; color:white; font-size: 20px;"><a href="/cartera-vencida" style="text-decoration: none; color:white;">Volver</a></button>
+                        style="background-color: #38a937; color:white; font-size: 20px;" onclick="window.location.href='{{route('dashboard.carteraven')}}'">Volver</button>
                     </div>
                     <div class="col-12 col-sm-8 col-md-4 col-lg-4 offset-sm-4 offset-lg-2 offset-md-2">
                         <button type="button" class="btn px-5 my-3 "

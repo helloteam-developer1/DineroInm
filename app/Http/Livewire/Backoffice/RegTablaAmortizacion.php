@@ -77,6 +77,7 @@ class RegTablaAmortizacion extends Component
             'fecha_termino' =>$ultimo->prox_pago
         ]);
         session()->flash('registro','El registro se creo con exito');
-        $this->emit('registro',$num_credito);
+        $ruta = route('tablaAmortizacion',$num_credito);
+        $this->emit('registro',$ruta);
     }
 }

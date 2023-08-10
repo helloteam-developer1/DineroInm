@@ -47,9 +47,8 @@
                                         <div class="mt-4">
                                             <label for="" class="pb-2">Monto de crédito aprobado: 
                                             </label>
-                                            <input type="text" name="number" id=""
-                                                class="form-control money" placeholder="$2500"
-                                                wire:model.debounce.1s="monto" maxlength="8">
+                                            <input type="text" name="number" id="" class="form-control money" placeholder="$2500"
+                                                wire:model.debounce.3s="monto" maxlength="8">
                                             @error('monto')
                                                 <span style="color:red;">{{$message}}</span>
                                             @enderror
@@ -68,12 +67,12 @@
                                                     aprobado: 
                                             </label>
                                                 <input type="text" name="" id="" class="form-control money"
-                                                    placeholder="$2500" wire:model.debounce.1s="confirmacion"  maxlength="8">
+                                                    placeholder="$2500" wire:model.debounce.3s="confirmacion"  maxlength="8">
                                                 @error('confirmacion')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror
                                                 @error('cero')
-                                                    <span style="color:red;">{{$message}}</span>
+                                                    <span style="color:red;">La confirmacion de credito aprobado no puede ser menor a 0</span>
                                                 @enderror
                                         </div>    
                                             @if (!empty($maximo))

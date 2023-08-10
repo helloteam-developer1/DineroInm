@@ -19,7 +19,11 @@
                             @csrf
                             <div class="input-group">
                                 <div class="input-wrapper me-4 ms-3" style="width: 221px;">
-                                    <input type="search" name="busqueda" id="" class="ms-1 mt-2" placeholder="Buscar" required>
+                                    <input type="search" name="busqueda" id="" class="ms-1 mt-2" placeholder="Buscar" 
+                                    @isset($busqueda)
+                                        value="{{$busqueda}}"
+                                    @endisset
+                                     required>
                                     <input type="text" name="user" id="" value="{{$user}}" hidden>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" style="top: 60%;" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
@@ -54,19 +58,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @if ($credito->count())
-                                        @foreach ($credito as $c)
-                                        <tr class="table-light table-bordered">
-                                            <td>{{$c->num_pagos}}</td>
-                                            <td>{{$c->fecha_termino}}</td>
-                                            <td>{{$c->monto_aut}}</td>
-                                        </tr>
-                                        @endforeach
+                                    @isset($credito)
+                                        @if ($credito->count())
+                                            @foreach ($credito as $c)
+                                                <tr class="table-light table-bordered">
+                                                    <td>{{$c->num_pagos}}</td>
+                                                    <td>{{$c->fecha_termino}}</td>
+                                                    <td>{{$c->monto_aut}}</td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr class="table-light">
+                                                <td colspan="3">Sin Registros</td>
+                                            </tr>
+                                        @endif
                                     @else
                                         <tr class="table-light">
                                             <td colspan="3">Sin Registros</td>
                                         </tr>
-                                    @endif
+                                    @endisset
                                     </tbody>
                                 </table>
                             </div>
@@ -86,9 +96,11 @@
                     <div class="row">
                         <div class="col-12 col-sm-8 col-md-4 col-lg-3 offset-sm-2 offset-md-4 offset-lg-5">
                             <nav aria-label="Page navigation example" class="ms-1">
-                                @if ($credito->count())
-                                    {{$credito->links('backoffices.components.paginate')}}
-                                @endif
+                                @isset($credito)
+                                    @if ($credito->count())
+                                        {{$credito->links('backoffices.components.paginate')}}
+                                    @endif
+                                @endisset
                             </nav>
                         </div>
                     </div>

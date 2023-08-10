@@ -23,7 +23,7 @@ Route::middleware(['auth','isAdm'])->group(function (){
     Route::get('/clientes', [clientesController::class, 'solicitud'])->name('dashboard.backoffice');
     //Vista mas información de clientes vigentes
     Route::get('/masInformacion/{id}', [clientesController::class, 'masInformacion'])->name('masInformacion');
-    Route::post('/historialMontosAutorizados/busqueda/',[clientesController::class,'busquedahistorialMA'])->name('busqueda.hma');
+    
     /////Clientes Vigentes /////
     /*Vista Clientes vigentes*/    
     Route::get('/clientes-vigentes', [ClientesVigentesController::class, 'clientes_vigentes'])->name('dashboard.clientesvig');
@@ -41,7 +41,7 @@ Route::middleware(['auth','isAdm'])->group(function (){
     Route::get('/tablaPagos/{id}', [TablaPagos::class, 'tablaPagos'])->name('tablaPagos');
     //Filtro busqueda de tabla de pagos
     Route::post('/busqueda/tablapagos',[TablaPagos::class,'busqueda'])->name('busquedaTablaP');
-    //Vista Editar tabla de pagos
+    //Vista Editar tabla de pagos;
     Route::get('/tabladepagos/{id}/edit',[TablaPagos::class,'editar'])->name('editarpago');
     Route::post('/tabladepagos/edit/{id}',[TablaPagos::class,'updated'])->name('tablaedit');
 
@@ -51,11 +51,12 @@ Route::middleware(['auth','isAdm'])->group(function (){
     //Filtro de busqueda vista Cartera Vencida 
     Route::get('/busqueda-cartera-vencida',[CarteraVencidaController::class,'busqueda'])->name('carterab');
     //Vista Tabla de pagos 
-    Route::get('/tablaDePagos/{id}', [CarteraVencidaController::class, 'tablapagos'])->name('tablaDePagos');
+    Route::get('/cartera-vencida/tablaDePagos/{id}', [CarteraVencidaController::class, 'tablapagos'])->name('tablaDePagos');
     Route::get('/busqueda/tablaDePagos',[CarteraVencidaController::class,'busquedatablapagos'])->name('busquedap');
     /////Credito Finalizado///
     ///Vista historial montos autorizados
     Route::get('/historialMontosAutorizados/{id}', [CreditoFinalizadoController::class, 'historialMontosAutorizados'])->name('historialMontosAutorizados');
+    Route::post('/historialMontosAutorizados/busqueda/',[clientesController::class,'busquedahistorialMA'])->name('busqueda.hma');
     //Vista credito finalizado 
     Route::get('/credito-finalizado', [CreditoFinalizadoController::class, 'credito_finalizado'])->name('dashboard.creditofinalizado');
     //Filtro de busqueda con vista de credito finalizado cambiarlo
@@ -70,7 +71,7 @@ Route::middleware(['auth','isAdm'])->group(function (){
 
     Route::get('/notificaciones', [notificacionesController::class, 'notificaciones'])->name('notificaciones');
     Route::get('/perfil', [perfilController::class, 'perfil'])->name('perfil');
-    Route::get('/perfil/password',[perfilController::class,'password'])->name('backofficepassword');
+    Route::put('/perfil/{user}',[perfilController::class,'store'])->name('perfil.store');
 });
 
 Route::post('formulario-contacto',[ContactoController::class,'store'])->name('formulario.contacto');

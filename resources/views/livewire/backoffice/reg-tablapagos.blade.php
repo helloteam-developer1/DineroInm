@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-body">
                         <div class="mb-3">
-                            <label for="num_credito" class="col-form-label">Numero de Credito:</label>
+                            <label for="num_credito" class="col-form-label">Número de Credito:</label>
                             <input type="text" class="form-control" id="num_credito" value="{{ $num_credito }}"
                                wire:model="n_credito" disabled>
                             @error('num_credito')
@@ -21,14 +21,14 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="numero_pagos" class="col-form-label">Numero de Pago:</label>
+                            <label for="numero_pagos" class="col-form-label">Número de Pago:</label>
                             <input type="text" class="form-control" id="numero_pagos" wire:model="numero_pagos">
                             @error('numero_pagos')
                                 <span style="color:red;">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="fecha_pago" class="col-form-label">Fecha Pago:</label>
+                            <label for="fecha_pago" class="col-form-label">Fecha de Pago:</label>
                             <input type="date" class="form-control" id="fecha_pago" wire:model="fecha_pago"
                                 style="width: 150px;">
                             @error('fecha_pago')
@@ -56,7 +56,7 @@
                             <br />
                         @enderror
                         <div class="mb-4 mx-3" style="margin-top:20px;">
-                          <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancerlar</button>
+                          <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
                           <button type="submit" class="btn btn-guardar" wire:loading.attr="disabled" wire:click="registroP()">Guardar</button>
                         </div>
                 </div>

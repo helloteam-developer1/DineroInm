@@ -31,6 +31,21 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @if (Route::currentRouteName() !='masInformacion')
+                                                    <tr>
+                                                        <td class="pt-3" style="font-weight: bold">Datos Bancarios</td>
+                                                        <td>
+                                                            @empty($user->tarjeta_reg)
+                                                                Sin datos
+                                                            @else
+                                                                {{$user->tarjeta_reg}}
+                                                            @endempty
+                                                        </td style="text-align: center;">
+                                                    </tr>
+                                                @endif
+                                                    
+                                               
+                                               
                                                 <tr>
                                                     <td class="pt-3" style="font-weight: bold">INE frente</td>
                                                     <td style="text-align: center;">

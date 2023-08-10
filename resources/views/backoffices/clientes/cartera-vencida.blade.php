@@ -30,12 +30,12 @@
                                         <p class="my-2 mx-2">De</p> <input type="date" class="mx-3" placeholder="" name="fecha_inicio" id="fecha_inicio" @isset($fecha_inicio)
                                             value="{{$fecha_inicio}}"
                                         @endisset> <img
-                                        src="{{ asset('img/backoffices/CALENDARIO.PNG') }}"class="my-2 mx-2" width="30"
+                                        src="{{ asset('img/backoffices/CALENDARIO.png') }}"class="my-2 mx-2" width="30"
                                         height="30" alt="">
                                     <p class="mx-3 my-2">a</p> <input type="date" class="mx-3" placeholder="" name="fecha_termino" id="fecha_termino" @isset($fecha_termino)
                                         value="{{$fecha_termino}}"
                                     @endisset><img
-                                    src="{{ asset('img/backoffices/CALENDARIO.PNG') }}" class="my-2 mx-2" width="30"
+                                    src="{{ asset('img/backoffices/CALENDARIO.png') }}" class="my-2 mx-2" width="30"
                                         height="30" alt="">
                                     <div class="input-wrapper">
                                         <input type="search" name="termino" id="" class="ms-1"
@@ -105,7 +105,7 @@
                                                 @livewire('backoffice.regularizar',['num_credito'=>$c->num_credito], key($c->id))
                                             </td>
                                             <td>
-                                                <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaDePagos/{{$c->num_credito}}'">
+                                                <button class="btn boton-color px-4 mx-4" onclick="window.location.href='{{route('tablaDePagos',$c->num_credito)}}'">
                                                     Ver
                                                 </button></td>
                                         </tr>
