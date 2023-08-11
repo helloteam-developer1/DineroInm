@@ -1,4 +1,31 @@
+<style>
+    .btn-verde{
+    background-color: #38A937;
+    color: #fff;
 
+    }
+    @media (max-width: 767px) {
+  .icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .icons img {
+    margin: 5px; /* Ajusta el valor según el espaciado deseado entre las imágenes */
+  }
+  @media (max-width: 767px) {
+  .input-group.icons {
+    margin-left: -60px;
+  }
+}
+
+/* Estilos para pantallas más grandes (web) */
+@media (min-width: 768px) {
+  .input-group.icons {
+    margin-left: -40px;
+  }}
+}
+</style>
     <main>
         <div class="mt-1">
             @yield('content')
@@ -80,11 +107,14 @@
                     <span data-bs-toggle="modal" data-bs-target="#acercaNosotros" class="pointer font-24"> Acerca de nosotros </span>
                 </div>
 
-                <div class="mt-5 input-group icons   w-full">
-                    <img class="mr-5" src="{{ asset('img/landing/index/Grupo 50.png') }}" width="50">
-                    <img  src="{{ asset('img/landing/index/Grupo 48.png') }}" width="50">
+                <div class="mt-5 input-group icons w-full" style= display: flex; align-items: center; justify-content: center;">
+                    <div style="display: flex; align-items: center;">
+                        <img class="mr-5" src="{{ asset('img/landing/index/Grupo 50.png') }}" width="50">
+                        <img src="{{ asset('img/landing/index/Grupo 48.png') }}" width="50">
+                    </div>
                 </div>
 
+                
             </div>
 
             {{-- contacto Escritorio --}}
@@ -111,6 +141,8 @@
                     </form>
 
             </div>
-            <div class="col-span-4 text-white text-center mt-4"> <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong> </div>
+            <div class="col-span-4 text-white text-center mt-4"> <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong>
+            {{-- <br><strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong> --}}
+    
         </div>
     </footer>
