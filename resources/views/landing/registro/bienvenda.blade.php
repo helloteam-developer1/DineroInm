@@ -27,7 +27,7 @@
                 <div
                     class="bg-white col-span-4 ms:col-span-4 md:col-span-4 lg:col-span-2 row-span-2 grid grid-cols-1 gap-0 pt-20 pr-5 pl-5 lg:pr-20 lg:pl-20 ml-12 mr-12 sm:mr-12 md:mr-12 lg:mr-0">
                     <div>
-                        <h1 class="text-center texto-solicita-verde texto-solicita-negro">Mensaje de Bienvenida</h1>
+                        <h1 class="text-center ">Mensaje de Bienvenida</h1>
                         <br>
                         <h3 class="texto-pequeno text-justify font-22">Necesitas un préstamo de emergencia, no te preocupes, nosotros
                             te ayudamos. Para saber si eres candidato o no.</h3>
