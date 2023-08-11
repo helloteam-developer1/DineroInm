@@ -1,0 +1,98 @@
+/********** Template CSS **********/
+/* variables de colores */
+:root {
+    
+    --gray: #EBE7E8;
+    --naranja: #f29100;
+    --blanco: #fff;
+    --greenback: #A5D541;
+    --gris: #3C3C3B; 
+    --red: red;
+    
+}
+
+
+
+/* Bloque divEncima */
+.divEncima {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--r ed);
+  }
+  
+
+
+  /* Bloque divCalculadora */
+  .divCalculadora {
+    padding-left: 10%; /* 144px */
+    padding-right: 10%; /* 144px */
+  }
+  
+  /* Modificador del bloque divCalculadora */
+  .divCalculadora--modificador {
+    /* estilos modificados para la divCalculadora */
+  }
+  
+  /* Estilos para el texto en negro con clase texto-solicita-negro */
+  .texto-solicita-negro {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Estilos para el texto en verde con clase text-green */
+  .text-green {
+    color: #74996e;
+  }
+  
+  /* Estilos para el texto pequeño en gris con clase texto-pequeno-gris */
+  .texto-pequeno-gris{
+    font-size: 1.5rem;
+    color: var(--gris);
+}
+  
+
+
+
+
+.btn--contraseña {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid #1D4ED8;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .btn--primary {
+    background-color: #065F46;
+    color: #fff;
+  }
+  
+  .btn--primary:hover {
+    background-color: #047451;
+  }
+
+
+
+
+
+
+
+
+
+    /*Modificadores para la parte de calculadora*/
+  /* Modificador para ocultar la imagen con id ImgIndex en pantallas pequeñas */
+  @media screen and (max-width: 1024px) {
+    #ImgIndex {
+      display: none;
+    }
+  
+    /* Modificador del bloque divCalculadora en pantallas pequeñas */
+    .divCalculadora--small {
+      padding-left: 1.25rem; /* 20px */
+      padding-right: 1.25rem; /* 20px */
+    }
+  }
