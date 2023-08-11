@@ -21,7 +21,7 @@
                                   <button class="btn btn-secondary boton-movil-gris py-2 px-4 mt-3" wire:click="clear">Borrar</button>
                               </div>
                               <div class="col-md-4 col-lg-4 ">
-                                  <button class="btn boton-color boton-movil-verde py-2 px-4 mt-3" onclick="window.location.href='{{route('dashboard.backoffice')}}'">Cancelar</button>
+                                  <button class="btn boton-color boton-movil-verde py-2 px-3 mt-3" onclick="window.location.href='{{route('dashboard.backoffice')}}'">Cancelar</button>
                               </div>
                               <div class=" col-md-4 col-lg-4">
                                   <button class="btn boton-color-naranja boton-movil-naranja py-2 px-4  mt-3" data-bs-toggle="modal" data-bs-target="#EnviarNotificacion">Enviar</button>
