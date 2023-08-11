@@ -1,3 +1,9 @@
+<style>
+    .btn-custom {
+  background-color: #52ba42; 
+    color: #fff;
+}
+</style>
 <div>
     @if ($errors->any())
             <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -36,9 +42,9 @@
         @enderror
         <center><p class="text-green Carot Sans" style="padding-top:20px; padding-bottom:20px;">¿Olvidaste tu contraseña?. <a href="{{route('recover1')}}" class="vinculo" style=" text-decoration: underline; ">Haz clic aquí para recuperarla</a></p></center>
         <div>
-            <a  class="btn btn-verde btn-md btn-block" href="{{route('home')}}" style="float: left;">Regresar</a>
-            <button  class="btn btn-naranja btn-md " style="float: right; background:#da8b0c
-            ;" type="submit">Continuar</button>
+            <button  class="btn btn-naranja btn-md " style="float: right; background:#da8b0c;" type="submit">Continuar</button>
+            <a class="btn btn-md btn-block btn-custom" href="{{route('home')}}" style="float: left;">Regresar</a>
+
         </div>
     </form>
 </div>
