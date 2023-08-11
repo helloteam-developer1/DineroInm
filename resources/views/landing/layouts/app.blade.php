@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <head>
@@ -54,6 +56,29 @@
         .btn-verde:hover{
             color: #e0fc70;
         }
+
+        
+    @media (max-width: 767px) {
+  .icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .icons img {
+    margin: 5px; /* Ajusta el valor según el espaciado deseado entre las imágenes */
+  }
+  @media (max-width: 767px) {
+  .input-group.icons {
+    margin-left: -30px;
+  }
+}
+
+/* Estilos para pantallas más grandes (web) */
+@media (min-width: 768px) {
+  .input-group.icons {
+    margin-left: -40px;
+  }}
+}
 
     </style>
 </head>
@@ -167,6 +192,8 @@
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="pointer font-24"> Pol&iacute;tica y aviso de privacidad </span>
                     </div>
+                    <br><strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong>
+
                     <div class="mt-5 " >
                         <span class="text-dark font-24 mb-4" ><strong>¿Te gust&oacute; la p&aacute;gina?</strong></span>
                         <div class="mt-3">
@@ -192,9 +219,11 @@
                     <span data-bs-toggle="modal" data-bs-target="#acercaNosotros" class="pointer font-24"> Acerca de nosotros </span>
                 </div>
 
-                <div class="mt-5 input-group icons   w-full">
-                    <img class="mr-5" src="{{ asset('img/landing/index/Grupo 50.png') }}" width="50">
-                    <img  src="{{ asset('img/landing/index/Grupo 48.png') }}" width="50">
+                <div class="mt-5 input-group icons w-full" style= display: flex; align-items: center; justify-content: center;">
+                    <div style="display: flex; align-items: center;">
+                        <img class="mr-5" src="{{ asset('img/landing/index/Grupo 50.png') }}" width="50">
+                        <img src="{{ asset('img/landing/index/Grupo 48.png') }}" width="50">
+                    </div>
                 </div>
 
             </div>
@@ -223,7 +252,7 @@
                     </form>
 
             </div>
-            <div class="col-span-4 text-white text-center mt-4"> <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong> </div>
+            
         </div>
     </footer>
 
