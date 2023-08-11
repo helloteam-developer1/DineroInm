@@ -1,3 +1,5 @@
+
+
 <div>
     <button class="btn boton-color boton-falta-inf" data-bs-toggle="modal" data-bs-target="#FaltaInfo{{$user->id}}">
         Falta inf por com. o es inc.
@@ -33,7 +35,7 @@
                                             <div class="form-check my-4">
                                                 <input class="form-check-input" type="checkbox" name="opcion"
                                                     id="flexCheckDefault" wire:model="opcion1" value="1">
-                                                <label class="form-check-label" for="flexCheckDefault">
+                                                <label class="form-check-label label-izquierda" for="flexCheckDefault">
                                                     Documento Inválido o información incorrecta, favor de volver a
                                                     subir.
                                                 </label>
@@ -41,7 +43,7 @@
                                             <div class="form-check my-4">
                                                 <input class="form-check-input" type="checkbox"name="opcion"
                                                     id="flexCheckDefault" wire:model="opcion2" value="1">
-                                                <label class="form-check-label" for="flexCheckDefault">
+                                                <label class="form-check-label label-izquierda" for="flexCheckDefault">
                                                     Documento incompleta: falta documentación por subir.
                                                 </label>
                                             </div>
@@ -49,7 +51,7 @@
                                             <div class="form-check my-4">
                                                 <input class="form-check-input" type="checkbox" name="opcion"
                                                         id="flexCheckDefault" wire:model="otro" value="1">
-                                                <label class="form-check-label" for="flexCheckDefault">
+                                                <label class="form-check-label label-izquierda" for="flexCheckDefault">
                                                         Otro.
                                                 </label>
                                            </div>
