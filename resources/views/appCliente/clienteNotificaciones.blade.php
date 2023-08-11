@@ -118,7 +118,7 @@
           <span class="navbar-toggler-icon"></span>
       </button>
       {{--Listado de Notificaciones --}}
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 100px;">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
               <li class="nav-item">
@@ -294,7 +294,7 @@
         @endif
         @endforeach
       @else
-        <div class="card">
+        <div class="card ">
           <div class="card-body">
             <h3 class="text-center">Sin Notificaciones.</h3>
           </div>
