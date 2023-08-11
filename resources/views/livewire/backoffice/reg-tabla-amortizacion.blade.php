@@ -13,7 +13,7 @@
                 <div class="modal-body">
 
                     <div class="mb-3">
-                        <label for="num_credito" class="col-form-label">Numero de Credito:</label>
+                        <label for="num_credito" class="col-form-label">Número de Crédito:</label>
                         <input type="text" class="form-control" id="num_credito" value="{{ $num_credito }}"
                             disabled>
                         @error('num_credito')
