@@ -14,7 +14,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <img src="{{ $ine_frente->temporaryUrl() }}" width="100%" height="auto" />
+                <img src="{{ $ine_frente->temporaryUrl() }}" width="100%" height="auto" alt="No se encontró el Ine frente"/>
             </div>
             <div class="modal-footer" style="border: none;">
                 <button type="button" class="btn btn-Guardar" style="height: 50px; width: 150px; margin-right: 150px; font-size: 25px" data-bs-dismiss="modal">Cerrar</button>
