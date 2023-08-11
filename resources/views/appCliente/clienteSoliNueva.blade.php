@@ -108,6 +108,33 @@
         .texto-carotSans--Light {
             font-family: 'CarotSans-Light';
         }
+
+
+        @media (max-width: 430px) {
+
+            .texto-carotSans--Regular {
+                font-size: 1.3rem;
+            }
+            .texto-carotSans--Medium{
+                font-size: 1.5rem;
+            }
+            .texto-carotSans--Light {
+                font-size: .8rem;
+            }            
+        }
+
+        @media (min-width: 730px) {
+
+        .texto-carotSans--Regular {
+            font-size: 1.3rem;
+        }
+        .texto-carotSans--Medium{
+            font-size: 1.5rem;
+        }
+        .texto-carotSans--Light {
+            font-size: .8rem;
+        }            
+        }
     </style>
 </head>
 
@@ -130,10 +157,10 @@
 
 <div class="container">
     <br />
-    <p class="font-bold text-center p-1 texto-carotSans--Medium" style="color: #4a9d22; font-size: 50px;">
+    <p class="font-bold text-center p-1 texto-carotSans--Medium" style="color: #4a9d22; ">
         Solicitud de nuevo crédito
     </p>
-    <p class="font-bold text-center texto-carotSans--Regular" style="color: #f5a733; font-size: 30px; margin-bottom: 20px;">
+    <p class="font-bold text-center texto-carotSans--Regular" style="color: #f5a733; margin-bottom: 20px;">
         Crédito disponible
     </p>
     <div class="row mb-3 justify-content-center">
