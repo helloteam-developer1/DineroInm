@@ -107,22 +107,60 @@
 
         .texto-carotSans--Light {
             font-family: 'CarotSans-Light';
+
+            
         }
+
+        /* Estilos para pantallas grandes */
+@media screen and (min-width: 768px) {
+    .contacto-container {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .texto-solicita-verde {
+        padding-bottom: 5px;
+        font-size: 40px;
+    }
+
+    .texto-g {
+        font-size: 20px;
+    }
+
+    .mailto {
+        font-size: 25px;
+    }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media screen and (max-width: 767px) {
+    .texto-solicita-verde {
+        font-size: 30px;
+    }
+
+    .texto-g {
+        font-size: 15px;
+    }
+
+    .mailto {
+        font-size: 20px;
+    }
+}
     </style>
 </head>
 
 <body>
 <livewire:app-cliente.menu-cliente/>
 {{--Mi perfil--}}
-<div class="content cent">
-    <div class="" style="text-align:center; margin-bottom:40px;">
-        <h1 class="texto-solicita-verde" style="padding-bottom: 5px; text-align:center; font-size: 40px;">Contacto</h1>
-        <br />
-        <p class="Carot ExtraLight texto-g" style="font-size: 20px;">Si tienes alguna duda y quieres ponerte en contacto con nosotros escríbenos a</p>
-        <br />
-        <a class="mailto" style="font-size: 25px;" href="mailto:credito@dineroinmediato.mx">credito@dineroinmediato.mx</a>
+<div class="content ">
+    <div class="contacto-container">
+        <h1 class="text-center texto-carotSans--Medium" style="color: #4A9D22; ">Contacto</h1>
+
+        <p class="Carot ExtraLight texto-g">Si tienes alguna duda y quieres ponerte en contacto con nosotros escríbenos a</p>
+        <a class="mailto" href="mailto:credito@dineroinmediato.mx">credito@dineroinmediato.mx</a>
     </div>
 </div>
+
 
 
 {{-- Fotter --}}
