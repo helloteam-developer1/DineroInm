@@ -70,7 +70,7 @@
         }
         .t-verde{
           color: #4A9D22;
-          font-size: 70px;
+          font-size: 2.5rem;
         }
         .centrado{
           display: flex;
@@ -133,7 +133,7 @@
         }
         .t-verde{
           color: #4A9D22;
-          font-size: 50px;
+          font-size: 1.8rem;
         }
         .centrado{
           display: flex;
@@ -142,7 +142,7 @@
 
         }
         /*Estlos de fuentes*/
-        @font-face {
+      @font-face {
         font-family: 'CarotSans-Medium';
         src: url("./fonts/CarotSans-Medium.otf") format('woff');
       }
