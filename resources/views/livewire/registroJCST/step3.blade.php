@@ -69,7 +69,7 @@
                     <div class="col-12">
                         <div wire:loading wire:target="threeStepSubmit" class="bg-[#EAF9EA]  text-[#39A935] px-4 py-3" role="alert" style="margin-bottom: 20px">
                             <p class="font-bold">Cargando...</p>
-                            <p class="text-sm text-[#F29100]">Esto dependera de la valocidad de tu internet.</p>
+                            <p class="text-sm text-[#F29100]">Esto dependera de la velocidad de tu internet.</p>
                         </div>
                     </div>
                 </div>
