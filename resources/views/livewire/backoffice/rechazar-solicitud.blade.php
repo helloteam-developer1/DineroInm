@@ -28,22 +28,22 @@
                                        <h4 style="color:#F29100; font-size:15px; ">Esto dependera de tu conexión de internet.</h4>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-10 offset-md-3 offset-lg-1">
-                                            <label for="" class="pb-2">Motivo de rechazo:</label>
-                                            <div class="form-floating mt-3">
-                                                <textarea class="form-control footer-textarea" style="height: 185px;" placeholder="Comentario" maxlength="300" wire:model="texto" id="contador" onkeyup="contarletras();" wire:ignore.self></textarea>
-                                                <label for="floatingTextarea">Escribe mensaje</label>
-                                                <div
-                                                    class="col-3 col-sm-3 col-md-3 col-lg-3 offset-9 offset-sm-9 offset-md-9 offset-lg-9">
-                                                    <p class="text-secondary">{{$contador}}/300 Caracteres</p>
-                                                    <div  id="respuesta"></div>
-                                                </div>
-                                                @error('texto')
-                                                    <span style="color: red; font-size:17px;">{{$message}}</span>
-                                                @enderror
-                                                @error('error')
-                                                    <span style="color: red; font-size:17px;">{{$message}}</span>
-                                                @enderror
+                                        <label for="" class="pb-2 label-izquierda">Motivo de rechazo:</label>
+                                        <div class="form-floating mt-3">
+                                            <textarea class="form-control footer-textarea" style="height: 185px;" placeholder="Comentario" maxlength="300" wire:model="texto" id="contador" onkeyup="contarletras();" wire:ignore.self></textarea>
+                                            <label for="floatingTextarea">Escribe mensaje</label>
+                                            <div
+                                                class="col-3 col-sm-3 col-md-3 col-lg-3 offset-9 offset-sm-9 offset-md-9 offset-lg-9">
+                                                <p class="text-secondary">{{$contador}}/300 Caracteres</p>
+                                                <div  id="respuesta"></div>
                                             </div>
+                                            @error('texto')
+                                                <span style="color: red; font-size:17px;">{{$message}}</span>
+                                            @enderror
+                                            @error('error')
+                                                <span style="color: red; font-size:17px;">{{$message}}</span>
+                                            @enderror
+                                        </div>
                                     </div>
                                 </div>
                             </div>
