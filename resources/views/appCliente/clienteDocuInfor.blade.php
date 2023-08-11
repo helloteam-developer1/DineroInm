@@ -34,6 +34,9 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app-clientes-estilos/estilos-appclientes.css') }}">
+    
+    <link rel="stylesheet" href="style.css">
+    
     @stack('css')
     {{-- <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -151,6 +154,9 @@
         .acordiontext {
             font-weight: bold;
         }
+        .textAcordion{
+                font-size: 1.4rem;
+            }
 
         .acordiontext:focus {
             color: #f5a82d;
@@ -162,6 +168,55 @@
             position: absolute;
             left: 93%;
         }
+
+        @media (max-width: 767px) {
+            .col-sm-4 {
+                width: 50%;
+            }
+            .col-sm-4 {
+                width: 50%;
+            }
+            .textAcordion{
+                font-size: 1rem;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .img-large {
+                width: 70%;
+                margin-right: 10px;
+                height: auto;
+            }
+        }
+
+        /* Estilos para pantallas pequeñas (menores a 768px) */
+        @media screen and (max-width: 767px) {
+            .img-small {
+                width: 90%;
+                
+                height: auto;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            input[type="email"],
+            input[type="text"],
+            input[type="tel"]
+            {
+                text-align: start;
+                height: 35px; /* Altura deseada para la caja de entrada */
+                min-width: 180px; /* Ancho deseado para la caja de entrada */
+                max-width: 180px; /* Ancho deseado para la caja de entrada */
+            }
+            #inputEmail33 {
+            margin-top: 25px; /* Puedes ajustar este valor según tus preferencias */
+            }
+            #inputEmail32 {
+            margin-top: 15px; /* Puedes ajustar este valor según tus preferencias */
+            }
+        }
+        
+
     </style>
 </head>
 {{-- Si existe un estado abre la modal con dicho estado --}}
@@ -182,42 +237,40 @@
 <livewire:app-cliente.menu-cliente />
 <div class="container">
     <br>
-    <h1 class="text-center texto-carotSans--Medium" style="color: #4A9D22; font-size: 70px;">Documentación e
-        información.</h1>
-
+    <h1 class="text-center texto-carotSans--Medium titulo" style="color: #4A9D22; font-size: 2.597rem;">Documentación e información.</h1>
     <br />
 </div>
 
 <div class="container">
-
-
     <div class="accordion" id="accordionExample">
         {{-- Información general --}}
         <div class="accordion-item">
+
             <h2 class="accordion-header" id="headingOne">
-                <button class=" acordiontext acardionimg collapsed text-datgencred" id="butonacordeon1" type="button"
+                <button class="accordion-button acordiontext collapsed text-datgencred" id="butonacordeon1" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
                     aria-controls="collapseOne">
-                    <img class="acordionImg" id="iconAcordion1"
-                        src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png') }}" alt="">
                     Información general
                 </button>
             </h2>
+
+
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <form>
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold texto-carotSans--Light">No.
-                                Cliente: {{ Auth::user()->num_cliente }}</label>
+                            <label for="inputEmail3" class="col-sm-2 col-form-label  texto-carotSans--Light" style="color: #3C3C3B; font-size: 1.1rem;">
+                                No.Cliente: {{ Auth::user()->num_cliente }}</label>
                         </div>
                         <div class="row mb-3">
                             <label for="inputEmail3"
-                                class="col-sm-2 col-form-label fw-bold texto-carotSans--Regular">Nombre</label>
-                            <div class="col-sm-4">
-                                <input type="email" class="form-control texto-carotSans--ExtraLight" id="inputEmail3"
-                                    value="{{ Auth::user()->nombre }}">
+                                class="col-sm-2 col-form-label fw-bold texto-carotSans--Regular" style="margin-bottom: 30px;" >Nombre</label>
+                                
+                            <div class="col-md-4 col-sm-4">
+                                <input type="email" class="form-control texto-carotSans--ExtraLight" id="inputEmail3" value="{{ Auth::user()->nombre }}">
                             </div>
+
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Fecha de nacimiento</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control texto-carotSans--ExtraLight" id="inputEmail3"
@@ -225,7 +278,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">CURP</label>
+                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold"style="margin-bottom: 30px;">CURP</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
                                     style="text-transform: uppercase;" id="inputEmail3"
@@ -238,56 +291,73 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Dirección</label>
+                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold"style="margin-bottom: 30px;">Dirección</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
                                     id="inputEmail3" value="{{ Auth::user()->direccion }}">
                             </div>
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Correo</label>
                             <div class="col-sm-4">
-                                <input type="tel" class="form-control texto-carotSans--ExtraLight"
+                                <input type="email" class="form-control texto-carotSans--ExtraLight"
                                     id="inputEmail3" value="{{ Auth::user()->email }}">
                             </div>
                         </div>
                     </form>
-                    <div class="container" style="margin: 20px;">
-                        <div class="row mb-3 justify-content-center">
-                            <div class="col">
-                                @switch($documentacion)
-                                    @case(1)
-                                        <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" width="3%"
-                                            height="auto"><span>La información es correcta y ha sido verificada.</span>
-                                    @break
+                    
+                    <div class="row mb-3 justify-content-center">
+                        <div class="col">
+                            @switch($documentacion)
+                                @case(1)
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-lg-1 col-md-2 col-2"> <!-- Columna para la imagen en pantallas grandes y medianas -->
+                                        <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" class="img-large img-small">
+                                        </div>
+                                        <div class="col-lg-10 col-md-9 col-10"> <!-- Columna para el texto en pantallas grandes y medianas -->
+                                            <span>La información es correcta y ha sido verificada.</span>
+                                        </div>
+                                    </div>
+                                @break
 
-                                    @case(2)
-                                        <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%"
-                                            style="margin-right: 5px;" height="auto"><span style="border-color: red;">X
-                                            Favor de subir un documento válido, actual o vigente.</span>
-                                    @break
+                                @case(2)
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-lg-1 col-md-2 col-2"> <!-- Columna para la imagen en pantallas grandes y medianas -->
+                                        <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" class="img-large img-small">
+                                        </div>
+                                        <div class="col-lg-10 col-md-9 col-10"> <!-- Columna para el texto en pantallas grandes y medianas -->
+                                            <span style="border-color: red;">Favor de subir un documento válido, actual o vigente.</span>
+                                        </div>
+                                    </div>
+                                @break
 
-                                    @case(3)
-                                        <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%"
-                                            style="margin-right: 5px;" height="auto"><span>Favor de subir la documentación
-                                            solicitada o editar el campo incorrecto.</span>
-                                    @break
+                                @case(3)                              
 
-                                    @default
-                                @endswitch
-                            </div>
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-lg-1 col-md-2 col-2"> <!-- Columna para la imagen en pantallas grandes y medianas -->
+                                        <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" class="img-large img-small">
+                                    </div>
+                                    <div class="col-lg-10 col-md-9 col-10"> <!-- Columna para el texto en pantallas grandes y medianas -->
+                                        <span style="border-color: red;">Favor de subir la documentación solicitada o editar el campo incorrecto.</span>
+                                    </div>
+                                </div>                        
+                                @break
+
+                                @default
+                            @endswitch
                         </div>
+                    
                     </div>
+                    
                 </div>
             </div>
         </div>
-
+        
         {{-- Información Laboral --}}
         <div class="accordion-item">
+
             <h2 class="accordion-header" id="headingTwo">
-                <button class="acordiontext acardionimg collapsed text-datgencred" id="butonacordeon2" type="button"
+                <button class="accordion-button acordiontext collapsed text-datgencred" id="butonacordeon2" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                    aria-controls="collapseTwo">
-                    <img class="acordionImg" id="iconAcordion2"
-                        src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png') }}" alt="">
+                    aria-controls="collapseOne">
                     Información Laboral
                 </button>
             </h2>
@@ -296,7 +366,7 @@
                 <div class="accordion-body">
                     <form>
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Trabajo</label>
+                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold" ">Trabajo</label>
                             <div class="col-sm-4">
                                 <input type="email" class="form-control texto-carotSans--ExtraLight"
                                     id="inputEmail3" value="{{ Auth::user()->trabajo }}">
@@ -305,7 +375,7 @@
                                 empresa</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                    id="inputEmail3" value="{{ Auth::user()->empresa_trabajo }}">
+                                    id="inputEmail33" value="{{ Auth::user()->empresa_trabajo }}">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -313,7 +383,7 @@
                                 empresa</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                    id="inputEmail3" value="{{ Auth::user()->rama_empresa }}">
+                                    id="inputEmail33" value="{{ Auth::user()->rama_empresa }}">
                             </div>
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Ingreso mensual</label>
                             <div class="col-sm-4">
@@ -326,55 +396,72 @@
                                 hipotecario</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                    id="inputEmail3" value="{{ Auth::user()->credito }}">
+                                    id="inputEmail32" value="{{ Auth::user()->credito }}">
                             </div>
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Tarjeta de Nómina</label>
                             <div class="col-sm-4">
                               <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                  id="inputEmail3" value="{{ Auth::user()->credito }}">
+                                  id="inputEmail32" value="{{ Auth::user()->credito }}">
                             </div>
                         </div>
                         
                     </form>
-                    <div class="container" style="margin: 20px;">
-                        <div class="row mb-3 justify-content-center">
-                            <div class="col">
-                                @switch($documentacion)
-                                    @case(1)
-                                        <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" width="3%"
-                                            height="auto"><span>La información es correcta y ha sido verificada.</span>
-                                    @break
+                    
+                    <div class="row mb-3 justify-content-center">
+                        <div class="col">
+                            @switch($documentacion)
+                                @case(1)
+                                    
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-lg-1 col-md-2 col-2"> <!-- Columna para la imagen en pantallas grandes y medianas -->
+                                            <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" class="img-large img-small">
+                                        </div>
+                                        <div class="col-lg-10 col-md-9 col-10"> <!-- Columna para el texto en pantallas grandes y medianas -->
+                                            <span style="border-color: red;">La información es correcta y ha sido verificada.</span>
+                                        </div>
+                                    </div>  
+                                @break
 
-                                    @case(2)
-                                        <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%"
-                                            style="margin-right: 5px;" height="auto"><span style="border-color: red;">X
-                                            Favor de subir un documento válido, actual o vigente.</span>
-                                    @break
+                                @case(2)
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-lg-1 col-md-2 col-2"> <!-- Columna para la imagen en pantallas grandes y medianas -->
+                                            <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" class="img-large img-small">
+                                        </div>
+                                        <div class="col-lg-10 col-md-9 col-10"> <!-- Columna para el texto en pantallas grandes y medianas -->
+                                        <span style="border-color: red;">Favor de subir un documento válido, actual o vigente.</span>
+                                        </div>
+                                    </div>  
+                                @break
 
-                                    @case(3)
-                                        <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" width="3%"
-                                            style="margin-right: 5px;" height="auto"><span>Favor de subir la documentación
-                                            solicitada o editar el campo incorrecto.</span>
-                                    @break
+                                @case(3)
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-lg-1 col-md-2 col-2"> <!-- Columna para la imagen en pantallas grandes y medianas -->
+                                            <img src="img/assets/aplicacionCliente/Grupo 444.png" alt="" class="img-large img-small">
+                                        </div>
+                                        <div class="col-lg-10 col-md-9 col-10"> <!-- Columna para el texto en pantallas grandes y medianas -->
+                                        <span style="border-color: red;">Favor de subir un documento válido, actual o vigente.</span>
+                                        </div>
+                                    </div> 
+                                @break
 
-                                    @default
-                                @endswitch
-                            </div>
+                                @default
+                            @endswitch
                         </div>
+                        
                     </div>
+                    
                 </div>
             </div>
         </div>
+        
 
 
         {{-- Documentación --}}
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
-                <button class="acordiontext acardionimg collapsed text-datgencred" id="butonacordeon3" type="button"
+                <button class="accordion-button acordiontext collapsed text-datgencred" id="butonacordeon3" type="button"
                     data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-                    aria-controls="collapseThree">
-                    <img class="acordionImg" id="iconAcordion3"
-                        src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png') }}" alt="">
+                    aria-controls="collapseOne">
                     Documentación
                 </button>
             </h2>
@@ -387,47 +474,47 @@
                         data-bs-parent="#accordionExample">
             @endif
             
-            <div class="accordion-body" style="margin-left: 120px;">
+            <div class="accordion-body-f">
                 {{-- Formulario subir img --}}
-                <livewire:app-cliente.documentacion /> 
-
+                <br><br>
+                <div class="container">
+                    <livewire:app-cliente.documentacion /> 
+                </div>
+                
             </div>
         </div>
-    </div>
-
-    {{-- Información personal de pago --}}
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingFour">
-            <button class="acordiontext acardionimg collapsed" id="butonacordeon4" type="button"
-                data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-                aria-controls="collapseFour">
-                <img class="acordionImg" id="iconAcordion4"
-                    src="{{ asset('img/assets/aplicacionCliente/Polígono 9.png') }}" alt="">
-                Información personal de forma de pago
-            </button>
-        </h2>
-        @if ($estado == 3)
-            <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour"
-                data-bs-parent="#accordionExample">
+    
+        {{-- Información personal de forma de pago --}}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button acordiontext collapsed text-datgencred" id="butonacordeon4" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                    aria-controls="collapseOne">
+                    Información personal de forma de pago
+                </button>
+            </h2>
+            @if ($estado == 3)
+                <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample">
+                
             @else
                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                     data-bs-parent="#accordionExample">
-        @endif
-        <div class="accordion-body">
-            <livewire:app-cliente.datos-bancarios />
+                
+            @endif
+            <div class="accordion-body">
+                <!-- La ventana proviene del la ruta public/resouses/livewere/datos-bancarios.blade.php -->
+                <livewire:app-cliente.datos-bancarios />     
+            </div>
         </div>
-    </div>
-</div>
+        </div></div></div> 
+    </div>  
+</div> 
 
-{{-- Cobro --}}
-
-</div>
-</div>
-<br><br><br><br><br>
-
-{{-- Fotter --}}
+{{-- Footer --}}
 @livewireScripts
 @include('components.landing.cuerpo._fotterClienteBootstrap')
+
 <script>
     function openmodal() {
         $('#exampleModal').modal('show');
