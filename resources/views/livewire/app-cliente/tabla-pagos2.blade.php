@@ -57,7 +57,7 @@
                     <th class="border text-center" scope="col">Saldo insoluto</th>
                     <th class="border text-center" scope="col"># pagos restantes</th>
                     <th class="border text-center" scope="col">Resta por pagar</th>
-                    <th class="border text-center" scope="col">Numero de credito</th>
+                    <th class="border text-center" scope="col">Número de crédito</th>
                     <!-- <td class="" style="border: none;">
                 </td> -->
             </tr>
