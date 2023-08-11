@@ -1,6 +1,6 @@
 <div>
-    <button class=" px-4 mx-4" data-bs-toggle="modal" data-bs-target="#carteraVencida{{$re}}" style="border: none; background: none;">
-        <img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="my-3" width="30" alt="">
+    <button class=" " data-bs-toggle="modal" data-bs-target="#carteraVencida{{$re}}" style="border: none; background: none;">
+        <img src="{{ asset('img/backoffices/ELIMINAR.svg') }}" class="" width="27" alt="">
     </button>
     <div class="modal fade" wire:ignore.self id="carteraVencida{{$re}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
