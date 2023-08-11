@@ -4,8 +4,13 @@
     --secondary: #34AD54;
     --light: #EEF9FF;
     --dark: #091E3E;
-    --naranja: #f29100;
+    --prueba: #E127E7;
+    --green: #4A9D22;
+    --naranja: #F29100;
+    --rojo: #EF2607;
+    --negro: #3C3C3B;
 }
+
 /*** eligenos titulos ***/
 .eligenos {
     font-size: 23px;
