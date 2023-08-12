@@ -1,3 +1,11 @@
+<style>
+    table.creditos td, table.creditos th {
+        border: 2px solid #000; /* Grosor y color del borde */
+        padding: 8px;
+        text-align: center;
+    }
+ </style>
+ 
  <!-- inicio de tabla de creditos-->
  <div class="container-fluid mt-5">
     <div class="row">
