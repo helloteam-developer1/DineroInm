@@ -33,7 +33,7 @@
         @endif 
     </div>
     <div class="row empresa">
-        <input type="password" id="password" class="form-control" placeholder="* Nueva Contraseña" wire:model.defer="password" name="password" maxlength="50" required>
+        <input type="password" id="password" class="form-control" placeholder="* Nueva Contraseña" wire:model.defer="password" name="password" maxlength="50" required >
         
         <input type="password" id="password2"class="form-control" placeholder="* Confirmación de contraseña" wire:model.defer="password_confirmation" name="password_confirmation" maxlength="50" required style="margin-top:15px;">
         @if ($errors->has('password'))
