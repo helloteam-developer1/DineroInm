@@ -80,7 +80,7 @@
     <script>
         Swal.fire({
             icon: 'error',
-            title: 'No coincide el Numero de Credito',
+            title: 'No coincide el Número de Crédito',
             footer:'Espere...',
             showConfirmButton: false,
             timer: 1500,
