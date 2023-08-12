@@ -1,5 +1,4 @@
 <div>
-
     <button class="btn boton-color boton-aceptar-solic" data-bs-toggle="modal" data-bs-target="#AceptarSolicitud{{$user->id}}" >Aceptar Solicitud</button>
     {{--Modal Aceptar Solicitud--}}
     <div class="modal fade" wire:ignore.self id="AceptarSolicitud{{$user->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -42,13 +41,14 @@
                                             <p>{{$success}}</p>
                                         @endif
                                         <div>
-                                            <label for="" class="pb-2">Monto solicitado: <span style="color:#39A935; font-weight:800;">${{number_format($monto_sol)}}</span></label>
+                                            <label for="" class="pb-2 label-izquierda">Monto solicitado: <span style="color:#39A935; font-weight:800;">${{number_format($monto_sol)}}</span></label>
                                         </div>
                                         <div class="mt-4">
-                                            <label for="" class="pb-2">Monto de crédito aprobado: 
+                                            <label for="" class="pb-2 label-izquierda">Monto de crédito aprobado: 
                                             </label>
-                                            <input type="text" name="number" id="" class="form-control money" placeholder="$2500"
-                                                wire:model.debounce.3s="monto" maxlength="8">
+                                            <input type="text" name="number" id=""
+                                                class="form-control money" placeholder="$2500"
+                                                wire:model.debounce.1s="monto" maxlength="8">
                                             @error('monto')
                                                 <span style="color:red;">{{$message}}</span>
                                             @enderror
@@ -63,16 +63,16 @@
                                             @endif
                                         </div>
                                         <div class="mt-4">
-                                            <label for="" class="pb-2">Confirmado de crédito
+                                            <label for="" class="pb-2 label-izquierda">Confirmado de crédito
                                                     aprobado: 
                                             </label>
                                                 <input type="text" name="" id="" class="form-control money"
-                                                    placeholder="$2500" wire:model.debounce.3s="confirmacion"  maxlength="8">
+                                                    placeholder="$2500" wire:model.debounce.1s="confirmacion"  maxlength="8">
                                                 @error('confirmacion')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror
                                                 @error('cero')
-                                                    <span style="color:red;">La confirmacion de credito aprobado no puede ser menor a 0</span>
+                                                    <span style="color:red;">{{$message}}</span>
                                                 @enderror
                                         </div>    
                                             @if (!empty($maximo))
