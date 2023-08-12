@@ -15,19 +15,51 @@
     <script src="https://kit.fontawesome.com/7652a6e854.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireStyles
+    <style>
+        body {
+            overflow-x: hidden; /* Evita el desbordamiento horizontal */
+            overflow-y: auto; /* Permite el desplazamiento vertical si es necesario */
+        }
+        .label-izquierda {
+            text-align: left;
+            display: block;
+            width: 100%;
+        }
+
+        @media screen and (min-width: 768px) {
+        .img-large {
+                width: 100%;
+                margin-right: 10px;
+                height: auto;
+            }
+        }
+
+        /* Estilos para pantallas pequeñas (menores a 768px) */
+        @media screen and (max-width: 767px) {
+            .img-small {
+                width: 100%;
+                
+                height: auto;
+            }
+
+            
+        }
+    </style>
 </head>
 
 <body>
-    <x-backoffice.menu-backoffice />
+   
 
-    <h1 class="text-center my-5">Clientes</h1>
-    <x-backoffice.menu-clientes />
-    @yield('contenido')
+    <div class="col col-auto">
+        <x-backoffice.menu-backoffice />
+        <h1 class="text-center my-5">Clientes</h1>
+        <x-backoffice.menu-clientes />
+        @yield('contenido')
 
+        @include('backoffices.components.footer')
+    </div>
 
-
-
-    @include('backoffices.components.footer')
+    
     @livewireScripts
     <!-- scripts --->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
