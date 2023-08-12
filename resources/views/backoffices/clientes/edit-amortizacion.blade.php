@@ -13,7 +13,7 @@
                     <form action="{{route('updateAmortizacion',$tabla->id_amortizacion)}}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="num_credito" class="col-form-label">Numero de Credito:
+                            <label for="num_credito" class="col-form-label">Número de Crédito:
                                 {{ $tabla->num_credito }}</label>
                             <input type="text" class="form-control text-center" id="num_credito" name="num_credito" value="{{ $tabla->num_credito }}"
                                  readonly>
