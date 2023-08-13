@@ -24,64 +24,82 @@
                                         <h4 style="color:#38a937; font-size:15px; display:inline-block;">Cargando...</h4>
                                        <h4 style="color:#F29100; font-size:15px; ">Esto dependera de tu conexión de internet.</h4>
                                     </div>
-                                    @error('igual')
+                                    {{--Errores alertas--}}
+                                        @error('igual')
                                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                             <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
-                                    @enderror
-                                    @error('cero')
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                    @enderror
+                                        @enderror
+                                        @error('cero')
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        @enderror
+                                        @error('cero_c')
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        @enderror
+                                        @error('letras')
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        @enderror
+                                        @error('letras_c')
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">Error!</strong> {{$message}}
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                        @enderror
+                                    {{--Fin Errores Alertas--}}
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">
-                                        @if (!empty($success))
-                                            <p>{{$success}}</p>
-                                        @endif
                                         <div>
                                             <label for="" class="pb-2 label-izquierda">Monto solicitado: <span style="color:#39A935; font-weight:800;">${{number_format($monto_sol)}}</span></label>
                                         </div>
+
                                         <div class="mt-4">
-                                            <label for="" class="pb-2 label-izquierda">Monto de crédito aprobado: 
+                                            <label for="" class="pb-2 label-izquierda">
+                                                Monto de crédito aprobado: 
                                             </label>
-                                            <input type="text" name="number" id=""
-                                                class="form-control money" placeholder="$2500"
+                                            <input type="text" name="number" id="" class="form-control money" placeholder="$2500"
                                                 wire:model.debounce.1s="monto" maxlength="8">
+                                            @if ($monto=='0')
+                                                <span style="color:red;">El monto no puede ser menor a 0</span>
+                                            @endif
+                                            @error('letras')
+                                                <span style="color:red;">{{$message}}</span>
+                                            @enderror
                                             @error('monto')
                                                 <span style="color:red;">{{$message}}</span>
                                             @enderror
-                                            @error('cero')
+                                            @error('maximo')
                                                 <span style="color:red;">{{$message}}</span>
                                             @enderror
-                                            @if (!empty($maximo))
-                                                <br />
-                                                <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
-                                            @else
-                                                <span></span>
-                                            @endif
                                         </div>
+
                                         <div class="mt-4">
                                             <label for="" class="pb-2 label-izquierda">Confirmado de crédito
                                                     aprobado: 
                                             </label>
-                                                <input type="text" name="" id="" class="form-control money"
+                                            <input type="text" name="" id="" class="form-control money"
                                                     placeholder="$2500" wire:model.debounce.1s="confirmacion"  maxlength="8">
                                                 @error('confirmacion')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror
-                                                @error('cero')
+                                                @error('letras_c')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror
+                                                @error('maximo_c')
+                                                    <span style="color:red;">{{$message}}</span>
+                                                @enderror
+                                                @if ($confirmacion=='0')
+                                                    <span style="color:red;">El campo confirmación monto no puede ser menor a 0</span>
+                                                @endif
                                         </div>    
-                                            @if (!empty($maximo))
-                                                <br />
-                                                <i class="fa-solid fa-triangle-exclamation" style="color: #e00000; margin-right:2px;"></i><span style="color:red;">{{$maximo}}</span>
-                                            @else
-                                                <span></span>
-                                            @endif
-                                        
                                     </div>
                                 </div>
                             </div>

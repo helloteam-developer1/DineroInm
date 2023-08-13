@@ -13,16 +13,13 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 class AcepSolicitud extends Component
 {
-    public $user, $monto,$confirmacion, $monto_modificado;
-    public $success='',$maximo="";
-    public $monto_sol=0;
+    public $user, $monto,$confirmacion,$monto_sol,$errores;
 
     public function mount(User $user){
         $this->user = $user;
         $this->monto_sol = Solicitud_Credito::where('user_id','=',$user->id)->value('monto');
     }
 
-    
     protected $rules = [
         'monto' => 'required',
         'confirmacion' => 'required'
@@ -49,18 +46,16 @@ class AcepSolicitud extends Component
     }
 
     public function updated($propertyName){
-        $this->reset('maximo');
         $this->resetErrorBag();
         $this->validateOnly($propertyName);
     }
+
     public function updatedMonto(){
-        $this->reset('maximo');
         $signo = str_replace("$","",$this->monto);
         $nuevo = str_replace(",","",$signo);
          if(is_numeric($nuevo)){
             if($nuevo>=100000){
-                $this->maximo = "El monto no puede superar los $100,000.00";
-                $this->addError('maximo','El monto');
+                $this->addError('maximo', 'El monto no puede superar los $100,000.00');
                 $this->monto = '$'.number_format(100000,2);
             }
             else{
@@ -73,24 +68,21 @@ class AcepSolicitud extends Component
                     }
                 }
             }
-
         }else{           
-            $this->maximo = "Error solo se permiten numeros";
+            $this->addError('letras','Solo se permiten numeros');
         }
 
     }
     public function updatedConfirmacion(){
-        $this->reset('maximo');
         $sin = str_replace("$","",$this->confirmacion);
         $nuevo1 = str_replace(",","",$sin);
         if(is_numeric($nuevo1)){
             if($nuevo1>=100000){
-                $this->maximo = "El monto no puede superar los $100,000.00";
-                $this->addError('maximo','El monto');
+                $this->addError('maximo_c','La confirmación no puede superar los $100,000.00');
                 $this->confirmacion = '$'.number_format(100000,2);
             }else{
                 if($nuevo1<=0){
-                    $this->addError('cero','El monto confirmación no puede ser menor a 0');
+                    $this->addError('cero_c','El monto confirmación no puede ser menor a 0');
                 }else{
                     $this->confirmacion = '$'.number_format($nuevo1,2);
                     if(strcmp($this->monto,$this->confirmacion)!==0){
@@ -99,8 +91,7 @@ class AcepSolicitud extends Component
                 }
             }
         }else{
-            $this->maximo = "Error solo se permiten numeros";
-        
+            $this->addError('letras_c','El monto confirmación solo acepta letras');
         }
        
     }
@@ -172,6 +163,6 @@ class AcepSolicitud extends Component
         return view('livewire.backoffice.acep-solicitud');
     }
     public function clear(){
-        $this->reset(['monto','confirmacion','maximo']);
+        $this->reset(['monto','confirmacion']);
     }
 }

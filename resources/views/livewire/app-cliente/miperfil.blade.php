@@ -1,13 +1,12 @@
-<style>
-    @media screen and (max-width: 767px) {
-  .btn {
-    /* Estilos adicionales para alargar el botón en pantallas móviles */
-    width: 75%;
-  }
-}
-</style>
-
 <div style="margin-top:20px;margin-bottom:20px; centrado">
+    <style>
+        @media screen and (max-width: 767px) {
+      .btn {
+        /* Estilos adicionales para alargar el botón en pantallas móviles */
+        width: 75%;
+      }
+    }
+    </style>
     @if (!empty($error))
         <center>
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
