@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="flex">
-                                    <textarea type="text" id="comentContact-mobile" class="  bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm   p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
+                                    <textarea type="text" id="comentContact-mobile" class="  bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm   p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" style="resize: none" placeholder="Comentario" required></textarea>
                                 </div>
                                 <div class="text-right mt-3">
                                     <button type="submit" class="btn w-100 p-2 text-white" style="background: #38A937;"> <strong>Enviar</strong> </button>
@@ -128,11 +128,12 @@
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                                 </div>
-                                <input type="email" id="emailContact-desktop" class=" inputContact font-24 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo" required>
+                                <input type="email" id="emailContact-desktop" class=" inputContact font-24 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                style="resize: none;" placeholder="Correo" required>
                             </div>
 
                             <div class="flex">
-                                <textarea rows="5" type="text" id="comentContact-desktop" class=" inputContact font-24 rounded-none rounded-r-lg bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
+                                <textarea rows="5" type="text" id="comentContact-desktop" class=" inputContact font-24 rounded-none rounded-r-lg bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" style="resize: none;" placeholder="Comentario" required></textarea>
                             </div>
                             <div class="text-right mt-3">
                                 <button class="btn px-5 text-white btn-verde" style=" font-size: 28px"> <strong>Enviar</strong> </button>
@@ -142,7 +143,5 @@
 
             </div>
             <div class="col-span-4 text-white text-center mt-4"> <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong>
-            {{-- <br><strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong> --}}
-    
         </div>
     </footer>
