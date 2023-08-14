@@ -51,7 +51,7 @@ class AppClienteController extends Controller
     }
     /*Vista mi prestamo */
     public function miprestamo(){
-        $credito = Credito::where('user_id', Auth::user()->id)->where('estado','=',0)->orderby('created_at','desc')->first();
+        $credito = Credito::where('user_id', Auth::user()->id)->where('estado','!=',2)->orderby('created_at','desc')->first();
         return view('appCliente.miPrestamo', ['credito' => $credito]);
     }
 
