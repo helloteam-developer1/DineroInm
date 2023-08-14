@@ -175,7 +175,7 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                               <div class="form-floating mt-3">
-                                <textarea class="form-control footer-textarea" style="height: 120px" placeholder="Comentario" id=""></textarea>
+                                <textarea class="form-control footer-textarea" style="height: 120px; resize: none;" placeholder="Comentario" id=""></textarea>
                                 <label for="floatingTextarea">Comentario</label>
                               </div>
                             </div>
@@ -191,8 +191,6 @@
                 </div>
                     <div class="col-span-4 text-white text-center mt-4"> 
                         <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong>
-                        <br>
-                        <strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong>
                     </div>
                     <br><br><br><br>
                 </div>  
@@ -372,7 +370,7 @@
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                   <div class="form-floating mt-3">
-                                    <textarea class="form-control footer-textarea" style="height: 70px" placeholder="Comentario" id=""></textarea>
+                                    <textarea class="form-control footer-textarea" style="height: 70px; resize: none;" placeholder="Comentario" id=""></textarea>
                                     <label for="floatingTextarea">Comentario</label>
                                   </div>
                                 </div>
