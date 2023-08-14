@@ -192,7 +192,6 @@
                     <div class="text-white">
                         <span data-bs-toggle="modal" data-bs-target="#politicaPrivacidad" class="pointer font-24"> Pol&iacute;tica y aviso de privacidad </span>
                     </div>
-                    <br><strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong>
 
                     <div class="mt-5 " >
                         <span class="text-dark font-24 mb-4" ><strong>¿Te gust&oacute; la p&aacute;gina?</strong></span>
@@ -243,7 +242,7 @@
                             </div>
 
                             <div class="flex">
-                                <textarea rows="5" type="text" id="comentContact-desktop" class=" inputContact font-24 rounded-none rounded-r-lg bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Comentario" required></textarea>
+                                <textarea rows="5" type="text" id="comentContact-desktop" class=" inputContact font-24 rounded-none rounded-r-lg bg-gray-50  text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500" style="resize: none;" placeholder="Comentario" required></textarea>
                             </div>
                             <div class="text-right mt-3">
                                 <button class="btn px-5 text-white btn-verde" style=" font-size: 28px"> <strong>Enviar</strong> </button>
