@@ -191,8 +191,6 @@
                 </div>
                 <div class="col-span-4 text-white text-center mt-4"> 
                         <strong>{{ Date('Y') }} Dinero inmediato | Todos los derechos reservados</strong>
-                        <br>
-                        {{-- <strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong> --}}
                     </div><br><br><br><br>
                 {{--  fin footer apartado Contactanos --}}
             </div>
@@ -205,8 +203,7 @@
                             <div class="container-fluid my-2  text-center">
                                 <p class="footer-p ms-3"> Información legal</p>
                                 <a href="#" style="width: 100%;" class="footer-enlaces mt-3" data-bs-toggle="modal" data-bs-target="#terminosYcondicionesMovil">Terminos y Condiciones </a><br>
-                                <a href="#" style="width: 100%;" class="footer-enlaces mt-4" data-bs-toggle="modal" data-bs-target="#politicaYprivacidadMovil">Politica y Aviso de Privacidad</a><br>
-                                {{-- <br><strong style="color: white;">Número de avíso de COFEPRIS 2315052002C00837</strong> --}}
+                                <a href="#" style="width: 100%;" class="footer-enlaces mt-4" data-bs-toggle="modal" data-bs-target="#politicaYprivacidadMovil">Politica y Aviso de Privacidad</a>
                                 <p class="mt-4 ms-3" style="font-size: 20px; font-weight: bold;">¿Te gusta la pagina?</p>
                                 <img src="{{ asset('img/backoffices/Grupo 63.png') }}" width="150" class="ms-3 ms-3" alt="">
                             </div>
@@ -370,7 +367,7 @@
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                   <div class="form-floating mt-3">
-                                    <textarea class="form-control footer-textarea" style="height: 70px" placeholder="Comentario" id=""></textarea>
+                                    <textarea class="form-control footer-textarea" style="height: 70px; resize: none;" placeholder="Comentario" id=""></textarea>
                                     <label for="floatingTextarea">Comentario</label>
                                   </div>
                                 </div>
