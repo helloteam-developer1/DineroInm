@@ -1,3 +1,31 @@
+<style>
+    /* Estilo para la tabla */
+.table {
+font-size: 10px; /* Tamaño de fuente general de la tabla */
+
+}
+
+/* Estilo para el encabezado de la tabla */
+.table thead th {
+padding: 0.0rem 0.0rem; /* Espaciado interno del encabezado */
+text-align: center;
+vertical-align: middle;
+}
+
+/* Estilo para las celdas de datos de la tabla */
+.table tbody td {
+padding: 0.0rem 0.0rem; /* Espaciado interno de las celdas */
+
+}
+
+.table th,
+.table  td{
+text-align: center;
+vertical-align: middle;
+
+}
+
+</style>
 @extends('backoffices.layouts.basesinmenu')
 @section('titulo', 'Tabla de Pagos')
 @section('icono')
