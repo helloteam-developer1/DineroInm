@@ -183,7 +183,7 @@
 
         @media screen and (min-width: 768px) {
             .img-large {
-                width: 70%;
+                /* width: 70%; */
                 margin-right: 10px;
                 height: auto;
             }
@@ -310,7 +310,7 @@
                                 @case(1)
                                     <div class="row justify-content-center align-items-center">
                                         <div class="col-lg-1 col-md-2 col-2"> <!-- Columna para la imagen en pantallas grandes y medianas -->
-                                        <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" class="img-large img-small">
+                                        <img src="img/assets/aplicacionCliente/Grupo 117.png" alt="" class="img-large img-small img-fluid">
                                         </div>
                                         <div class="col-lg-10 col-md-9 col-10"> <!-- Columna para el texto en pantallas grandes y medianas -->
                                             <span>La información es correcta y ha sido verificada.</span>
