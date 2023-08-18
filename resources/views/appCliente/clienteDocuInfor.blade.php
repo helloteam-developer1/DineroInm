@@ -183,7 +183,7 @@
 
         @media screen and (min-width: 768px) {
             .img-large {
-                /* width: 70%; */
+                width: 70%;
                 margin-right: 10px;
                 height: auto;
             }
