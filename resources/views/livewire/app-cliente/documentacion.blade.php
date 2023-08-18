@@ -101,7 +101,7 @@
         <div class="col">
           @switch($documentacion)
           @case(1)
-              <img src="img/assets/aplicacionCliente/Grupo 117.png" alt=""  class="img-large img-small">
+              <img src="img/assets/aplicacionCliente/Grupo 117.png" alt=""  class="img-small img-fluid">
               <span>La información es correcta y ha sido verificada.</span>
             @break
 
@@ -116,7 +116,7 @@
             </div> 
             @break
             @case(2)
-              <img src="img/assets/aplicacionCliente/Grupo 444.png" alt=""  class="img-large img-small"">
+              <img src="img/assets/aplicacionCliente/Grupo 444.png" alt=""  class="img-large img-small">
               <span style="border-color: red;">Favor de subir un documento válido, actual o vigente.</span>
             @break
             @default
