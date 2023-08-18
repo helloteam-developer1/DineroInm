@@ -1,35 +1,36 @@
-<style>
-    /* Estilo para la tabla */
-.table {
-font-size: 12px; /* Tamaño de fuente general de la tabla */
-}
+@push('css')
+    <style>
+        /* Estilo para la tabla */
+        .table {
+        font-size: 12px; /* Tamaño de fuente general de la tabla */
+        }
 
-/* Estilo para el encabezado de la tabla */
-.table thead th {
-padding: 0.1rem 0.02rem; /* Espaciado interno del encabezado */
-}
+        /* Estilo para el encabezado de la tabla */
+        .table thead th {
+        padding: 0.1rem 0.02rem; /* Espaciado interno del encabezado */
+        }
 
-/* Estilo para las celdas de datos de la tabla */
-.table tbody td {
-padding: 0.1rem 0.02rem; /* Espaciado interno de las celdas */
-}
+        /* Estilo para las celdas de datos de la tabla */
+        .table tbody td {
+        padding: 0.1rem 0.02rem; /* Espaciado interno de las celdas */
+        }
 
-.table td,
-.table th {
-    text-align: center;
-vertical-align: middle;
-}
+        .table td,
+        .table th {
+            text-align: center;
+        vertical-align: middle;
+        }
 
-input[type="date"] {
-    text-align: center;
-    height: 90px; /* Altura deseada para la caja de entrada */
-    font-size: 13px; /* Tamaño de fuente deseado para la caja de entrada */
-    padding: 6px; /* Espacio interno deseado para la caja de entrada */
-    min-width: 110px; /* Ancho deseado para la caja de entrada */
-    max-width: 110px; /* Ancho deseado para la caja de entrada */
-}
-</style>
-
+        input[type="date"] {
+            text-align: center;
+            /*height: 90px;  Altura deseada para la caja de entrada */
+            font-size: 13px; /* Tamaño de fuente deseado para la caja de entrada */
+            padding: 6px; /* Espacio interno deseado para la caja de entrada */
+            min-width: 110px; /* Ancho deseado para la caja de entrada */
+            max-width: 110px; /* Ancho deseado para la caja de entrada */
+        }
+    </style>
+@endpush
 @extends('backoffices.layouts.base')
 @section('titulo','Clientes')
 @section('icono')
