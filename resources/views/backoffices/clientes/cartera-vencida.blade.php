@@ -63,12 +63,12 @@
                                     <p class="my-2 mx-2">De</p> <input type="date" class="mx-4" placeholder="" name="fecha_inicio" id="fecha_inicio" @isset($fecha_inicio)
                                         value="{{$fecha_inicio}}"
                                     @endisset> <img
-                                    src="{{ asset('img/backoffices/CALENDARIO.PNG') }}"class="my-2 mx-2" width="30"
+                                    src="{{ asset('img/backoffices/CALENDARIO.png') }}"class="my-2 mx-2" width="30"
                                     height="30" alt="">
                                 <p class="mx-4 my-2">a</p> <input type="date" class="mx-2" placeholder="" name="fecha_termino" id="fecha_termino" @isset($fecha_termino)
                                     value="{{$fecha_termino}}"
                                 @endisset><img
-                                src="{{ asset('img/backoffices/CALENDARIO.PNG') }}" class="my-2 mx-4" width="30"
+                                src="{{ asset('img/backoffices/CALENDARIO.png') }}" class="my-2 mx-4" width="30"
                                     height="30" alt="">
                                 <div class="input-wrapper">
                                     <input type="search" name="termino" id="" class="ms-2"
