@@ -47,7 +47,7 @@ class Notificacion extends Component
                 'fecha_envio' => Carbon::now(),
                 'estado' => 0
             ]);  
-            $this->emit('alert');
         }
+        $this->emit('alert');
     }
 }

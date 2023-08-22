@@ -175,7 +175,7 @@ input[type="date"] {
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    @if (empty($c->num_pagos_rest))
+                                                    @if (is_null($c->num_pagos_rest))
                                                         Sin registros
                                                     @else
                                                         {{$c->num_pagos_rest}}

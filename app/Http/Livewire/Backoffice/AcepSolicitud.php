@@ -69,7 +69,7 @@ class AcepSolicitud extends Component
                 }
             }
         }else{           
-            $this->addError('letras','Solo se permiten numeros');
+            $this->addError('letras','El monto aprobar solo permiten numeros');
         }
 
     }
@@ -91,7 +91,7 @@ class AcepSolicitud extends Component
                 }
             }
         }else{
-            $this->addError('letras_c','El monto confirmación solo acepta letras');
+            $this->addError('letras_c','El monto confirmación solo permite números');
         }
        
     }

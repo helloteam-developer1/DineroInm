@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Backoffice;
 
 use App\Models\Solicitud_Credito;
 use App\Models\User;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class RechazarSolicitud extends Component
@@ -22,13 +23,15 @@ class RechazarSolicitud extends Component
     }
 
     public function rechazar($id){
+        
         $this->validate();
-
+        
        if( Solicitud_Credito::where('user_id','=',$id)->exists()){
             Solicitud_Credito::where('user_id','=',$id)->update([
                 'estado'=>2,
                 'mensaje' => $this->texto,
-                'documentacion' => '2'
+                'documentacion' => '2',
+                'fecha_solicitud' => Carbon::now()->format('Y-m-d')
             ]);
             $this->emit('alert');
        }else{

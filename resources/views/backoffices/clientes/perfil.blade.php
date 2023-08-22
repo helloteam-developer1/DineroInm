@@ -26,7 +26,6 @@
                 
                 <div class="row">
                     <div class="col-10 col-sm-8 col-md-8 col-lg-6 offset-1 offset-sm-2 offset-md-2 offset-lg-3">
-                        
                         @if(session('error_perfil'))
                             <script>
                                 Swal.fire(
@@ -40,6 +39,20 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
+                        @if(session('error_password_igual'))
+                            <script>
+                                Swal.fire(
+                                'Contraseña sin cambio',
+                                'Error la contraseña no ha sufrido cambios',
+                                'error'
+                                );
+                            </script>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class="fa-solid fa-circle-exclamation"></i><strong style="margin-left: 5px;">{{session('error_password_igual')}}</strong> 
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+                        
                         <div class="col-10 col-sm-10 col-md-8 col-lg-6 offset-1 offset-sm-1 offset-md-2 offset-lg-3">
                             <form action="{{route('perfil.store',Auth::user()->id)}}" method="post">
                                 @csrf

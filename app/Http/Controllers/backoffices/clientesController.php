@@ -19,8 +19,8 @@ class clientesController extends Controller
     //vista solicitudes de crédito
     public function solicitud(){
         $datos = ['id','ine_frente','ine_reverso','comp_dom','foto_cine',
-            'nombre','trabajo','ingreso','nomina','credito', 'curp', 'fecha_nacimiento','empresa_trabajo', 'rama_empresa','telefono_contacto', 'email','monto','user_id','tarjeta_reg'];
-        $consulta = User::select($datos)->join('solicitud_creditos','users.id','=','solicitud_creditos.user_id')->latest('solicitud_creditos.fecha_solicitud')->paginate(5);
+            'nombre','trabajo','ingreso','nomina','credito', 'curp', 'fecha_nacimiento','empresa_trabajo', 'rama_empresa','telefono_contacto', 'email','monto','user_id','tarjeta_reg','id_solicitud'];
+        $consulta = User::select($datos)->join('solicitud_creditos','users.id','=','solicitud_creditos.user_id')->orderby('id_solicitud','DESC')->paginate(5);
         return view('backoffices.clientes.solicitud-clientes',['consulta'=>$consulta,'busqueda'=>'','fecha_inicio'=>'','fecha_termino'=>'']);
     }
     ///Filtro de busqueda Solicitud de Clientes
@@ -42,12 +42,11 @@ class clientesController extends Controller
                     return view('backoffices.clientes.solicitud-clientes',
                     ['consulta'=>$consulta,'busqueda'=>$request->busqueda,'fecha_inicio'=>$request->fecha_inicio,'fecha_termino'=>$request->fecha_termino]);
                 }
-                $bus = str_replace('$','',$request->busqueda);
-                $busqueda = str_replace(',','',$bus);
                 $consulta =   User::join('solicitud_creditos','users.id','=','solicitud_creditos.user_id')->
                     wherebetween('fecha_solicitud',[$request->fecha_inicio,$request->fecha_termino])->
                     orwhere('nombre','LIKE','%'.$request->busqueda.'%')->orwhere('trabajo','=',$request->busqueda)->
-                    orwhere('ingreso','LIKE','%'.number_format($busqueda).'%')->orwhere('nomina','=',$request->busqueda)->
+                    orwhere('ingreso','=','%'.$request->busqueda.'%')->orwhere('nomina','=',$request->busqueda)->
+                    orwhere('credito','=',$request->busqueda)->
                     orwhere('curp','=',$request->busqueda)->orwhere('fecha_nacimiento','=',$request->busqueda)->
                     orwhere('empresa_trabajo','=',$request->busqueda)->orwhere('rama_empresa','=',$request->busqueda)
                     ->orwhere('telefono_contacto','=',$request->busqueda)->orwhere('email','=',$request->busqueda)->paginate(5);

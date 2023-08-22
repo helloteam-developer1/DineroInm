@@ -21,11 +21,16 @@ class perfilController extends Controller
                 'password_confirmation' => 'required',
                 'password' => 'required|confirmed|max:20|min:8|regex:/^[A-Za-z0-9]+$/u'
             ]);
+            //Valido que la contraseña actual
             if(Hash::check( $request->p_actual,Auth::user()->password)){
-                $user->nombre = $request->nombre;
-                $user->password = bcrypt($request->password);
-                $user->save();
-                return redirect()->route('perfil')->with('status','Cambio con Exito!');
+                if(strcmp($request->p_actual,$request->password) === 0){
+                    return redirect()->route('perfil')->with('error_password_igual','Error la contraseña no ha sufrido cambios!');
+                }else{
+                    $user->nombre = $request->nombre;
+                    $user->password = bcrypt($request->password);
+                    $user->save();
+                    return redirect()->route('perfil')->with('status','Cambio con Exito!');
+                }
             }else{
                 return redirect()->route('perfil')->with('error_perfil','Error la contraseña actual es incorrecta!');
             } 

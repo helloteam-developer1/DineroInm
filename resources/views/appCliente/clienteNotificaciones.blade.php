@@ -35,6 +35,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app-clientes-estilos/estilos-appclientes.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('css')
     {{-- <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -104,137 +105,7 @@
 <body >
 
 {{--Menú Cliente--}}
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
-  <div class="container-fluid">
-      {{--Logo Dinero Inmediato--}}
-      <a class="navbar-brand" href="{{route('dashboard')}}">
-          <img src="{{ asset('img/assets/aplicacionCliente/Grupo 24.png') }}" width="150" class=""
-              style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px;" />
-      </a>
-      {{--Boton DropDawn de notificaciones--}}
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      {{--Listado de Notificaciones --}}
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-              <li class="nav-item">
-                  <a class="" aria-current="page"
-                      href="{{ route('miPrestamo') }}">
-                      <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 946.png') }}"
-                          alt="">
-                      &nbsp;Mi préstamo
-                  </a>
-              </li>
-
-              <li class="nav-item">
-                  <div class="dropdown">
-                      <button class="btn dropdown-toggle bx"
-                          type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:#39A935; font-weight:800;">
-                          <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 262.png') }}"
-                              alt="">
-                          &nbsp;&nbsp;&nbsp;Notificaciones
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          @if (!empty($notificacion))
-                              @foreach ($notificacion as $n)
-                                  <li>
-                                      <a href="{{ url('cliente-notificaciones', $n->id_notf) }}">
-                                          <div class="card" style="width: 18rem;">
-                                              <div class="card-body">
-                                                  <h5 class="card-title">{{ $n->titulo_notf }}</h5>
-                                                  <h6 class="card-subtitle mb-2 text-muted">{{ $n->sub_notf }}
-                                                  </h6>
-                                                  <p class="card-text">
-                                                      {{ Str::limit($n->cuerpo, 40, '...') }}
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </a>
-                                  </li>
-                              @endforeach
-                              <li>
-                                  <a href="{{ route('cliente-notificaciones', 0) }}"
-                                      class="btn btn-secondary btn-block" style="background-color: #39A935;">Ver
-                                      todas las notificaciones.</a>
-                              </li>
-                          @else
-                              <li>
-                                  <div class="card" style="width: 18rem;">
-                                      <p>No tienes notificación</p>
-                                      <hr />
-                                      <a href="{{ route('cliente-notificaciones', 0) }}"
-                                          class="btn btn-secondary btn-block" style="background-color: #39A935; border:none;">Ver todas las notificaciones.</a>
-                                  </div>
-                              </li>
-                          @endif
-                      </ul>
-                  </div>
-
-              </li>
-              
-              <li class="nav-item">
-                  <a class="" aria-current="page"
-                      href="{{ route('solicitar-credito') }}">
-                      <img class="m-1" src="{{ asset('img/assets/aplicacionCliente/Grupo 264.png') }}"
-                          alt="">
-                      Solicitud de nuevo crédito
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class=" " aria-current="page"
-                      href="{{ route('dashboard') }}">
-                      <img class="ms-3"
-                          src="{{ asset('img/assets/aplicacionCliente/ICONO_DOC E INF_ GRIS.svg') }}"
-                          alt="">
-                      &nbsp;&nbsp;&nbsp;Documentación e información
-                  </a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class=" dropdown-toggle " href="#" id="navbarDropdown" role="button"
-                      data-bs-toggle="dropdown" aria-expanded="false">
-                      <img class="ms-3" src="{{ asset('img/assets/aplicacionCliente/Grupo 397.png') }}"
-                          alt="">
-                      &nbsp;&nbsp;Ajustes
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li>
-                          <a class="dropdown-item" href="{{ route('miperfil') }}">
-                              <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 947.png') }}"
-                                  alt="">
-                              Mi perfil
-                          </a>
-                      </li>
-                      <li>
-                          <a class="dropdown-item" href="{{ route('contacto') }}">
-                              <img class="me-2" src="{{ asset('img/assets/aplicacionCliente/Grupo 950.png') }}"
-                                  alt="">
-                              Contacto
-                          </a>
-                      </li>
-                      <li>
-                          <hr class="dropdown-divider">
-                      </li>
-                      <li>
-                          <form action="/logout" method="POST">
-                              @csrf
-                              <a class="dropdown-item" href="#" onclick="this.closest('form').submit()">
-                                  <img class="me-2"
-                                      src="{{ asset('img/assets/aplicacionCliente/Grupo 948.png') }}"
-                                      alt="">
-                                  Cerrar Sesión
-                              </a>
-                          </form>
-                      </li>
-                  </ul>
-              </li>
-          </ul>
-      </div>
-  </div>
-</nav>
+<livewire:app-cliente.menu-cliente/>
 
 
 <div class="container">
@@ -264,31 +135,13 @@
                 <h5 class="card-title">{{$n->titulo_notf}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$n->sub_notf}}</h6>
                 <p class="card-text">{{$n->cuerpo}}</p>
-                <img src="/img/assets/aplicacionCliente/ELIMINAR.svg" style="float:right; cursor:pointer;" onclick="openModal()"></img>
-              </div>
-            </div>
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: red;">Eliminar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    ¿Esta apunto de eliminar definitivamente {{$n->titulo_notf}}?
-                  </div>
-                  <div class="modal-footer">
-                    <form action="{{route('notificacion.destroy',$n->id_notf)}}" method="POST">
-                    <center>
-                      <button type="button" class="btn  btn-primary" data-bs-dismiss="modal">Cancelar</button>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Borrar</button>
-                    </center>
-                  </form>
-                  </div>
-                </div>
+                <form action="{{route('notificacion.destroy',$n->id_notf)}}" class="formulario-eliminar" method="POST">
+                  @csrf
+                  @method('DELETE')
+                    <button type="submit" style="border: none; float: right; background-color:white;">
+                      <img src="/img/assets/aplicacionCliente/ELIMINAR.svg" style="cursor:pointer;" />
+                    </button>
+                </form>
               </div>
             </div>
         @endif
@@ -333,6 +186,28 @@
     <script src="{{ asset('js/landing/sendEmail.js') }}"></script>
     <script src="{{ asset('js/landing/modal-register.js') }}"></script>
     @stack('js')
+    <script>
+      $('.formulario-eliminar').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+          title: 'Eliminar notificación.',
+          text: 'Esta acción es irreversible',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#da8b0c',
+          cancelButtonColor: '#38A937',
+          confirmButtonText: 'Eliminar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            
+            this.submit();
+            
+          }
+        });
+        
+      });
+    </script>
 </body>
 
 </html>
