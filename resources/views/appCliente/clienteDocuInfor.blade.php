@@ -258,7 +258,6 @@
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <form>
                         <div class="row mb-3">
                             <label for="inputEmail3" class="col-sm-2 col-form-label  texto-carotSans--Light" style="color: #3C3C3B; font-size: 1.1rem;">
                                 No.Cliente: {{ Auth::user()->num_cliente }}</label>
@@ -291,19 +290,24 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold"style="margin-bottom: 30px;">Dirección</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                    id="inputEmail3" value="{{ Auth::user()->direccion }}">
-                            </div>
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Correo</label>
                             <div class="col-sm-4">
                                 <input type="email" class="form-control texto-carotSans--ExtraLight"
                                     id="inputEmail3" value="{{ Auth::user()->email }}">
                             </div>
+                            @if (Auth::user()->direccion)
+                                <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold"style="margin-bottom: 30px;">Dirección</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control texto-carotSans--ExtraLight"
+                                        id="inputEmail3" value="{{ Auth::user()->direccion }}">
+                                </div>
+                            @else
+                                @livewire('app-cliente.datos-contacto')
+                            @endif
+                            
                         </div>
-                    </form>
-                    
+                        
+                        
                     <div class="row mb-3 justify-content-center">
                         <div class="col">
                             @switch($documentacion)

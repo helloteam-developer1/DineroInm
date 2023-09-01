@@ -110,7 +110,7 @@ class wizard extends Component
                 'antiguedad' => 'required',
                 'rama_empresa'=> 'required|min:5|max:250',
                 'banco_nomina'=> 'required|min:3|max:35',
-                'curp' => 'required|min:18|max:18|unique:users,curp',
+                'curp' => ['required','min:18','max:18','unique:users,curp','regex:/^([A-Z]{4})(\d{6})([HM])([A-Z]{5})(\d{2})$/'],
             ],
             [
                 'curp.unique' => 'El CURP ya esta registrado, por favor verificalo.'
@@ -139,6 +139,7 @@ class wizard extends Component
         Telefono, email, contraseña,
         */ 
         $validatedData = $this->validate([
+            'telefono_contacto' => 'required|numeric|digits_between:10,10',
             'email' => 'unique:users,email|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i|unique:users|required',
             'password' => [
                 'required',
@@ -151,30 +152,6 @@ class wizard extends Component
         
         $this->currentStep = 3;
         
-    }
-
-    public function threeStepSubmit(){
-        $rules = [
-            'telefono_contacto' => 'required|numeric|digits_between:10,10',
-            'calle' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/',
-            'numero' => 'required|numeric|digits_between:1,6',
-            'colonia' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/',
-            'cp'=> 'required|digits_between:5,5|numeric',
-            'municipio' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/',
-            'estado' => 'required|regex:/^[a-zA-Z0-9áéíóúüÁÉÍÓÚÜ. ]+$/'
-        ];
-        if($this->num_int){
-          $rules = array_merge($rules,[
-            'num_int' => 'regex: /^[a-zA-Z0-9-]+$/'
-          ]); 
-        }
-
-        $validatedData = $this->validate($rules,
-        [
-        'telefono_contacto.digits_between' => 'El telefono de contacto debe tener 10 digitos.',
-        'num_int.regex' => 'El numero interior es invalido.'
-        ]);
-        $this->currentStep = 4;
     }
 
     public function submitForm()
@@ -237,7 +214,7 @@ class wizard extends Component
             'banco_nomina' => $this->banco_nomina,
             'telefono_contacto' => $this->telefono_contacto,
             'email' => $this->email,
-            'direccion' => $this->calle.', '.$this->numero.', '.$this->colonia.', '.$this->cp.','.$this->municipio.','.$this->estado,
+            'direccion' => null,
             'password' => $password,
             'ine_frente' => '/posts'.'/'.$nombre_ine_frente,
             'ine_reverso' => '/posts'.'/'.$nombre_ine_reverso,
@@ -293,7 +270,7 @@ class wizard extends Component
                 'telefono_contacto' => $this->telefono_contacto,
                 'email' => $this->email,
                 'password' => $password,
-                'direccion' => $this->calle.', '.$this->numero.', '.$this->colonia.', '.$this->cp.','.$this->municipio.','.$this->estado,
+                'direccion' => null,
                 'ine_frente' => null,
                 'ine_reverso' => null,
                 'comp_dom' =>  null,

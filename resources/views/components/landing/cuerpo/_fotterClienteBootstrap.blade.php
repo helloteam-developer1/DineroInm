@@ -167,16 +167,39 @@
                 <div class="col-12 col-sm-12 col-md- col-lg-4">
                     <div class="container-fluid my-5">
                         <p style="font-size: 20px; font-weight: bold;">Contactanos</p>
-                        <form action="">
+                        <form action="{{route('formulario.contacto')}}" method="POST" id="contacto">
+                            @if ($errors->has('email') || $errors->has('comentario'))
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        // Obtener la posición vertical del footer
+                                        const footerPosition = document.getElementById("contacto").offsetTop;
+                            
+                                        // Realizar el desplazamiento hacia el footer
+                                        window.scrollTo({
+                                            top: footerPosition,
+                                            behavior: "smooth" // Agrega un desplazamiento suave
+                                        });
+                                    });
+                                </script>
+                            @endif
+                            @csrf
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                               <div class="input-group flex-nowrap">
-                                <input type="email" class="form-control" style="color: #9ca3af;" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
-                              </div>
+                                <input name="email" type="email" value="{{old('email')}}" class="form-control" style="color: #9ca3af;" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
+                            </div>
+                            @error('email')
+                                <span style="color:white;">{{$message}}</span>
+                            @enderror
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                               <div class="form-floating mt-3">
-                                <textarea class="form-control footer-textarea" style="height: 120px" placeholder="Comentario" id=""></textarea>
+                                <textarea name="comentario" class="form-control footer-textarea" style="height: 120px" placeholder="Comentario" id="">
+                                    {{old('comentario')}}
+                                </textarea>
                                 <label for="floatingTextarea">Comentario</label>
+                                @error('comentario')
+                                    <span style="color:white;">{{$message}}</span>
+                                @enderror
                               </div>
                             </div>
                             <div style="text-align: right; margin-top: 10px;">
