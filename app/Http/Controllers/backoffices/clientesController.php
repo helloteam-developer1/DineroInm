@@ -45,7 +45,7 @@ class clientesController extends Controller
                 $consulta =   User::join('solicitud_creditos','users.id','=','solicitud_creditos.user_id')->
                     wherebetween('fecha_solicitud',[$request->fecha_inicio,$request->fecha_termino])->
                     orwhere('nombre','LIKE','%'.$request->busqueda.'%')->orwhere('trabajo','=',$request->busqueda)->
-                    orwhere('ingreso','=','%'.$request->busqueda.'%')->orwhere('nomina','=',$request->busqueda)->
+                    orwhere('ingreso','LIKE','%'.$request->busqueda.'%')->orwhere('nomina','=',$request->busqueda)->
                     orwhere('credito','=',$request->busqueda)->
                     orwhere('curp','=',$request->busqueda)->orwhere('fecha_nacimiento','=',$request->busqueda)->
                     orwhere('empresa_trabajo','=',$request->busqueda)->orwhere('rama_empresa','=',$request->busqueda)

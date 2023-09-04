@@ -145,7 +145,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
                         </div>
                         <div class="modal-body">
-                            Las credenciales ingresadas no coincideen con nuestra base de datos.
+                            Las credenciales ingresadas no coinciden con nuestra base de datos.
                         </div>
                     </div>
                     </div>
