@@ -9,15 +9,10 @@ class InformacionPago extends Model
 {
     use HasFactory;
     protected $table = "informacion_de_pago";
+    public $timestamps = false;
     protected $fillable = [
         'id_forma_de_pago',
-        'titular',
-        'num_cuenta',
-        'banco',
-        'clave_inter',
-        'num_tarjeta',
-        'fecha_mm',
-        'fecha_yy',
+        'data',
         'user_id'
     ];
 }

@@ -19,7 +19,7 @@
                 @enderror
             </div>
             <div class="col-sm">
-                <input type="numeric" class="form-control" placeholder="Número Interior" wire:model.defer="num_int" maxlength="5" required><br/>
+                <input type="numeric" class="form-control" placeholder="Número Interior" wire:model.defer="num_int" maxlength="5"><br/>
                 @error('num_int')
                     <span style="color:brown">{{$message}}</span>
                 @enderror

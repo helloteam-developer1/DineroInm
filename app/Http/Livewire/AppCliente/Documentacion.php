@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\AppCliente;
 
+use App\Models\Buzon;
 use App\Models\Credito;
 use App\Models\Solicitud_Credito;
 use App\Models\User;
@@ -165,6 +166,7 @@ class Documentacion extends Component
                 $cambio = User::where('id','=',$id)->update(['foto_cine'=>'posts/'.$nombre_foto_cine]);
             }
             $this->emit('img');
+            Buzon::create(['user_id'=>Auth::user()->id,'informacion'=>1]);
             $consulta = Solicitud_Credito::where('user_id','=',Auth::user()->id)->update(['estado'=>0,'documentacion'=>null,'mensaje'=>null]);
         }
        

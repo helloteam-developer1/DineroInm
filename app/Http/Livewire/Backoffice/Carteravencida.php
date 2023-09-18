@@ -17,7 +17,7 @@ class Carteravencida extends Component
         return view('livewire.backoffice.carteravencida');
     }
 
-    public function mount($user,$num_credito){
+    public function mount(User $user,$num_credito){
         $this->user = $user;
         $this->num_credito = $num_credito;
     }
@@ -25,11 +25,10 @@ class Carteravencida extends Component
     public function cartera($num){
         //Verifico que exista el numero de credito y que tenga un estado 0 (sin adeudos)
         if(Credito::where('num_credito','=',$num)->where('estado','=',0)->exists()){
-            $users = User::where('id','=',$this->user)->get();
-            $num_cliente = $users[0]->num_cliente;
-            $email = $users[0]->email;
-            $nombre = $users[0]->nombre;
-            $telefono = $users[0]->telefono_contacto;     
+            $num_cliente = $this->user->num_cliente;
+            $email = $this->user->email;
+            $nombre = $this->user->nombre;
+            $telefono = $this->user->telefono_contacto;     
             CreditoVencido::create([
                 'num_cliente' => $num_cliente,
                 'num_credito' => $num,

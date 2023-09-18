@@ -1,63 +1,62 @@
-<style>
-
-    .notify--orange {
-        background-color: orange; /* Cambiar el color a naranja o el color deseado */
-        color: white; /* Cambiar el color del texto si es necesario */
-    }
-
-    
-    .with-margin-right {
-      
-      margin-left: 130px;
-      
-    }
-
-    /* Estilos generales para todas las pantallas */
-    
-
-    /* Estilos para pantallas grandes (mayor o igual a 992px) */
-    @media (min-width: 992px) {
-        
-        .row.d-flex.align-items-center {
-            margin-top: 16px; /* Margen superior en pantallas grandes */
-        }
-        .col-lg {
-            font-size: 1rem; /* Tamaño de letra en pantallas grandes */
-        }
-
-    }
-
-
-    @media (max-width: 767px) {
-        .collapse.navbar-collapse {
-            background-color: #f6f6f6; /* Fondo gris */
-            width: 100%; /* Ajustar el ancho al 60% del contenedor */
-            right: 0; /* Alinear el menú a la derecha */
-        }
-
-        .dropdown-menu {
-            min-width: 230px;
-            max-width: 230px;
-        }
-
-        /* Estilos para dispositivos móviles con un ancho máximo de 767px */
-        ul.navbar-nav {
-            width: 205px;
-            margin-left: 5px;
-            margin-top: 15px;
-        }
-        .with-margin-right {
-      
-        margin-left: 30%;
-        }
-        #myImg {
-            margin-right: 12px; /* Cambia el valor según tus necesidades */
-        }
-    }
-</style>
-
-
 <div>
+    <style>
+
+        .notify--orange {
+            background-color: orange; /* Cambiar el color a naranja o el color deseado */
+            color: white; /* Cambiar el color del texto si es necesario */
+        }
+    
+        
+        .with-margin-right {
+          
+          margin-left: 130px;
+          
+        }
+    
+        /* Estilos generales para todas las pantallas */
+        
+    
+        /* Estilos para pantallas grandes (mayor o igual a 992px) */
+        @media (min-width: 992px) {
+            
+            .row.d-flex.align-items-center {
+                margin-top: 16px; /* Margen superior en pantallas grandes */
+            }
+            .col-lg {
+                font-size: 1rem; /* Tamaño de letra en pantallas grandes */
+            }
+    
+        }
+    
+    
+        @media (max-width: 767px) {
+            .collapse.navbar-collapse {
+                background-color: #f6f6f6; /* Fondo gris */
+                width: 100%; /* Ajustar el ancho al 60% del contenedor */
+                right: 0; /* Alinear el menú a la derecha */
+            }
+    
+            .dropdown-menu {
+                min-width: 230px;
+                max-width: 230px;
+            }
+    
+            /* Estilos para dispositivos móviles con un ancho máximo de 767px */
+            ul.navbar-nav {
+                width: 205px;
+                margin-left: 5px;
+                margin-top: 15px;
+            }
+            .with-margin-right {
+          
+            margin-left: 30%;
+            }
+            #myImg {
+                margin-right: 12px; /* Cambia el valor según tus necesidades */
+            }
+        }
+    </style>
+    
     <nav class="navbar navbar-expand-lg navbar-light navbar-collapse" style="background-color: white;">
         <div class="container-fluid">
             {{--Logo Dinero Inmediato--}}

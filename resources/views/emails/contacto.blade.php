@@ -41,7 +41,7 @@
           <table role="presentation" style="width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
             <tr>
               <td style="padding:40px 30px 30px 30px;text-align:center;font-size:24px;font-weight:bold;">
-                <a href="jcst.hellomexico.mx" style="text-decoration:none;"><img src="https://prueba.dineroinmediato.mx/img/logo.png" width="165" style="width:165px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
+                <a href="www.dineroinmediato.mx" style="text-decoration:none;"><img src="{{asset('img/logo.png')}}" width="165" style="width:165px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
                 <h1 style="color:#39A935;">App Dinero Inmediato</h1>
               </td>
             </tr>

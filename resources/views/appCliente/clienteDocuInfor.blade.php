@@ -36,7 +36,40 @@
     <link rel="stylesheet" href="{{ asset('css/app-clientes-estilos/estilos-appclientes.css') }}">
     
     <link rel="stylesheet" href="style.css">
-    
+    {{--Pago--}}
+        <link rel="stylesheet" href="{{asset('css/pago/pago.css')}}">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
+        <script type='text/javascript' src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                OpenPay.setId('{{env('OPENPAY_MERCHANT_ID')}}');
+                OpenPay.setApiKey('{{env('OPENPAY_APP_KEY_PC')}}');
+                OpenPay.setSandboxMode(true);
+                //Se genera el id de dispositivo
+                var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
+                
+                $('#pay-button').on('click', function(event) {
+                    event.preventDefault();
+                    $("#pay-button").prop( "disabled", true);
+                    OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);                
+                });
+
+                var sucess_callbak = function(response) {
+                var token_id = response.data.id;
+                $('#token_id').val(token_id);
+                $('#payment-form').submit();
+                };
+
+                var error_callbak = function(response) {
+                    var desc = response.data.description != undefined ? response.data.description : response.message;
+                    alert("ERROR [" + response.status + "] " + desc);
+                    $("#pay-button").prop("disabled", false);
+                };
+
+            });
+        </script>
+    {{--Pago--}}
     @stack('css')
     {{-- <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -224,7 +257,11 @@
     <body onload="correo()">
     @include('appCliente.mail.modalemail')
 @else
+    @if ($errors->has('email')||$errors->has('comentario')||session('errorpayment')||session('paymentsuccess'))
+        <body>
+    @else
     <body onload="openmodal()">
+    @endif
 @endif
     
 
@@ -396,8 +433,8 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Crédito
-                                hipotecario</label>
+                            <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Tarjeta de Crédito
+                                </label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control texto-carotSans--ExtraLight"
                                     id="inputEmail32" value="{{ Auth::user()->credito }}">
@@ -405,7 +442,7 @@
                             <label for="inputEmail3" class="col-sm-2 col-form-label fw-bold">Tarjeta de Nómina</label>
                             <div class="col-sm-4">
                               <input type="text" class="form-control texto-carotSans--ExtraLight"
-                                  id="inputEmail32" value="{{ Auth::user()->credito }}">
+                                  id="inputEmail32" value="{{ Auth::user()->nomina }}">
                             </div>
                         </div>
                         
@@ -508,7 +545,30 @@
             @endif
             <div class="accordion-body">
                 <!-- La ventana proviene del la ruta public/resouses/livewere/datos-bancarios.blade.php -->
-                <livewire:app-cliente.datos-bancarios />     
+                @if ($estado==3)
+                    @if(!empty(auth()->user()->informacion_pago))
+                        <p>Método de pago agregado: </p>
+                        @if (session('paymentsuccess'))   
+                            <div class="alert alert-success d-flex align-items-center" role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="currentColor"></path>
+                                    </svg>
+                                    <div>
+                                    {{session('paymentsuccess')}}
+                                </div>
+                            </div>
+                        @endif
+                        {{--Mando a traer los datos de la tarjeta--}}
+                        @livewire('app-cliente.datos-bancarios')
+                    @else
+                        {{--Formulario para agregar un metodo de pago--}}
+                        @include('appCliente.pago.metodo-pago')
+                    @endif
+                @else
+                    <p>En esta sección podrás agregar tu forma de pago para transferirte el préstamo,<strong> te recordamos que debe ser la tarjeta de donde descontaremos periódicamente la aportación al crédito.</strong></p>
+                    
+                @endif
             </div>
         </div>
         </div></div></div> 

@@ -31,18 +31,6 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if (Route::currentRouteName() !='masInformacion')
-                                                    <tr>
-                                                        <td class="pt-3" style="font-weight: bold">Datos Bancarios</td>
-                                                        <td>
-                                                            @empty($user->tarjeta_reg)
-                                                                Sin datos
-                                                            @else
-                                                                {{$user->tarjeta_reg}}
-                                                            @endempty
-                                                        </td style="text-align: center;">
-                                                    </tr>
-                                                @endif
                                                 <tr>
                                                     <td class="pt-3" style="font-weight: bold "">INE frente</td>
                                                     <td style="text-align: center;">
@@ -112,6 +100,30 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
+                                            <div wire:ignore.self>
+                                                @php
+                                                $rutaActual = request()->path();
+                                            @endphp
+                                            @if ($rutaActual =='masInformacion/'.$user->id)
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td class="pt-3" style="font-weight: bold">Datos Bancarios</td>
+                                                            <td style="display:flex; flex-direction:column; text-aling:center;">
+                                                                @empty($nombre)
+                                                                    <p>Sin Datos</p>
+                                                                @else
+                                                                <label>{{$nombre}}</label>
+                                                                <label>{{$numero_tarjeta}}</label>
+                                                                <label><span>{{$month}}/</span><span>{{$year}}</span></label>
+                                                                <label>{{$banco}}</label>
+                                                                <label>{{$brand}}</label>
+                                                                @endempty
+                                                            </td >
+                                                        </tr>
+                                                    </tfoot>
+                                                @endif
+                                            
+                                            </div>
                                         </table>
                                     </div>
                                 </div>

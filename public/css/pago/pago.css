@@ -1,0 +1,127 @@
+.payment-cabecera{
+    padding-top: 15px;
+    padding-bottom: 1px;
+    background-color: #ebe9e9;
+    padding-left: 20px;
+}
+.payment-cabecera-texto{
+    font-size: 1.4rem;
+}
+.payment-body{
+    padding: 10px 20px 30px;
+    border: none;
+    background-color: #f7f7f7;
+}
+.payment-titulo{
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+}
+.card{
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    background-color: #f7f7f7;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    gap: 10px;
+}
+.card1, .card2{
+    margin-bottom: 10px;
+}
+@media (min-width:560px){
+    .card{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+.card-imagen{
+    max-width: 100%;
+}
+.payment-formulario{
+    display: grid;   
+    grid-template-columns: repeat(1, 1fr);
+    gap: 18px;
+}
+@media (min-width:560px){
+    .payment-formulario{
+        display: grid;   
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.payment-formulario-titular {
+    max-width: 432px;
+}
+.payment-formulario-titular input[type="text"]{
+   max-width: 100%;
+}
+.payment-formulario-tarjeta input[type="text"]{
+   max-width: 100%;
+}
+.payment-formulario-fecha{
+    max-width: 435px;
+}
+.payment-formulario-fechaex{
+    display: flex;
+    gap: 20px;
+}
+.cvv{
+    display: flex;
+    gap: 10px;
+}
+.fechaex{
+    width: auto;
+}
+.payment-formulario-footer{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.payment-submit{
+    float: right;
+    width: 100%;
+    border: none;
+    background-color: #4A9D22;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+@media (min-width: 560px) {
+    .payment-submit{   
+        width: 30%;
+    }
+}
+.payment-footer-segurity-text{
+    font-size: 0.7rem;
+}
+.payment-footer-text{
+    font-size: 0.75rem;
+    margin: 0;
+    padding: 0;
+}
+.payment-footer{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 40px;
+    gap: 10px;
+}
+.payment-footer-open{
+    padding-right: 5px;
+}
+@media (min-width:560px){
+    .payment-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+    }
+    .payment-formulario-open{
+        border-right: 1px solid #b3b3b3;
+    }
+}
+.seguridad{
+    display: flex;
+    align-items: center;
+
+}

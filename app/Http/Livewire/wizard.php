@@ -159,10 +159,10 @@ class wizard extends Component
         $validatedData = $this->validate(
             [
             'acepto' => 'accepted',
-            'ine_frente' => 'required|mimes:jpg,png,jpeg|max:2000',
-            'ine_reverso' => 'required|mimes:jpg,png,jpeg|max:2000',
-            'comp_dom' => 'required|mimes:jpg,png,jpeg|max:2000',
-            'foto_cine' => 'required|mimes:jpg,png,jpeg|max:2000',
+            'ine_frente' => 'required|mimes:jpg,png|max:2000',
+            'ine_reverso' => 'required|mimes:jpg,png|max:2000',
+            'comp_dom' => 'required|mimes:jpg,png|max:2000',
+            'foto_cine' => 'required|mimes:jpg,png|max:2000',
             ],
             [
                 'acepto.accepted'=> 'Tienes que aceptar los terminos y condiciones para poder continuar.',
@@ -309,7 +309,7 @@ class wizard extends Component
         $fecha = Carbon::now();
         $fecha = $fecha->format('Y-m-d');
         if($opcion==1){
-            //Falta información por eso opcion 2 en documentación
+            //Falta información por eso opcion 3 en documentación
             $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
             Solicitud_Credito::create([
             'monto'=> $consulta[0]->prestamo,
@@ -318,7 +318,7 @@ class wizard extends Component
             'mensaje' => 'Documentación faltante, favor de subir la documentación para continuar con el proceso.',
             'documentacion' => 3,
             'fecha_solicitud' => $fecha
-        ]);
+            ]);
         }else{
             $consulta = DB::select("SELECT * FROM calculadoras WHERE nombre= ?",[$this->id_us]);
             Solicitud_Credito::create([

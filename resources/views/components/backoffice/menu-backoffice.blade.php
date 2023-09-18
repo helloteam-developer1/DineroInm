@@ -24,6 +24,90 @@
                                 @endif
                             </li>
                             <li class="nav-item ms-4">
+                                @if (Request::is('cobro'))
+                                    <a class="nav-link" href="{{ route('cobros.index') }}"
+                                        style="color:#38a937;">
+                                        <img src="{{ asset('img/backoffices/CLIENTES.png') }}" width="20"
+                                            alt="CLIENTES"> Cobro
+                                    </a>
+                                @else
+                                    <a class="nav-link" href="{{ route('cobros.index') }}">
+                                        <img src="{{ asset('img/backoffices/Grupo 979.png') }}" width="20"
+                                            alt="CLIENTES"> Cobro
+                                    </a>
+                                @endif
+                            </li>
+                            <li class="nav-item ms-4">
+                                @push('css')
+                                    <style>
+                                        /* CSS buzon*/
+
+                                        .dropdown {
+                                            display:inline-block;
+                                            margin-left:20px;
+                                            padding:10px;
+                                        }
+
+
+                                        .glyphicon-bell {
+                                        
+                                            font-size:1.5rem;
+                                        }
+
+                                        .notifications {
+                                        min-width:420px; 
+                                        }
+                                        
+                                        .notifications-wrapper {
+                                            overflow:auto;
+                                            max-height:250px;
+                                            }
+                                            
+                                        .menu-title {
+                                            color:#ff7788;
+                                            font-size:1.5rem;
+                                            display:inline-block;
+                                            }
+                                        
+                                        .glyphicon-circle-arrow-right {
+                                            margin-left:10px;     
+                                        }
+                                        
+                                        
+                                        .notification-heading, .notification-footer  {
+                                            padding:2px 10px;
+                                            }
+                                            
+                                                
+                                        .dropdown-menu.divider {
+                                        margin:5px 0;          
+                                        }
+
+                                        .item-title {
+                                        
+                                        font-size:1.3rem;
+                                        color:#000;
+                                            
+                                        }
+
+                                        .notifications a.content {
+                                        text-decoration:none;
+                                        background:#ccc;
+
+                                        }
+                                            
+                                        .notification-item {
+                                        padding:10px;
+                                        margin:5px;
+                                        background:#ccc;
+                                        border-radius:4px;
+                                        }
+
+                                    </style>
+                                @endpush
+                                @livewire('backoffice.buzon')
+                            </li>
+                            <li class="nav-item ms-4">
                                 @if (Request::is('notificaciones'))
                                     <a class="nav-link {{ Request::is('notificaciones') ? 'disabled' : null }}"
                                         href="/notificaciones" style="color:#38a937;">

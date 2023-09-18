@@ -138,7 +138,7 @@
                                             @livewire('backoffice.regularizar',['num_credito'=>$c->num_credito], key($c->id))
                                         </td>
                                         <td>
-                                            <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/tablaDePagos/{{$c->num_credito}}'">
+                                            <button class="btn boton-color px-4 mx-4" onclick="window.location.href=' {{route('tablaDePagos',$c->num_credito)}}'">
                                                 Ver
                                             </button></td>
                                     </tr>

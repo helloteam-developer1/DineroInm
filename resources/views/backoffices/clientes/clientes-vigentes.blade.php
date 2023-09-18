@@ -130,9 +130,6 @@ input[type="date"] {
                                             <p class="encabezado-tabla-medio">Número de Pagos Rest</p>
                                         </th>
                                         <th scope="col" class="">
-                                            <p class="encabezado-tabla">Enviar Cartera Vencida</p>
-                                        </th>
-                                        <th scope="col" class="">
                                             <p class="encabezado-tabla-medio">Más Información</p>
                                         </th>
                                         <th scope="col" class="">
@@ -180,9 +177,6 @@ input[type="date"] {
                                                     @else
                                                         {{$c->num_pagos_rest}}
                                                     @endif
-                                                </td>
-                                                <td>
-                                                    @livewire('backoffice.carteravencida',['user'=>$c->id,'num_credito'=>$c->num_credito], key($c->id))
                                                 </td>
                                                 <td>
                                                     <button class="btn boton-color px-4 mx-4" onclick="window.location.href='/masInformacion/{{$c->id}}'">Ver</button>

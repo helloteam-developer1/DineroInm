@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireStyles
     <script src="http://code.jquery.com/jquery-git.js"></script>
+    @stack('js')
 </head>
 
 <body>

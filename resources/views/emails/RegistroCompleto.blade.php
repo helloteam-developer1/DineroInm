@@ -31,6 +31,11 @@
         max-width: 73% !important;
       }
     }
+    @media (max-width: 560px) {
+      h1 {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body style="margin:0;padding:0;word-spacing:normal;background-color:white;">
@@ -42,7 +47,7 @@
             <tr>
               <td style="padding:40px 30px 30px 30px;text-align:center;font-size:24px;font-weight:bold;">
                 <a href="#" style="text-decoration:none;"><img src="https://testdineroinmediato.alwaysdata.net/img/logo.png" width="165" style="width:165px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
-                <h1 style="color:#39A935;">App Dinero Inmediato</h1>
+                <h1 style="color:#39A935; ">App Dinero Inmediato</h1>
               </td>
             </tr>
             <tr>

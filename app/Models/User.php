@@ -42,13 +42,13 @@ class User extends Authenticatable
         'credito',
         'tarjeta_reg',
         'num_cliente',
+        'openpay_id',
         'rol'
     ];
 
     public function informacion_pago(){
         return $this->belongsTo(InformacionPago::class,'id','user_id');
     }
-
     /**
      * The attributes that should be hidden for serialization.
      *

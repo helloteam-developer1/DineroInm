@@ -39,6 +39,7 @@ class CreateUsersTable extends Migration
             $table->string('credito');
             $table->string('tarjeta_reg')->nullable()->default(null);
             $table->string('num_cliente')->nullable()->default(null);
+            $table->string('openpay_id')->nullable()->default(null);
             $table->boolean('rol')->default(0);
             $table->rememberToken();
             $table->timestamps();

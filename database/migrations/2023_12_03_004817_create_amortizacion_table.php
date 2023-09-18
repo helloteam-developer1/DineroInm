@@ -24,6 +24,7 @@ class CreateAmortizacionTable extends Migration
             $table->integer('iva_io');
             $table->integer('comisiones');
             $table->integer('pago_total_men');
+            $table->boolean('cobro')->default(false);
             $table->timestamps();
 
             $table->foreign('num_credito')->references('num_credito')

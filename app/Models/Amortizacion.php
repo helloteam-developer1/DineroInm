@@ -20,4 +20,12 @@ class Amortizacion extends Model
         'comisiones',
         'pago_total_men'
     ];
+
+    public function credito()
+    {
+        return $this->belongsTo(Credito::class, 'num_credito', 'num_credito');
+    }
+    public $timestamps = false;
+
+    
 }

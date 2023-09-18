@@ -3,11 +3,13 @@
 use App\Http\Controllers\backoffices\CarteraVencidaController;
 use App\Http\Controllers\backoffices\clientesController;
 use App\Http\Controllers\backoffices\ClientesVigentesController;
+use App\Http\Controllers\backoffices\CobrosController;
 use App\Http\Controllers\backoffices\CreditoFinalizadoController;
 use App\Http\Controllers\backoffices\notificacionesController;
 use App\Http\Controllers\backoffices\perfilController;
 use App\Http\Controllers\backoffices\TablaAmortizacion;
 use App\Http\Controllers\backoffices\TablaPagos;
+use App\Http\Controllers\backoffices\BuzonController;
 use App\Http\Controllers\ContactoController;
 use App\Mail\Contacto\ContactoMail;
 use Illuminate\Support\Facades\Mail;
@@ -15,7 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth','isAdm'])->group(function (){
-    /////Route::get('/original',[clientesController::class, 'vista']);
+    //////CobrosController////
+    Route::get('/cobro',[CobrosController::class,'index'])->name('cobros.index');
+    Route::get('/cobranza/{amortizacion}',[CobrosController::class,'cobranza'])->name('cobros.cobranza');
+    Route::post('/cobros/store',[CobrosController::class,'store'])->name('cobros.store');
+    Route::get('/cobros/metodo-pago/{id}',[CobrosController::class,'metodo'])->name('cobros.metodo');
+
+    //////BuzonController////
+    Route::delete('/buzon-eliminar/{id}',[BuzonController::class,'eliminar'])->name('buzon.eliminar');
     /////Solicitud de clientes/////
     /*Vista Solicitud clientes y filtro de busqueda */
     Route::get('/busqueda',[clientesController::class,'busqueda'])->name('busqueda');

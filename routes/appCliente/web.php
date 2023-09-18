@@ -2,12 +2,11 @@
 
 use App\Http\Controllers\AppCliente\AppClienteController;
 use App\Http\Controllers\AppCliente\miprestamo;
+use App\Http\Controllers\AppCliente\PagoController;
 use App\Http\Controllers\AppCliente\SolicitarCredito;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-
 
 /*Juan Carlos Segura Torres */
     Route::middleware(['auth','isUser'])->group(function (){
@@ -22,7 +21,10 @@ use Illuminate\Support\Facades\Route;
         Route::delete('/eliminar/{id}',[AppClienteController::class, 'destroy'])->name('notificacion.destroy');
         Route::get('/mi-perfil', [AppClienteController::class,'miperfil'])->name('miperfil');
         Route::get('cambio-password',[AppClienteController::class,'campassword'])->name('cambio-password');
-        Route::get('/contacto', [AppClienteController::class, 'contacto'])->name('contacto');
+        Route::get('/contacto', [AppClienteController::class, 'contacto'])->name('contacto');  
+        
+        Route::post('/metodo_pago',[PagoController::class,'store'])->name('pago.store');
+        Route::get('/eliminar-cliente/{id}',[PagoController::class,'delete']);
     });
     
     Route::post('/logout', [AppClienteController::class, 'logout'])->name('logout')->middleware('auth');
@@ -31,7 +33,6 @@ use Illuminate\Support\Facades\Route;
         Route::get('change-password/{token}', [AppClienteController::class,'password'])->name('change-password');
         Route::post('shift-password', [AppClienteController::class,'changepassword'])->name('shift-password');
     });
-
     /*Redirect para raiz del proyecto */
     Route::get('direccion', function(){
         if(Auth::check()){

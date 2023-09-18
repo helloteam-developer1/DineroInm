@@ -66,7 +66,7 @@
                                                 Monto de crédito aprobado: 
                                             </label>
                                             <input type="text" name="number" id="" class="form-control money" placeholder="$2500"
-                                                wire:model.debounce.1s="monto" maxlength="8">
+                                                wire:model.debounce.2s="monto" maxlength="8">
                                             @if ($monto=='0')
                                                 <span style="color:red;">El monto no puede ser menor a 0</span>
                                             @endif
@@ -86,7 +86,7 @@
                                                     aprobado: 
                                             </label>
                                             <input type="text" name="" id="" class="form-control money"
-                                                    placeholder="$2500" wire:model.debounce.1s="confirmacion"  maxlength="8">
+                                                    placeholder="$2500" wire:model.debounce.2s="confirmacion"  maxlength="8">
                                                 @error('confirmacion')
                                                     <span style="color:red;">{{$message}}</span>
                                                 @enderror

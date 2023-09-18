@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInformacionDePagoTable extends Migration
+class CreateBuzonBackoffice extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateInformacionDePagoTable extends Migration
      */
     public function up()
     {
-        Schema::create('informacion_de_pago', function (Blueprint $table) {
-            $table->bigIncrements('id_pago');
-            $table->string('data',300)->nullable()->default(null);
-            $table->unsignedBigInteger('user_id');
+        Schema::create('buzon_backoffice', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->smallInteger('informacion')->
+            comment('0:Método de Pago, 1:Información Modificada')->default(null);
         });
-      
     }
 
     /**
@@ -29,6 +29,6 @@ class CreateInformacionDePagoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('informacion_de_pago');
+        Schema::dropIfExists('buzon_backoffice');
     }
 }

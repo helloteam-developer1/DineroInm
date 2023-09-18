@@ -30,4 +30,9 @@ class Credito extends Model
     public function estado(){
         return self::ESTADO[$this->estado];
     }
+
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id','id');   
+    }
 }

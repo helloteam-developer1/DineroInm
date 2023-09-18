@@ -11,4 +11,5 @@ class Calculadora extends Model
     protected $fillable = [
        'id','prestamo','tiempo','nombre','trabajo','ingreso','nomina','credito'
     ];
+    public $timestamps = false;
 }
