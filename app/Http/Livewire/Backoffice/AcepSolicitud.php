@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Backoffice;
 
+use App\Mail\Backoffice\CreditoAprob;
 use App\Models\ClientesAceptados;
 use App\Models\Credito;
 use App\Models\CreditoFinalizado;
@@ -11,6 +12,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 use Illuminate\Support\Str;
@@ -48,6 +50,12 @@ class AcepSolicitud extends Component
                 $this->generarnum($id);         
             }
            }
+            try{
+                $data = [$this->user->nombre,$this->monto];
+                Mail::to($this->user->email)->send(new CreditoAprob($data));
+            }catch(Exception $e){
+                $this->addError('igual','Error al envio de notificación al usuario');
+            }
            $this->emit('alert');
            $this->reset(['monto','confirmacion']);
         }else{

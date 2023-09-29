@@ -36,7 +36,7 @@
 
 <div class="grid grid-cols-12 row-span-1 col-span-1 calculadoraItemsDos " id="divCredito">
     <div class=" col-span-6 ">
-        <p>¿Cu&eacute;ntas con crédito Hipotecario?</p>
+        <p>¿Cu&eacute;ntas con tarjeta de crédito?</p>
     </div>
     <div class="col-span-3">
         <input type="radio" id="op3" name="hipotecario" value="Si" class="hipotecario">

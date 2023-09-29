@@ -120,7 +120,7 @@ max-width: 110px; /* Ancho deseado para la caja de entrada */
                                             <p class="encabezado-tabla-medio"></p>¿Cuenta con nomina?
                                         </th>
                                         <th scope="col" class="">
-                                            <p class="encabezado-tabla-medio"></p>¿Cuenta con un tarjeta de crédito?
+                                            <p class="encabezado-tabla-medio"></p>¿Cuenta con una tarjeta de crédito?
                                         </th>
                                         <th scope="col" class="">
                                             <p class="encabezado-tabla-pequeño"></p>CURP

@@ -97,16 +97,18 @@
         let tiempo = 1;
 
         $(document).on('click', '#btnSig', function (e) {
-            prestamo = $('#prestamo').val();
-            tiempo = $('#tiempo').val();
-            //console.log(prestamo);
-            //console.log(tiempo);
-            $('.divcalculadoraItems').hide();
-            $('.divcalculadoraItemsDos').show() ;
+            if($('#prestamo').val()>=20 && $('#tiempo').val()>0){
+                prestamo = $('#prestamo').val();
+                tiempo = $('#tiempo').val();
+                //console.log(prestamo);
+                //console.log(tiempo);
+                $('.divcalculadoraItems').hide();
+                $('.divcalculadoraItemsDos').show() ;
 
-            $('.calculadoraItems').fadeOut(1000);
+                $('.calculadoraItems').fadeOut(1000);
 
-           $('.calculadoraItemsDos').fadeIn(1500);
+                $('.calculadoraItemsDos').fadeIn(1500);
+            }
         });
 
       const calcular = () => {
@@ -116,13 +118,28 @@
         if( $('#nombre').val().length == 0 ){
             $('#nombre').after(`<div class="text-left"><small class="text-danger erorrs">El campo nombre es requerido</small></div>`);
             return;
+        }else {
+            var regex = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
+            var valorInput = $('#nombre').val();
+            if (!regex.test(valorInput)) {
+                $('#nombre').after(`<div class="text-left"><small class="text-danger erorrs">Solo se permiten letra y espacios en el campo nombre</small></div>`);
+                return;
+            }
         }
 
           //validacion trabajo
         if( $('#trabajo').val().length == 0 ){
             $('#trabajo').after(`<div class="text-left"><small class="text-danger erorrs">El campo trabajo es requerido</small></div>`);
             return;
+        }else{
+            var regex2 = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
+            var valorInput2 = $('#trabajo').val();
+            if (!regex2.test(valorInput2)) {
+                $('#trabajo').after(`<div class="text-left"><small class="text-danger erorrs">Solo se permiten letras y espacios en el campo trabajo</small></div>`);
+                return;
+            }
         }
+            
 
           //validacion nombre
         if( $('#ingresoMensual').val().length == 0 ){
@@ -147,8 +164,7 @@
         let ingesoMensual = $('#ingresoMensual').val();
         let tarjetaNomina = document.getElementById('op1').checked;
 
-
-        const acreditaIngresoMnesual = getIngresoMensual(ingesoMensual, 3);
+        const acreditaIngresoMnesual = getIngresoMensual(ingesoMensual, 2);
 
         if( tarjetaNomina && acreditaIngresoMnesual ){
             openModal('credito-aprobado');
@@ -161,10 +177,10 @@
       }
 
     const getIngresoMensual = (ingesoMensual, multiplicar) => {
-        const ingeso_mensual_calculado = ( parseInt(prestamo) * parseInt(multiplicar) );
+        const ingeso_mensual_calculado = ( parseInt(prestamo) * parseInt(multiplicar));
 
 
-        if( ingesoMensual > ingeso_mensual_calculado ) {
+        if( ingesoMensual >= ingeso_mensual_calculado ) {
 
             return true
         }

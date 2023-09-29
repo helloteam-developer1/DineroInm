@@ -51,20 +51,23 @@
                 
                 $('#pay-button').on('click', function(event) {
                     event.preventDefault();
-                    $("#pay-button").prop( "disabled", true);
+                    $("#pay-button").prop("disabled", true);
+                    $("#loading-message").show();
                     OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);                
                 });
 
                 var sucess_callbak = function(response) {
-                var token_id = response.data.id;
-                $('#token_id').val(token_id);
-                $('#payment-form').submit();
+                    var token_id = response.data.id;
+                    $('#token_id').val(token_id);
+                    $('#payment-form').submit();
                 };
 
                 var error_callbak = function(response) {
                     var desc = response.data.description != undefined ? response.data.description : response.message;
                     alert("ERROR [" + response.status + "] " + desc);
+                    $('#divtarjeta').after(`<div class="text-left"><small class="text-danger erorrs">`+desc+`</small></div>`);
                     $("#pay-button").prop("disabled", false);
+                    $("#loading-message").hide();
                 };
 
             });

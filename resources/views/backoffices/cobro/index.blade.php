@@ -20,7 +20,7 @@
                             </div>
                         @endif
                         @if (session('mensaje'))
-                            {{--Mensaje de error--}}
+                            @include('backoffices.cobro.alerta-error')
                         @endif
                         <!--inicio tabla de cobros--->
                         <table class="table table-striped table-bordered border-secondary" >

@@ -23,7 +23,7 @@
                 <img class="card-imagen" src="{{asset('img/openpay/cards2.png')}}">
             </div>
         </div>
-        <form action="{{route('pago.store')}}" class="payment-formulario" id="payment-form" method="POST">
+        <form action="{{route('pago.store')}}"  class="payment-formulario" id="payment-form" method="POST">
             @csrf
             <input type="hidden" name="token_id" id="token_id">
             <input type="hidden" name="use_card_points" id="use_card_points" value="false">
@@ -51,11 +51,15 @@
                     <img src="{{asset('img/openpay/cvv.png')}}" >
                 </div>
                 <br />
-                <small>Todas las tarjetas al momento de guardarse en BBVA Bancomer Openpay <strong>son validadas haciendo una autorización por $10.00 los cuales son devueltos en el momento.</strong> </small>
+                <small id="divtarjeta">Todas las tarjetas al momento de guardarse en BBVA Bancomer Openpay <strong>son validadas haciendo una autorización por $10.00 los cuales son devueltos en el momento.</strong> </small>
                 <br />
                 <a class="payment-submit" id="pay-button">Pagar</a>
             </div>
+            
         </form> 
+        <div class="alert alert-warning mt-2" role="alert" id="loading-message" style="display: none;">
+            Cargando...
+        </div>
         <div class="payment-footer">
             <div class="payment-footer-open">
                 <p class="payment-footer-text">Transacciones realizadas vía:</p>

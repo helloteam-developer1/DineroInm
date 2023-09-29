@@ -24,8 +24,7 @@ class CobrosController extends Controller
         $fecha = date('Y-m-d H:i:s');
         // Obtener la fecha restando una hora"
         $fecha_modificada =  date('Y-m-d', strtotime($fecha) - 3600);
-
-        $cobros = Amortizacion::wheredate('prox_pago',$fecha_modificada)->get();
+        $cobros = Amortizacion::wheredate('prox_pago',$fecha_modificada)->where('cobro','=',0)->get();
         return view('backoffices.cobro.index',compact('cobros'));
     }
 
@@ -65,9 +64,10 @@ class CobrosController extends Controller
                 'order_id' => $orden,
                 'device_session_id' => $request->deviceIdHiddenFieldName
             );
-        
+            
             $customer = $openpay->customers->get($id_openpay);
             $charge = $customer->charges->create($chargeData);
+            
             
         } catch (OpenpayApiTransactionError $e) {
             $error = "Error de transacción, codigo:".$e->getErrorCode();
@@ -88,35 +88,13 @@ class CobrosController extends Controller
             echo $error = "Error general" .$e->getMessage();            
             return redirect()->route('cobros.index')->with('mensaje',$error);
         }
+        $amort = Amortizacion::where('id_amortizacion',$request->id)->update(['cobro'=>1]);
         return redirect()->route('cobros.index')->with('success','Cobro realizaco con exito');
     }
-    public function metodo(User $id){
-        $metodo = $id->informacion_pago->data;
-        $metodo_pago = Crypt::decrypt($metodo);
-        try{    
-            $openpay = Openpay::getInstance(env('OPENPAY_MERCHANT_ID'), env('OPENPAY_APP_KEY_PV'));
-            $customer = $openpay->customers->get($id->openpay_id);
-            $card = $customer->cards->get($metodo_pago);
-            $card->delete();
-        } catch (OpenpayApiTransactionError $e) {
-            $error = "Error de transacción, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (OpenpayApiRequestError $e) {
-            $error = "Error de solicitud, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (OpenpayApiConnectionError $e) {
-            $error = "Error de conexión, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (OpenpayApiAuthError $e) {
-            echo $error = "Error de autenticación, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (OpenpayApiError $e) {
-            echo $error = "Error de OpenPay, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (Exception $e) {
-            echo $error = "Error general" .$e->getMessage();            
-            return redirect()->route('cobros.index')->with('mensaje',$error);
-        }
-        return redirect()->route('cobros.index')->with('success','Se vacio el metodo de pago y se envio a cartera vencida al usuario con exito');
+
+    public function metodo($id){
+        $openpay = Openpay::getInstance(env('OPENPAY_MERCHANT_ID'), env('OPENPAY_APP_KEY_PV'));
+        $customer = $openpay->customers->get($id);
+        $customer->delete();
     }
 }

@@ -18,7 +18,8 @@ class Amortizacion extends Model
         'interes_ordinarios',
         'iva_io',
         'comisiones',
-        'pago_total_men'
+        'pago_total_men',
+        'cobro'
     ];
 
     public function credito()

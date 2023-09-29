@@ -53,10 +53,8 @@
             <tr>
               <td style="padding:0px 30px 11px 30px;font-size:0;background-color:#ffffff;border-bottom:1px solid #f0f0f5;border-color:rgba(201,201,207,.35);">
                 <div class="col-lge" style="display:inline-block;width:100%;max-width:395px;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
-                  <p style="margin-top:-10px;margin-bottom:12px;">Se ha registrado exitosamente en la aplicación “Dinero Inmediato" sus datos de acceso son: </p>
-                  <p style="margin-top:0;margin-bottom:18px;">Usuario: <b>{{$usuario['email']}}</b></p>
-                  <p style="margin-top:0;margin-bottom:18px;">Password: <b>{{$usuario['password']}}</b></p>
-                  <p style="margin-top:40px;margin-bottom:8px;"> Dinero inmediato 2022 todos los derechos reservados. Si usted no se registró en la aplicación y por error le llegó este correo, haga caso omiso.</p>
+                  <p style="margin-top:-10px;margin-bottom:12px;">Se ha aprobado tu linea de crédito: </p>
+                  <p style="margin-top:40px;margin-bottom:8px;">Felicidades {{$nombre}}, se aprobó tu línea de crédito de {{$monto}}, para mas información ingresa en el siguiente enlace <a href="{{route('miPrestamo')}}">Ver más detalles</a></p>
                   
                 </div>
               </td>
