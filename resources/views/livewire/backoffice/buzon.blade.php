@@ -1,6 +1,7 @@
 <div class="dropdown">
-    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-      Buzon
+    <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="{{ asset('img/backoffices/BUZ_GRIS.png') }}" width="20"
+        alt="CLIENTES"> &nbsp;Buzón
       @if ($notificacion!=0)
         <sup>{{$notificacion}} </sup>
       @endif
@@ -22,8 +23,10 @@
             @endforeach
         </ul>
     @else    
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <p>Sin notificaciones</p>
+        <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+            <li>
+                <p>Sin notificaciones</p>
+            </li>
         </ul>
     @endif
   </div>
