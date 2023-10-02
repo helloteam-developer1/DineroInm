@@ -2,14 +2,14 @@
     <div class="container-fluid">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class=" col-4 col-sm-4 col-md-4 col-lg-2 offset-sm-4 offset-md-4 offset-lg-1 me-5" id="logoDI">
+                <div class=" col-4 col-sm-4 col-md-3 col-lg-1 offset-sm-4 offset-md-4 offset-lg-1 me-5" id="logoDI">
                     <img src="{{ asset('img/logo.png') }}" width="120" class="my-2" alt="logo"
                         onclick="window.location='{{ route('dashboard.backoffice') }}'" style="cursor: pointer;">
                 </div>
-                <div class=" col-4 col-sm-10 col-md-8 col-lg-4 offset-2 offset-sm-1 offset-md-2 offset-lg-4 mt-4">
+                <div class=" col-4 col-sm-10 col-md-9 col-lg-5 offset-1 offset-sm-1 offset-md-2 offset-lg-4 mt-4">
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav navDestop">
-                            <li class="nav-item ms-4">
+                            <li class="nav-item ms-3">
                                 @if (Request::is('clientes'))
                                     <a class="nav-link" href="{{ route('dashboard.backoffice') }}"
                                         style="color:#38a937;">
@@ -23,91 +23,39 @@
                                     </a>
                                 @endif
                             </li>
-                            <li class="nav-item ms-4">
+                            <li class="nav-item ms-3">
                                 @if (Request::is('cobro'))
                                     <a class="nav-link" href="{{ route('cobros.index') }}"
                                         style="color:#38a937;">
-                                        <img src="{{ asset('img/backoffices/CLIENTES.png') }}" width="20"
+                                        <img src="{{ asset('img/backoffices/COB_FULL_GRIS.png') }}" width="20"
                                             alt="CLIENTES"> Cobro
                                     </a>
                                 @else
                                     <a class="nav-link" href="{{ route('cobros.index') }}">
-                                        <img src="{{ asset('img/backoffices/Grupo 979.png') }}" width="20"
+                                        <img src="{{ asset('img/backoffices/COB_FULL_GRIS.png') }}" width="20"
                                             alt="CLIENTES"> Cobro
                                     </a>
                                 @endif
                             </li>
-                            <li class="nav-item ms-4">
-                                @push('css')
-                                    <style>
-                                        /* CSS buzon*/
-
-                                        .dropdown {
-                                            display:inline-block;
-                                            margin-left:20px;
-                                            padding:10px;
-                                        }
-
-
-                                        .glyphicon-bell {
-                                        
-                                            font-size:1.5rem;
-                                        }
-
-                                        .notifications {
-                                        min-width:420px; 
-                                        }
-                                        
-                                        .notifications-wrapper {
-                                            overflow:auto;
-                                            max-height:250px;
-                                            }
-                                            
-                                        .menu-title {
-                                            color:#ff7788;
-                                            font-size:1.5rem;
-                                            display:inline-block;
-                                            }
-                                        
-                                        .glyphicon-circle-arrow-right {
-                                            margin-left:10px;     
-                                        }
-                                        
-                                        
-                                        .notification-heading, .notification-footer  {
-                                            padding:2px 10px;
-                                            }
-                                            
-                                                
-                                        .dropdown-menu.divider {
-                                        margin:5px 0;          
-                                        }
-
-                                        .item-title {
-                                        
-                                        font-size:1.3rem;
-                                        color:#000;
-                                            
-                                        }
-
-                                        .notifications a.content {
-                                        text-decoration:none;
-                                        background:#ccc;
-
-                                        }
-                                            
-                                        .notification-item {
-                                        padding:10px;
-                                        margin:5px;
-                                        background:#ccc;
-                                        border-radius:4px;
-                                        }
-
-                                    </style>
-                                @endpush
+                            <li class="nav-item dropdown ms-3">
                                 @livewire('backoffice.buzon')
                             </li>
-                            <li class="nav-item ms-4">
+                            {{-- <li class="nav-item ms-3">
+                                @if (Request::is('cobro'))
+                                    <a class="nav-link" href="{{ route('cobros.index') }}"
+                                        style="color:#38a937;">
+                                        <img src="{{ asset('img/backoffices/CLIENTES.png') }}" width="20"
+                                            alt="CLIENTES"> Buzón
+                                    </a>
+                                @else
+                                    <a class="nav-link" href="{{ route('cobros.index') }}">
+                                        <img src="{{ asset('img/backoffices/BUZ_GRIS.png') }}" width="20"
+                                            alt="CLIENTES"> Buzón
+                                    </a>
+                                @endif
+                                @livewire('backoffice.buzon')
+                            </li> --}}
+                            <li class="nav-item ms-3">
                                 @if (Request::is('notificaciones'))
                                     <a class="nav-link {{ Request::is('notificaciones') ? 'disabled' : null }}"
                                         href="/notificaciones" style="color:#38a937;">
@@ -124,7 +72,7 @@
                                     </a>
                                 @endif
                             </li>
-                            <li class="nav-item dropdown ms-4">
+                            <li class="nav-item dropdown ms-3">
                                 <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="{{ asset('img/backoffices/ICONO AJUSTES.svg') }}" width="20"
