@@ -32,9 +32,7 @@
     <link href="{{ asset('css/backoffice/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app-clientes-estilos/estilos-appclientes.css') }}">
     @stack('css')
-    {{--<script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>--}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireStyles
     <style>
         .solicita:hover{
@@ -217,6 +215,27 @@
   function openmodal(){
     $('#exampleModal').modal('show');
   }
+  Livewire.on('error_miperfil', mensaje =>{
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: mensaje,
+    });
+  });
+  Livewire.on('success', mensaje =>{
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: mensaje,
+      showConfirmButton: false,
+      timer: 1700
+    }).then(() => {
+      // Recargar la página después de mostrar la alerta
+      window.location.reload();
+    });
+    
+  });
+  
 </script>
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
