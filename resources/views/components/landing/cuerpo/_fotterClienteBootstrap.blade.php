@@ -21,7 +21,7 @@
                         <div class="modal-dialog modal-lg modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                     <h5 class="modal-title text-center" id="staticBackdropLabel" style="font-size: 35px; color:#38a937;">Términos y Condiciones</h5>
                                 </div>
                             </div>

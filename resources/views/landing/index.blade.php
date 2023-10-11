@@ -40,7 +40,7 @@
             class="divcalculadoraItemsDos  drop-shadow-lg row-span-3 bg-white grid grid-rows-7 grid-cols-1 col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 ml-10 z-40 mr-0 sm:mr-0 md:mr-0 lg:mr-0 xl:mr-0 divCalculadora ml-0 sm:ml-0 md:ml-0 lg:ml-10 xl:ml-10 pb-10" style="display: none">
               @include('landing.components.content-calculadora-calculo')
           </div>
-            <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 grid grid-cols-1">
+            <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 mac:col-span-1 grid grid-cols-1">
                 <div class="mr-10">
                     <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%" id="ImgIndex">
                 </div>
