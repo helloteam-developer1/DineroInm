@@ -16,12 +16,13 @@ RUN apt-get update && \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Establece el directorio de trabajo en el contenedor
-WORKDIR /var/www/html
+WORKDIR /var/www/
 
 # Copia el archivo composer.json y composer.lock para optimizar el cacheo de las dependencias
 COPY composer.json composer.lock ./
 
-RUN CMD bash -c "composer install && php artisan serve --host 0.0.0.0 --port 5001"
+# Install composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 # Copia todos los archivos de la aplicación al contenedor
 COPY . .
