@@ -21,6 +21,7 @@ WORKDIR /var/www/html
 # Copia el archivo composer.json y composer.lock para optimizar el cacheo de las dependencias
 COPY composer.json composer.lock ./
 
+RUN CMD bash -c "composer install && php artisan serve --host 0.0.0.0 --port 5001"
 
 # Copia todos los archivos de la aplicación al contenedor
 COPY . .
