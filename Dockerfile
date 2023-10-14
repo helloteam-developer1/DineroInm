@@ -22,8 +22,7 @@ WORKDIR /var/www/html
 COPY composer.json composer.lock ./
 
 # Instala las dependencias de Composer
-RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader && \
-    composer dump-autoload --optimize
+RUN composer install
 
 # Copia todos los archivos de la aplicación al contenedor
 COPY . .
