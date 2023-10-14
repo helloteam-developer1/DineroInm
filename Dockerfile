@@ -21,8 +21,6 @@ WORKDIR /var/www/html
 # Copia el archivo composer.json y composer.lock para optimizar el cacheo de las dependencias
 COPY composer.json composer.lock ./
 
-# Instala las dependencias de Composer
-RUN composer install
 
 # Copia todos los archivos de la aplicación al contenedor
 COPY . .
