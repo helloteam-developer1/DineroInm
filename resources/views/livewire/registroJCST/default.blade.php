@@ -34,7 +34,8 @@
     <!--<link href="{{ asset('css/landing/style.css') }}" rel="stylesheet">-->
     <link href="{{ asset('css/wizard.css') }}" rel="stylesheet">
     @stack('css')
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <link rel="stylesheet" href="./css/app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     @livewireStyles

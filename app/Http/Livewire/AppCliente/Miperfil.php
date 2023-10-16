@@ -28,7 +28,7 @@ class Miperfil extends Component
 
     public function guardar(){
         $validatedData = $this->validate([
-            'email' => 'required|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i|unique:users',
+            'email' => 'required|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i|unique:users,user:'.auth()->user->id,
             'nombre'=> ['required','min:15','max:120','regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/'],
             'telefono_contacto' => 'required|numeric|digits_between:10,10',
         ]);
