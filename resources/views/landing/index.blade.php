@@ -48,14 +48,14 @@
                     <div class="w-full grid pb-4 px-2 " style=" background: #EBE7E8">
 
                         <div class="col-span-3 text-center mt-3 mb-2 titulosMobile">
-                            <p class="texto-solicita-negro">Solicita el prestamo en <br> <strong class="text-green">sencillos pasos</strong></p>
+                            <p class="texto-solicita-negro">Solicita el préstamo en <br> <strong class="text-green">sencillos pasos</strong></p>
                         </div>
                         <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
                            <div>
                                 <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 56.png') }}" width="70px">
                            </div>
                             <div>
-                                <span class="texto-pequeno-gris">Registrate</span>
+                                <span class="texto-pequeno-gris">Regístrate</span>
                            </div>
                         </div>
                         <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
@@ -71,7 +71,7 @@
                                 <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 247.png') }}" width="70px">
                            </div>
                             <div>
-                                <span class="texto-pequeno-gris">Tienes el dinero <br> muy rapido</span>
+                                <span class="texto-pequeno-gris">Tienes el dinero <br> muy rápido</span>
                            </div>
                         </div>
                     </div>
