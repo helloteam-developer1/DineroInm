@@ -6,6 +6,7 @@ use App\Http\Controllers\AppCliente\SolicitarCredito;
 use App\Models\Credito;
 use App\Models\Solicitud_Credito;
 use App\Models\User;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -27,12 +28,16 @@ class Miperfil extends Component
 
 
     public function guardar(){
-        $validatedData = $this->validate([
-            'email' => 'required|regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i|unique:users,user:'.auth()->user->id,
-            'nombre'=> ['required','min:15','max:120','regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/'],
-            'telefono_contacto' => 'required|numeric|digits_between:10,10',
-        ]);
-        User::where('id','=',Auth::user()->id)->update(['email'=>$this->email,'nombre'=>$this->nombre,'telefono_contacto'=>$this->telefono_contacto]); 
-        $this->emit('success','Actualizando...');
+        if($this->nombre == auth()->user()->nombre && $this->telefono_contacto== auth()->user()->telefono_contacto && $this->email == auth()->user()->email){
+            $this->emit('error_miperfil','Se requiere modificar algún campo para continuar.');
+        }else{
+            $validatedData = $this->validate([
+                'email' => ['required','regex:/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i','unique:users,email,'.auth()->user()->id],
+                'nombre'=> ['required','min:15','max:120','regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/'],
+                'telefono_contacto' => 'required|numeric|digits_between:10,10',
+            ]);
+            User::where('id','=',Auth::user()->id)->update(['email'=>$this->email,'nombre'=>$this->nombre,'telefono_contacto'=>$this->telefono_contacto]); 
+            $this->emit('success','Actualizando...');
+        }
     }
 }
