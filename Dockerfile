@@ -45,7 +45,6 @@ RUN if grep -Fq "laravel/octane" /var/www/html/composer.json; then \
 FROM node:${NODE_VERSION} as node_modules_go_brrr
 
 RUN mkdir /app
-RUN mkdir /public/posts
 
 RUN mkdir -p  /app
 WORKDIR /app
