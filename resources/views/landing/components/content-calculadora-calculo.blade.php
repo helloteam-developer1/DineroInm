@@ -24,11 +24,11 @@
         <p>¿Tienes tarjeta de nómina?</p>
     </div>
     <div class="col-span-3 ">
-        <input type="radio" id="op1" name="nomina" value="Si">
+        <input type="radio" id="op1" name="nomina" value="Si" class="border-green-600 text-green-600 focus:border-green-500 focus:ring-green-500" >
         <label for="op1">Si</label>
     </div>
     <div class="col-span-3 ">
-        <input type="radio" id="op2" name="nomina" value="NO">
+        <input type="radio" id="op2" name="nomina" value="NO" class="border-green-60 text-green-600 focus:border-green-500 focus:ring-green-500" >
         <label for="op2">No</label>
     </div>
 
@@ -39,11 +39,11 @@
         <p>¿Cu&eacute;ntas con tarjeta de crédito?</p>
     </div>
     <div class="col-span-3">
-        <input type="radio" id="op3" name="hipotecario" value="Si" class="hipotecario">
+        <input type="radio" id="op3" name="hipotecario" value="Si" class="hipotecario border-green-60 text-green-600 focus:border-green-500 focus:ring-green-500">
         <label for="op3">Si</label>
     </div>
     <div class="col-span-3">
-        <input type="radio" name="hipotecario" value="No" id="op4" class="hipotecario">
+        <input type="radio" name="hipotecario" value="No" id="op4" class="hipotecario border-green-60 text-green-600 focus:border-green-500 focus:ring-green-500">
         <label for="op4">No</label>
     </div>
 

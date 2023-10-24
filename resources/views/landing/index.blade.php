@@ -101,8 +101,8 @@
             var tiempoValor = parseInt($('#tiempo').val()); 
             var prestamoValor = parseInt($('#prestamo').val());
 
-            if(tiempoValor === 0 && prestamoValor === 0){
-                $('#btnSig').after(`<div class="text-center"><span class="text-danger erorrs">Tienes que seleccionar un tiempo y monto para continuar.</span></div>`);
+            if(tiempoValor === 0 || prestamoValor === 0){
+                $('#btnSig').after(`<div class="text-center mt-2"><span class="text-danger erorrs">El campo tiempo y monto son requeridos para continuar.</span></div>`);
             }else{
                 if($('#prestamo').val()>=20 && $('#tiempo').val()>0){
                     prestamo = $('#prestamo').val();

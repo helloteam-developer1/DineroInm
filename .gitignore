@@ -16,3 +16,5 @@ yarn-error.log
 /public/posts
 fly.toml
 .fly
+.npm/
+.git/
