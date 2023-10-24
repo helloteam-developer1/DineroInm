@@ -106,7 +106,7 @@ class wizard extends Component
                 'dia' => 'required',
                 'mes'=> 'required',
                 'year' => 'required',
-                'empresa_trabajo' => 'required|min:5|max:40|regex:/^[\pL\s\-]+$/u',
+                'empresa_trabajo' => ['required','min:5' ,'max:40','regex:/^[a-zA-ZáéíóúüÜÁÉÍÓÚ.,\s]+$/u'],
                 'antiguedad' => 'required',
                 'rama_empresa'=> 'required|min:5|max:250',
                 'banco_nomina'=> 'required|min:3|max:35',
