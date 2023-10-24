@@ -3,50 +3,50 @@
         <p style="font-size: 1.5rem; color:#da8b0c;">Dirección:</p>
         <p>Completa tu perfil.</p>
         <div class="row">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="* Calle" wire:model.defer="calle"  maxlength="30" required><br/>
+            <div class="col mb-4">
+                <input type="text" class="form-control" placeholder="* Calle" wire:model.defer="calle"  maxlength="30" required>
                 @error('calle')
                     <span style="color:brown">{{$message}}</span>
                 @enderror
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-sm">
-                <input type="numeric" class="form-control" placeholder="* Número Exterior" wire:model.defer="numero" maxlength="5" required><br/>
+                <input type="numeric" class="form-control" placeholder="* Número Exterior" wire:model.defer="numero" maxlength="5" required>
                 @error('numero')
                     <span style="color:brown">{{$message}}</span>
                 @enderror
             </div>
             <div class="col-sm">
-                <input type="numeric" class="form-control" placeholder="Número Interior" wire:model.defer="num_int" maxlength="5"><br/>
+                <input type="numeric" class="form-control" placeholder="Número Interior" wire:model.defer="num_int" maxlength="5"required>
                 @error('num_int')
                     <span style="color:brown">{{$message}}</span>
                 @enderror
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-sm">
-                <input type="text" class="form-control"  placeholder="* Colonia" wire:model.defer="colonia" maxlength="72" required><br/>
+                <input type="text" class="form-control"  placeholder="* Colonia" wire:model.defer="colonia" maxlength="72" required>
                 @error('colonia')
                     <span style="color:brown;">{{$message}}</span>
                 @enderror
             </div>
             <div class="col-sm">
-                <input type="numeric" class="form-control" placeholder="* Código Postal" wire:model.defer="cp" maxlength="5" required><br/>
+                <input type="numeric" class="form-control" placeholder="* Código Postal" wire:model.defer="cp" maxlength="5" required>
                 @error('cp')
                     <span style="color:brown;">{{$message}}</span>
                 @enderror
             </div>
         </div>
-        <div class="row empresa">
+        <div class="row empresa mb-4">
             <div class="col-sm empresa">
-                <input type="text" class="form-control" placeholder="* Municipio/Alcaldía" wire:model.defer="municipio" maxlength="40" required><br/>
+                <input type="text" class="form-control" placeholder="* Municipio/Alcaldía" wire:model.defer="municipio" maxlength="40" required>
                 @error('municipio')
                     <span style="color:brown;">{{$message}}</span>
                 @enderror
             </div>
             <div class="col-sm">
-                <input type="text" class="form-control" placeholder="* Estado" wire:model.defer="estado" maxlength="30"  required><br/>    
+                <input type="text" class="form-control" placeholder="* Estado" wire:model.defer="estado" maxlength="30"  required>    
                 @error('estado')
                     <span style="color:brown;">{{$message}}</span>
                 @enderror
