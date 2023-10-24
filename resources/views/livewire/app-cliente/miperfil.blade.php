@@ -36,7 +36,7 @@
         </div>
         {{--Nombre--}}
         <div class="row margin-bottom">
-            <div class="col-4 col-md-5 offset-md-0"><label class="form-label" style="float: right; margin-right: 6%;">Nombre: </label>  
+            <div class="col-4 col-md-5 offset-md-0"><label class="form-label" style="float: right;">Nombre Completo: </label>  
             </div>
             <div class="col-8 col-md-7">
                 <input class="form-control email" type="text" placeholder="Nombre Completo" wire:model="nombre">
@@ -49,7 +49,7 @@
         </div>
         {{--Telefono--}}
         <div class="row margin-bottom">
-            <div class="col-4 col-md-5 offset-md-0"><label class="form-label " style="float: right; margin-right: 5%;">Telefono: </label>  
+            <div class="col-4 col-md-5 offset-md-0"><label class="form-label " style="float: right;">Telefono: </label>  
             </div>
             <div class="col-8 col-md-7">
                 <input type="tel" wire:model="telefono_contacto" class="form-control email" placeholder="Telefono de contacto">
@@ -63,7 +63,7 @@
         {{--Email--}}
         <div class="row centrado margin-bottom" >
             <div class="col-4 col-md-5 offset-md-0">
-                    <label for="inputPassword6" class="form-label " style="float: right; margin-right: 8%;">Correo:</label>
+                    <label for="inputPassword6" class="form-label " style="float: right;">Correo:</label>
                 </div>
                 <div class="col-8 col-md-7">
                     <input type="email" wire:model="email" placeholder="Tu correo eléctronico" class="form-control email" >
