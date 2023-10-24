@@ -115,7 +115,7 @@ input[type="date"] {
                                             <p class="encabezado-tabla-medio">linea de Crédito Aut</p>
                                         </th>
                                         <th scope="col" class="">
-                                            <p class="encabezado-tabla-medio">Tarjeta de Nóm Reg</p>
+                                            <p class="encabezado-tabla-medio">Tarjeta Registrada</p>
                                         </th>
                                         <th scope="col" class="">
                                             <p class="encabezado-tabla-medio">Tabla de Amortización</p>
@@ -149,7 +149,7 @@ input[type="date"] {
                                                     @if (empty($c->tarjeta_reg))
                                                         Sin Registro
                                                     @else
-                                                        {{$c->tarjeta_reg}}
+                                                        Registrada
                                                     @endif
 
                                                 </td>

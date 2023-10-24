@@ -75,6 +75,7 @@ class PagoController extends Controller
             return redirect()->route('dashboard')->with('errorpayment',$error);
         }
         Buzon::create(['user_id'=>Auth::user()->id,'informacion'=>0]);
+        User::where('id','=',Auth::user()->id)->update(['tarjeta_reg'=>'1']);
         return redirect()->route('dashboard')->with('paymentsuccess','Metodo de Pago agregado correctamente!');
     }
   

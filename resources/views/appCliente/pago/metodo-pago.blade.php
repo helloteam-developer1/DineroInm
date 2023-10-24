@@ -53,13 +53,14 @@
                 <br />
                 <small id="divtarjeta">Todas las tarjetas al momento de guardarse en BBVA Bancomer Openpay <strong>son validadas haciendo una autorización por $10.00 los cuales son devueltos en el momento.</strong> </small>
                 <br />
+                <div class="mt-2" role="alert" id="loading-message" style="display: none;">
+                    Cargando...
+                </div>
                 <a class="payment-submit" id="pay-button">Pagar</a>
             </div>
             
         </form> 
-        <div class="alert alert-warning mt-2" role="alert" id="loading-message" style="display: none;">
-            Cargando...
-        </div>
+       
         <div class="payment-footer">
             <div class="payment-footer-open">
                 <p class="payment-footer-text">Transacciones realizadas vía:</p>

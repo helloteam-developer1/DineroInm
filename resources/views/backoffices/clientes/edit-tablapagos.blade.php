@@ -52,7 +52,7 @@
                                 @enderror
                             </div>
                             <div class="mb-4">
-                                <button type="button" class="btn btn-cancelar" onclick="history.go(-1); return false;" style="float: left;">Cancerlar</button>
+                                <button type="button" class="btn btn-cancelar" onclick="history.go(-1); return false;" style="float: left;">Cancelar</button>
                                 <button type="submit" class="btn btn-guardar">Guardar</button>
                             </div>
                         </form>

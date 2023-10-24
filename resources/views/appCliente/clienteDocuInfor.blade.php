@@ -63,9 +63,10 @@
                 };
 
                 var error_callbak = function(response) {
+                    $('#payment-error').remove(); 
                     var desc = response.data.description != undefined ? response.data.description : response.message;
                     alert("ERROR [" + response.status + "] " + desc);
-                    $('#divtarjeta').after(`<div class="text-left"><small class="text-danger erorrs">`+desc+`</small></div>`);
+                    $('#divtarjeta').after(`<div class="text-left"><small class="text-danger erorrs" id="payment-error">`+desc+`</small></div>`);
                     $("#pay-button").prop("disabled", false);
                     $("#loading-message").hide();
                 };

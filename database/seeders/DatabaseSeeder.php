@@ -177,6 +177,34 @@ class DatabaseSeeder extends Seeder
             'created_at'=> '2023-09-19 21:16:08',
             'updated_at'=> '2023-10-10 19:11:43'
         ]);
+        \App\Models\User::create([    
+            'id'=> 4,
+            'nombre'=> 'Serguio Perez Lopez',
+            'curp'=> 'SETJ990923HDFGRN02',
+            'fecha_nacimiento'=> '1946-06-10',
+            'empresa_trabajo'=> 'Hello Mexico',
+            'rama_empresa'=> 'Comercio al por mayor de fibras textiles procesadas de origen natural o químico.',
+            'antiguedad'=> 'de 3 a 5 años',
+            'banco_nomina'=> 'BANORTE',
+            'email'=> 'helloteam.developer2@gmail.com',
+            'password'=> '$2y$10$bhHKjL.HDihOKyky2W12SuSGfJbN2x4QzR7cRbO.3Z6blMtRnVCAi',
+            'telefono_contacto'=> '5557510760',
+            'direccion'=> null,
+            'ine_frente'=> null,
+            'ine_reverso'=> null,
+            'comp_dom'=> null,
+            'foto_cine'=> null,
+            'prestamo'=> '3000',
+            'tiempo'=> '2',
+            'trabajo'=> 'Diseñador',
+            'ingreso'=> '$7,000.00',
+            'nomina'=> 'si',
+            'credito'=> 'si',
+            'tarjeta_reg'=> null,
+            'num_cliente'=> null,
+            'openpay_id'=> null,
+            'rol'=> 0,               
+        ]);
         \App\Models\User::create([
             'nombre'=> 'Juan Carlos Segura Torres',
             'curp'=> 'SETJ990923HDFNGR10',
@@ -202,10 +230,11 @@ class DatabaseSeeder extends Seeder
             'tarjeta_reg'=> null,
             'num_cliente'=> null,
             'openpay_id'=> null,
-            'rol'=> 0,
+            'rol'=> 1,
             'remember_token'=> null,
             'created_at'=> '2023-10-10 19:31:09',
             'updated_at'=> '2023-10-10 19:31:09'
         ]);
+        
     }
 }
