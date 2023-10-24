@@ -1,5 +1,4 @@
 <div class="row mb-3">
-    
     <form wire:submit.prevent="submit">
         <p style="font-size: 1.5rem; color:#da8b0c;">Dirección:</p>
         <p>Completa tu perfil.</p>

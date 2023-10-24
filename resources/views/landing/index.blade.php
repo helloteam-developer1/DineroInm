@@ -97,17 +97,25 @@
         let tiempo = 1;
 
         $(document).on('click', '#btnSig', function (e) {
-            if($('#prestamo').val()>=20 && $('#tiempo').val()>0){
-                prestamo = $('#prestamo').val();
-                tiempo = $('#tiempo').val();
-                //console.log(prestamo);
-                //console.log(tiempo);
-                $('.divcalculadoraItems').hide();
-                $('.divcalculadoraItemsDos').show() ;
+            $('.erorrs').remove();
+            var tiempoValor = parseInt($('#tiempo').val()); 
+            var prestamoValor = parseInt($('#prestamo').val());
 
-                $('.calculadoraItems').fadeOut(1000);
+            if(tiempoValor === 0 && prestamoValor === 0){
+                $('#btnSig').after(`<div class="text-center"><span class="text-danger erorrs">Tienes que seleccionar un tiempo y monto para continuar.</span></div>`);
+            }else{
+                if($('#prestamo').val()>=20 && $('#tiempo').val()>0){
+                    prestamo = $('#prestamo').val();
+                    tiempo = $('#tiempo').val();
+                    //console.log(prestamo);
+                    //console.log(tiempo);
+                    $('.divcalculadoraItems').hide();
+                    $('.divcalculadoraItemsDos').show() ;
 
-                $('.calculadoraItemsDos').fadeIn(1500);
+                    $('.calculadoraItems').fadeOut(1000);
+
+                    $('.calculadoraItemsDos').fadeIn(1500);
+                }
             }
         });
 
@@ -132,7 +140,7 @@
             $('#trabajo').after(`<div class="text-left"><small class="text-danger erorrs">El campo trabajo es requerido</small></div>`);
             return;
         }else{
-            var regex2 = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
+            var regex2 = /^[a-zA-ZáéíóúñÑÁÉÍÓÚ\s]+$/;
             var valorInput2 = $('#trabajo').val();
             if (!regex2.test(valorInput2)) {
                 $('#trabajo').after(`<div class="text-left"><small class="text-danger erorrs">Solo se permiten letras y espacios en el campo trabajo</small></div>`);
