@@ -11,7 +11,7 @@ class RechazarSolicitud extends Component
 {
     public $user,$texto,$mensaje;
     public $contador=0;
-    protected $rules = ['texto' => 'max:300|required'];
+    protected $rules = ['texto' => 'required'];
 
     public function mount(User $user){
         $this->user = $user;

@@ -30,7 +30,7 @@
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-10 offset-md-3 offset-lg-1">
                                         <label for="" class="pb-2 label-izquierda">Motivo de rechazo:</label>
                                         <div class="form-floating mt-3">
-                                            <textarea class="form-control footer-textarea" style="height: 185px;" placeholder="Comentario" maxlength="300" wire:model="texto" id="contador" onkeyup="contarletras();" wire:ignore.self></textarea>
+                                            <textarea class="form-control footer-textarea" style="height: 185px;" placeholder="Comentario" wire:model="texto" id="contador" onkeyup="contarletras();" wire:ignore.self></textarea>
                                             <label for="floatingTextarea">Escribe mensaje</label>
                                             <div
                                                 class="col-3 col-sm-3 col-md-3 col-lg-3 offset-9 offset-sm-9 offset-md-9 offset-lg-9">
@@ -43,6 +43,9 @@
                                             @error('error')
                                                 <span style="color: red; font-size:17px;">{{$message}}</span>
                                             @enderror
+                                            @if ($contador>300)
+                                                <p style="color:red;">El motivo del rechazo es demaciado largo</p>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -59,8 +62,13 @@
                                         <button type="button" class="btn px-4 py-2 my-2"
                                             style="background-color: #38a937; color:white; margin-right: 63%;"
                                             data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn px-4 py-2 my-2"
-                                            style="background-color: #f29100; color:white;" wire:click="rechazar({{$user->id}})">Aceptar</button>
+                                        @if ($contador>300)
+                                            <button type="button" class="btn px-4 py-2 my-2"
+                                            style="background-color: #f29100; color:white;">Aceptar</button>
+                                        @else
+                                            <button type="button" class="btn px-4 py-2 my-2"
+                                            style="background-color: #f29100; color:white;" wire:click="rechazar({{$user->id}})" >Aceptar</button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
