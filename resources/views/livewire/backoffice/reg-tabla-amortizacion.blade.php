@@ -1,7 +1,7 @@
 <div>
     <button class="mb-2 btn px-5 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal"
         style="background-color: #38a937; color:white; font-size: 20px;">Agregar Fila</button>
-
+    <br><br>
     <div class="modal fade" wire:ignore.self id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -21,14 +21,14 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="num_pagos" class="col-form-label">Numero de Pago:</label>
+                        <label for="num_pagos" class="col-form-label">Número de Pago:</label>
                         <input type="text" class="form-control" id="num_pagos" wire:model="num_pagos">
                         @error('num_pagos')
                             <span style="color:red;">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="prox_pago" class="col-form-label">Proximo pago:</label>
+                        <label for="prox_pago" class="col-form-label">Próximo pago:</label>
                         <input type="date" class="form-control" id="prox_pago" wire:model="prox_pago"
                             style="width: 150px;">
                         @error('prox_pago')

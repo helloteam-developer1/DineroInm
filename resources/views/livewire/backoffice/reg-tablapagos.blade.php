@@ -3,6 +3,7 @@
         style="background-color: #38a937; color:white; font-size: 20px;">
         Agregar Fila
     </button>
+    <br><br>
     <div class="modal fade" wire:ignore.self id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
