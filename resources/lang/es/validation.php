@@ -162,7 +162,9 @@ return [
         'monto_pago' => 'Monto pago',
         'p_actual' => 'Contraseña actual',
         'password' => 'Contraseña',
-        'password_confirmation' => 'Confirmación de contraseña'
+        'password_confirmation' => 'Confirmación de contraseña',
+        'termino' => 'busqueda'
+
     ],
 
 ];

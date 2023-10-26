@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/7652a6e854.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireStyles
-    <script src="http://code.jquery.com/jquery-git.js"></script>
+    <script src="https://code.jquery.com/jquery-git.js"></script>
     @stack('js')
 </head>
 

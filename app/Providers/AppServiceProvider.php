@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     { 
         Paginator::useBootstrap();
         Blade::component('modal-footer', modal::class);
-        
+    
     }
     
 }
