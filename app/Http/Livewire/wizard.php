@@ -81,14 +81,82 @@ class wizard extends Component
     public function updatedMes(){
             $this->reset('limite');
             if(empty($this->year%4)){
-                if($this->mes == '02'){
-                    $this->limite = 29;
+                switch($this->mes){
+                    case '01':
+                        $this->limite = 31;
+                        break;
+                    case '02':
+                        $this->limite = 29;
+                    break;
+                    case '03':
+                        $this->limite = 31;
+                        break;
+                    case '04':
+                        $this->limite = 30;
+                        break;
+                    case '05':
+                        $this->limite = 31;
+                        break;
+                    case '06':
+                        $this->limite = 30;
+                        break;
+                    case '07':
+                        $this->limite = 31;
+                        break;
+                    case '08':
+                        $this->limite = 31;
+                        break;
+                    case '09':
+                        $this->limite = 30;
+                        break;
+                    case '10':
+                        $this->limite = 31;
+                        break;
+                    case '11':
+                        $this->limite = 30;
+                        break;
+                    case '12':
+                        $this->limite = 31;
+                        break;
                 }
             }else{
-                if($this->mes== '02'){
-                    $this->limite = 28;
-                }else{
-                    $this->limite = 31;
+                switch($this->mes){
+                    case '01':
+                        $this->limite = 31;
+                        break;
+                    case '02':
+                        $this->limite = 28;
+                    break;
+                    case '03':
+                        $this->limite = 31;
+                        break;
+                    case '04':
+                        $this->limite = 30;
+                        break;
+                    case '05':
+                        $this->limite = 31;
+                        break;
+                    case '06':
+                        $this->limite = 30;
+                        break;
+                    case '07':
+                        $this->limite = 31;
+                        break;
+                    case '08':
+                        $this->limite = 31;
+                        break;
+                    case '09':
+                        $this->limite = 30;
+                        break;
+                    case '10':
+                        $this->limite = 31;
+                        break;
+                    case '11':
+                        $this->limite = 30;
+                        break;
+                    case '12':
+                        $this->limite = 31;
+                        break;
                 }
             }
     }

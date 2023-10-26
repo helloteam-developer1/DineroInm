@@ -159,6 +159,10 @@ class AcepSolicitud extends Component
                 'phone_number' => $this->user->telefono_contacto
             );
             $customer = $openpay->customers->add($customerData);
+            sleep(5);
+            $customerId = $customer->id;
+            $this->user->openpay_id = $customerId;
+            $this->user->save();
         }
         catch (OpenpayApiTransactionError $e) {
             $error = "Error de transacción:" .$e->getMessage().", codigo:".$e->getErrorCode();
@@ -180,8 +184,7 @@ class AcepSolicitud extends Component
             $this->addError('openpay',$error);
         }
         
-        $this->user->openpay_id = $customer->id;
-        $this->user->save();
+        
     }
 
     public function crearcredito($id){
