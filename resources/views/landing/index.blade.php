@@ -121,17 +121,22 @@
 
       const calcular = () => {
 
-          $('.erorrs').remove();
+        $('.erorrs').remove();
           //validacion nombre
-        if( $('#nombre').val().length == 0 ){
+        if( $('#nombre').val().length==0 ){
             $('#nombre').after(`<div class="text-left"><small class="text-danger erorrs">El campo nombre es requerido</small></div>`);
             return;
         }else {
-            var regex = /^[a-zA-ZáéíóúñÑÁÉÍÓÚ\s]+$/;
-            var valorInput = $('#nombre').val();
-            if (!regex.test(valorInput)) {
-                $('#nombre').after(`<div class="text-left"><small class="text-danger erorrs">Solo se permiten letra y espacios en el campo nombre</small></div>`);
+            if($('#nombre').val().length < 14){
+                $('#nombre').after(`<div class="text-left"><small class="text-danger erorrs">El campo nombre tiene que ser mayor a 30 caracteres</small></div>`);
                 return;
+            }else{
+                var regex = /^[a-zA-ZáéíóúñÑÁÉÍÓÚ\s]+$/;
+                var valorInput = $('#nombre').val();
+                if (!regex.test(valorInput)) {
+                    $('#nombre').after(`<div class="text-left"><small class="text-danger erorrs">Solo se permiten letra y espacios en el campo nombre</small></div>`);
+                    return;
+                }
             }
         }
 

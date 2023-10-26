@@ -65,6 +65,11 @@ class wizard extends Component
         return view('livewire.registroJCST.default', ['usuario_name'=>$nombre_usuario]);
     }    
 
+    public function updatedIne_frente(){
+        dd('funciono');
+    }
+
+
     public function mount($id_user){
         $this->id_us = $id_user;
     }
@@ -174,7 +179,7 @@ class wizard extends Component
                 'dia' => 'required',
                 'mes'=> 'required',
                 'year' => 'required',
-                'empresa_trabajo' => ['required','min:5' ,'max:40','regex:/^[a-zA-ZáéíóúüÜÁÉÍÓÚ.,\s]+$/u'],
+                'empresa_trabajo' => ['required','min:5' ,'max:40','regex:/^[a-zA-ZáéíóúüñÑÜÁÉÍÓÚ.,\s]+$/u'],
                 'antiguedad' => 'required',
                 'rama_empresa'=> 'required|min:5|max:250',
                 'banco_nomina'=> 'required|min:3|max:35',

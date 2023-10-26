@@ -101,6 +101,9 @@
                                                 @endif
                                         </div>    
                                     </div>
+                                    <div wire:loading wire:target="aceptar">
+                                        <p style="font-size: 1.2rem;">Cargando...</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +125,7 @@
                                                         
                                                         disabled
                                                     @else
-                                                        wire:click="aceptar({{$user->id}})"
+                                                        wire:click="aceptar({{$user->id}})" wire:loading.attr="disabled"
                                                     @endif
                                                     >Guardar</button>
                                         
