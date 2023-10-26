@@ -62,7 +62,7 @@
                                                 name="password_confirmation" required/>
                         </div>
                         
-                        <center><button class="btn btn-verde btn-md" style="margin-top: 30px; ">Cambiar password</button></center>
+                        <center><button class="btn btn-verde btn-md" style="margin-top: 30px; ">Cambiar contraseña</button></center>
                     </form>
                 </div>
                 <div class="col-2"></div>
