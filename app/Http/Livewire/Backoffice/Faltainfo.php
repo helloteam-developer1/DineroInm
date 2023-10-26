@@ -39,7 +39,7 @@ class Faltainfo extends Component
                 if($this->opcion1==1){
                     Solicitud_Credito::where('user_id','=',$id)->update([
                         'estado' => 1,
-                        'mensaje' => 'Documento Inválido o información incorrecta, favor de volver a subir.'.$this->mensaje,
+                        'mensaje' => 'Documento Inválido o información incorrecta, favor de volver a subir.<br />'.$this->mensaje,
                         'documentacion' => '3'
                     ]);
                     $this->emit('alert');
@@ -47,7 +47,7 @@ class Faltainfo extends Component
                 if($this->opcion2==1){
                     Solicitud_Credito::where('user_id','=',$id)->update([
                         'estado' => 1,
-                        'mensaje' =>'Documento incompleta: falta documentación por subir.'. $this->mensaje,
+                        'mensaje' =>'Documentación incompleta: falta documentación por subir. <br />'. $this->mensaje,
                         'documentacion' =>'3'
                     ]);    
                     $this->emit('alert');

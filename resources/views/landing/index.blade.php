@@ -127,7 +127,7 @@
             $('#nombre').after(`<div class="text-left"><small class="text-danger erorrs">El campo nombre es requerido</small></div>`);
             return;
         }else {
-            var regex = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
+            var regex = /^[a-zA-ZáéíóúñÑÁÉÍÓÚ\s]+$/;
             var valorInput = $('#nombre').val();
             if (!regex.test(valorInput)) {
                 $('#nombre').after(`<div class="text-left"><small class="text-danger erorrs">Solo se permiten letra y espacios en el campo nombre</small></div>`);

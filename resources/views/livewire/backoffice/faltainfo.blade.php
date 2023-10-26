@@ -42,22 +42,22 @@
                                             </div>
                                             <div class="form-check my-4">
                                                 <input class="form-check-input" type="checkbox"name="opcion"
-                                                    id="flexCheckDefault" wire:model="opcion2" value="1">
-                                                <label class="form-check-label label-izquierda" for="flexCheckDefault">
-                                                    Documento incompleta: falta documentación por subir.
+                                                    id="flexCheckDefault2" wire:model="opcion2" value="1">
+                                                <label class="form-check-label label-izquierda" for="flexCheckDefault2">
+                                                    Documentación incompleta: falta documentación por subir.
                                                 </label>
                                             </div>
                                             
                                             <div class="form-check my-4">
                                                 <input class="form-check-input" type="checkbox" name="opcion"
-                                                        id="flexCheckDefault" wire:model="otro" value="1">
-                                                <label class="form-check-label label-izquierda" for="flexCheckDefault">
+                                                        id="flexCheckDefault3" wire:model="otro" value="1">
+                                                <label class="form-check-label label-izquierda" for="flexCheckDefault3">
                                                         Otro.
                                                 </label>
                                            </div>
                                             
                                             <div class="form-floating mt-3">
-                                                <textarea class="form-control footer-textarea" style="height: 160px;" placeholder="Comentario" maxlength="300" wire:model="mensaje"></textarea>
+                                                <textarea class="form-control footer-textarea" style="height: 160px;" placeholder="Comentario" wire:model="mensaje"></textarea>
                                                 <label for="floatingTextarea">Escribe mensaje</label>
                                                 <div
                                                     class="col-3 col-sm-3 col-md-3 col-lg-3 offset-9 offset-sm-9 offset-md-9 offset-lg-9">
@@ -70,6 +70,11 @@
                                                     <span style="color:red;">{{$message}}</span>
                                                 </div>
                                             @enderror
+                                            @if ($contador>=300)
+                                            <div class="row">
+                                                <span style="color:red;">El mensaje no puede ser mayor a 300 caracteres</span>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -86,8 +91,13 @@
                                         <button type="button" class="btn px-4 my-2"
                                             style="background-color: #38a937; color:white; margin-right: 64%;"
                                             data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn px-4 my-2"
+                                        @if ($contador>=300)
+                                            <button type="button" class="btn px-4 my-2"
+                                            style="background-color: #f29100; color:white;">Enviar</button>
+                                        @else
+                                            <button type="button" class="btn px-4 my-2"
                                             style="background-color: #f29100; color:white;" wire:click="docincomp({{$user->id}})">Enviar</button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

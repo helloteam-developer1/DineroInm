@@ -34,10 +34,10 @@
               </p>    
             @break
             @case(1)
-              <p class="texto-carotSans--Regular" style="font-size: 25px; color: #474747;text-align: justify;">{{$mensaje}}</p>
+              <p class="texto-carotSans--Regular" style="font-size: 25px; color: #474747;text-align: justify;">{!!$mensaje!!}</p>
             @break
             @case(2)
-              <p class="texto-carotSans--Regular" style="font-size: 25px; color: #474747;text-align: justify;">{{$mensaje}}.<br>Intenta nuevamente después de {{$dias}} días.</p>
+              <p class="texto-carotSans--Regular" style="font-size: 25px; color: #474747;text-align: justify;">{!!$mensaje!!}.<br>Intenta nuevamente después de {{$dias}} días.</p>
             @break
             @case(3)
             <p class="texto-carotSans--Regular" style="font-size: 25px; color: #474747;text-align: justify;">“Felicidades, tu línea de crédito fue aprobada”, haz click en Obtener crédito para comenzar.</p>

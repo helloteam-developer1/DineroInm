@@ -50,9 +50,9 @@ class NewPasswordController extends Controller
                 ],
                 [  
                     'password.required' => 'Todos los campos son obligatorios',
-                    'token.required' => 'El token ya fue utilizado por favor solicita uno nuevo',
+                    'token.required' => 'El token es incorrecto, por favor solicite uno nuevo',
                     'password.confirmed' => 'Las contraseñas no coinciden favor de volver a intenterlo',
-                    'email.required' => 'Error El Token es incorrecto, por favor solicita uno nuevo.'
+                    'email.required' => 'Error El Token es incorrecto, por favor solicite uno nuevo.'
 
                 ]
             );
