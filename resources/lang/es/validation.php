@@ -163,7 +163,8 @@ return [
         'p_actual' => 'Contraseña actual',
         'password' => 'Contraseña',
         'password_confirmation' => 'Confirmación de contraseña',
-        'termino' => 'busqueda'
+        'termino' => 'busqueda',
+        'The card was declined by the bank' => 'La tarjeta ha sido declinada por el banco.'
 
     ],
 

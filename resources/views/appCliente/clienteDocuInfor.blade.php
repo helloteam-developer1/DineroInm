@@ -65,8 +65,54 @@
                 var error_callbak = function(response) {
                     $('#payment-error').remove(); 
                     var desc = response.data.description != undefined ? response.data.description : response.message;
-                    alert("ERROR [" + response.status + "] " + desc);
-                    $('#divtarjeta').after(`<div class="text-left"><small class="text-danger erorrs" id="payment-error">`+desc+`</small></div>`);
+                    
+                    var descripcion;
+                    switch(response.data.description){
+                        case "card_number is required, expiration_year expiration_month is required":
+                           descripcion = "El numero de tarjeta, es requerido, el año y mes de expiración es requerido.";
+                        break;
+                        case "card_number is required, card_number is required":
+                            descripcion = "El numero de tarjeta es requerido.";
+                        break;
+                        case "card_number length is invalid":
+                            descripcion = "La longitud del numero de tarjeta, es invalido.";
+                        break;
+                        case "The CVV2 security code is required":
+                            descripcion = "El CVV codigo de seguridad es requerido.";
+                        break;
+                        case "cvv2 length must be 3 digits":
+                            descripcion = "El CVV debe ser de 3 dígitos";
+                        break;
+                        case "The card number verification digit is invalid":
+                            descripcion = "El dígito de verificación del número de tarjeta no es válido";
+                        break;
+                        case "expiration_year expiration_month is required":
+                            descripcion = "La año y mes de expiración es requerido";
+                        case "The expiration date has expired":
+                            descripcion = "La fecha de expiración de la tarjeta es anterior a la fecha actual.";
+                        case "Card product type not supported":
+                            descripcion = "Tipo de tarjeta no soportada.";
+                        case "The card was declined by the bank":
+                            descripcion = "La tarjeta fue declinada por el banco.";
+                        case "The card has expired":
+                            descripcion = "La tarjeta ha expirado.";
+                        case "The card was reported as stolen":
+                            descripcion = "La tarjeta ha sido identificada como una tarjeta robada.";
+                        case "Fraud risk detected by anti-fraud system --- Found in blacklist":
+                            descripcion = "La tarjeta ha sido rechazada por el sistema antifraudes/ Rechazada por coincidir con registros en lista negra";
+                        case "":
+                            descripcion = "La tarjeta fue reportada como perdida.";
+                        case "The card was reported as lost":
+                            descripcion = "";
+                        case "The bank has restricted the card":
+                            descripcion = "El banco ha restringido la tarjeta.";
+                        case "Bank authorization is required for this charge":
+                            descripcion = "Se requiere solicitar al banco autorización para realizar este pago.";
+                        default: 
+                            descripcion = response.data.descripcion;
+                        break;
+                    }
+                    $('#divtarjeta').after(`<div class="text-left"><small class="text-danger erorrs" id="payment-error">`+descripcion+`</small></div>`);
                     $("#pay-button").prop("disabled", false);
                     $("#loading-message").hide();
                 };

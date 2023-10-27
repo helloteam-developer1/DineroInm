@@ -56,22 +56,22 @@ class PagoController extends Controller
             }
             
         } catch (OpenpayApiTransactionError $e) {
-            $error = "Error de transacción:" .$e->getMessage().", codigo:".$e->getErrorCode();
-            return redirect()->route('dashboard')->with('errorpayment',$error);
+            
+            return redirect()->route('dashboard')->with('errorpayment',$e->getErrorCode());
         } catch (OpenpayApiRequestError $e) {
-            $error = "Error de solicitud:" .$e->getMessage().", codigo:".$e->getErrorCode();
-            return redirect()->route('dashboard')->with('errorpayment',$error);
+            
+            return redirect()->route('dashboard')->with('errorpayment',$e->getErrorCode());
         } catch (OpenpayApiConnectionError $e) {
-            $error = "Error de conexión:" .$e->getMessage().", codigo:".$e->getErrorCode();
-            return redirect()->route('dashboard')->with('errorpayment',$error);
+            
+            return redirect()->route('dashboard')->with('errorpayment',$e->getErrorCode());
         } catch (OpenpayApiAuthError $e) {
-            $error = "Error de autenticación:" .$e->getMessage().", codigo:".$e->getErrorCode();
-            return redirect()->route('dashboard')->with('errorpayment',$error);
+            
+            return redirect()->route('dashboard')->with('errorpayment',$e->getErrorCode());
         } catch (OpenpayApiError $e) {
-            $error = "Error de OpenPay:" .$e->getMessage().", codigo:".$e->getErrorCode();
-            return redirect()->route('dashboard')->with('errorpayment',$error);
+            
+            return redirect()->route('dashboard')->with('errorpayment',$e->getErrorCode());
         } catch (Exception $e) {
-            $error = "Error general" .$e->getMessage();
+            $error = "Error general" .$e->getMessage();   
             return redirect()->route('dashboard')->with('errorpayment',$error);
         }
         Buzon::create(['user_id'=>Auth::user()->id,'informacion'=>0]);

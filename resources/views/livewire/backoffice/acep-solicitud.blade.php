@@ -101,9 +101,6 @@
                                                 @endif
                                         </div>    
                                     </div>
-                                    <div wire:loading wire:target="aceptar">
-                                        <p style="font-size: 1.2rem;">Cargando...</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
