@@ -14,7 +14,7 @@
 
         <div class="col-span-3">
             <p class="range">
-                <input type="range" min="0"  max="6" value="0" id="tiempo">
+                <input type="range" min="0"  max="6" value="0" id="tiempo" autocomplete="off">
                 <output hidden></output>
 
             </p>

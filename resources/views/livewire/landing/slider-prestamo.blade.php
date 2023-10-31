@@ -12,7 +12,7 @@
         </div>
         <div  class="col-span-3">
             <p class="range">
-                <input type="range" min="0" max="3000" value="0" step="1" id="prestamo">
+                <input type="range" min="0" max="3000" value="0" step="1" id="prestamo" autocomplete="off">
                 <output hidden></output>
 
             </p>
