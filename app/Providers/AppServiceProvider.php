@@ -30,7 +30,9 @@ class AppServiceProvider extends ServiceProvider
     { 
         Paginator::useBootstrap();
         Blade::component('modal-footer', modal::class);
-        URL::forceScheme('https');    
+        if($this->app->environment('production')){
+            URL::forceScheme('https');    
+        }
     }
     
 }
