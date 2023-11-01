@@ -118,11 +118,9 @@
                                         
                                                     <button type="button" class="btn px-4 my-2" style="background-color: #f29100; color:white;" 
                                                     @if ($errors->any())
-                                                        
-                                                        
                                                         disabled
                                                     @else
-                                                        wire:click="aceptar({{$user->id}})" wire:loading.attr="disabled"
+                                                        wire:click="aceptar({{$user->id}})" wire:loading.attr="disabled" wire:target="confirmacion"
                                                     @endif
                                                     >Guardar</button>
                                         

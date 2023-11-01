@@ -46,5 +46,7 @@ class RechazarSolicitud extends Component
         //contabilizo los caracteres y los muestro
         $this->contador = strlen($espacios);
     }
-    
+    public function limpiar(){
+        $this->reset(['texto','contador']);
+    }   
 }

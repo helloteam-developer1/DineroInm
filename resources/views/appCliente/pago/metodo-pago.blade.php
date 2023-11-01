@@ -118,10 +118,10 @@
                         <small>La tarjeta ha caducado</small>
                     @break
                     @case(3003)
-                        <small>La tarjeta no tiene fondos suficientes</small>
+                        <small>Tarjeta declinada</small>
                     @break
                     @case(3004)
-                        <small>La tarjeta fue reportada como robada.</small>
+                        <small>Tarjeta declinada</small>
                     @break
                     @case(3005)
                         <small>Riesgo de fraude detectado por el sistema antifraude <br /> Encontrado en la lista negra</small>
@@ -130,7 +130,7 @@
                         <small>Solicitud no permitida</small>
                     @break
                     @case(3009)
-                        <small>La tarjeta fue reportada como perdida</small>
+                        <small>Tarjeta declinada</small>
                     @break
                     @case(3010)
                         <small>El banco ha restringido la tarjeta.</small>
@@ -194,28 +194,31 @@
             <div class="payment-formulario-tarjeta">
                 <label class="payment-titulo">Número de tarjeta</label>
                 <br />
-                <input type="text" class="form-control" autocomplete="off" data-openpay-card="card_number">
+                <input type="text" class="form-control" autocomplete="off" data-openpay-card="card_number" maxlength="16" id="card_number">
+                <span id="card_number_error" style="color:red; font-size:.8rem;font-weight:bold;"></span>
             </div>
             <div class="payment-formulario-fecha">
                 <label class="payment-titulo">Fecha de expiración</label>
                 <div class="payment-formulario-fechaex">
-                    <div class="fechaex"><input class="form-control" type="text" placeholder="Mes" data-openpay-card="expiration_month"></div>
-                    <div class="fechaex"><input class="form-control" type="text" placeholder="Año" data-openpay-card="expiration_year"></div>
+                    <div class="fechaex"><input class="form-control" type="text" placeholder="Mes" data-openpay-card="expiration_month" id="expiracion_mes" maxlength="2"></div>
+                    <div class="fechaex"><input class="form-control" type="text" placeholder="Año" data-openpay-card="expiration_year" id="expiracion_year"maxlength="2"></div>
                 </div>
+                <span id="date_error" style="color:red; font-size:.8rem;font-weight:bold;"></span>
             </div>
             <div class="codigo">
                 <label class="payment-titulo">Código de seguridad</label>
                 <div class="cvv">
-                    <input type="number" class="form-control" placeholder="3 dígitos" autocomplete="off" data-openpay-card="cvv2">
+                    <input type="number" class="form-control" placeholder="" autocomplete="off" data-openpay-card="cvv2" id="cv" maxlength="4">
                     <img src="{{asset('img/openpay/cvv.png')}}" >
                 </div>
+                <span id="cv_error" style="margin-top: 10px; margin-bottom:10px; color:red; font-weight:bold; font-size:.8rem;"></span>
                 <br />
                 <small id="divtarjeta">Todas las tarjetas al momento de guardarse en BBVA Bancomer Openpay <strong>son validadas haciendo una autorización por $10.00 los cuales son devueltos en el momento.</strong> </small>
                 <br />
                 <div class="mt-2" role="alert" id="loading-message" style="display: none;">
                     Cargando...
                 </div>
-                <a class="payment-submit" id="pay-button">Pagar</a>
+                <button class="payment-submit" id="pay-button">Pagar</button>
             </div>
             
         </form> 

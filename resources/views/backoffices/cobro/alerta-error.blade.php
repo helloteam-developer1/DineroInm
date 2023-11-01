@@ -112,10 +112,10 @@
                 <small>La tarjeta ha caducado</small>
             @break
             @case(3003)
-                <small>La tarjeta no tiene fondos suficientes</small>
+                <small>Tarjeta declinada</small>
             @break
             @case(3004)
-                <small>La tarjeta fue reportada como robada.</small>
+                <small>Tarjeta declinada</small>
             @break
             @case(3005)
                 <small>Riesgo de fraude detectado por el sistema antifraude <br /> Encontrado en la lista negra</small>
@@ -124,7 +124,7 @@
                 <small>Solicitud no permitida</small>
             @break
             @case(3009)
-                <small>La tarjeta fue reportada como perdida</small>
+                <small>Tarjeta declinada</small>
             @break
             @case(3010)
                 <small>El banco ha restringido la tarjeta.</small>

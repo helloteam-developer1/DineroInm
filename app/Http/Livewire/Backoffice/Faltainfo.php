@@ -67,5 +67,8 @@ class Faltainfo extends Component
         }
     }
 
+    public function limpiar(){
+        $this->reset(['mensaje','contador']);
+    }
 
 }

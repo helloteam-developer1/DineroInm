@@ -61,7 +61,7 @@
                                     <div class="col-12 col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
                                         <button type="button" class="btn px-4 py-2 my-2"
                                             style="background-color: #38a937; color:white; margin-right: 63%;"
-                                            data-bs-dismiss="modal">Cancelar</button>
+                                            data-bs-dismiss="modal" wire:click="limpiar()">Cancelar</button>
                                         @if ($contador>300)
                                             <button type="button" class="btn px-4 py-2 my-2"
                                             style="background-color: #f29100; color:white;">Aceptar</button>
