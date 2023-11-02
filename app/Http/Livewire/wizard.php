@@ -40,8 +40,8 @@ class wizard extends Component
     
     public $ine_frente; 
     public $ine_reverso; 
-    public $comp_dom; 
-    public $foto_cine;
+    public $comprobante_de_domicilio; 
+    public $foto_con_ine;
     public $acepto;
     /*Mensajes de error o exito*/
     public $successMessage = '';
@@ -65,8 +65,8 @@ class wizard extends Component
         return view('livewire.registroJCST.default', ['usuario_name'=>$nombre_usuario]);
     }    
 
-    public function updatedIne_frente(){
-        dd('funciono');
+    public function updated(){
+        $this->resetValidation();
     }
 
 
@@ -232,29 +232,25 @@ class wizard extends Component
         $validatedData = $this->validate(
             [
             'acepto' => 'accepted',
-            'ine_frente' => 'required|mimes:jpg,png|max:2000',
-            'ine_reverso' => 'required|mimes:jpg,png|max:2000',
-            'comp_dom' => 'required|mimes:jpg,png|max:2000',
-            'foto_cine' => 'required|mimes:jpg,png|max:2000',
+            'ine_frente' => 'required|mimes:jpg,png|max:2048',
+            'ine_reverso' => 'required|mimes:jpg,png|max:2048',
+            'comprobante_de_domicilio' => 'required|mimes:jpg,png|max:2048',
+            'foto_con_ine' => 'required|mimes:jpg,png|max:2048',
             ],
             [
                 'acepto.accepted'=> 'Tienes que aceptar los terminos y condiciones para poder continuar.',
                 'ine_frente.max' => 'Hubo un problema al subir la imagen, revisa tu conexión o que el peso de tus imagenes no rebase de 2MB',
                 'ine_reverso.max' => 'Hubo un problema al subir la imagen, revisa tu conexión o que el peso de tus imagenes no rebase de 2MB',
-                'comp_dom.max' => 'Hubo un problema al subir la imagen, revisa tu conexión o que el peso de tus imagenes no rebase de 2MB',
-                'foto_cine.max' => 'Hubo un problema al subir la imagen, revisa tu conexión o que el peso de tus imagenes no rebase de 2MB',
+                'comprobante_de_domicilio.max' => 'Hubo un problema al subir la imagen, revisa tu conexión o que el peso de tus imagenes no rebase de 2MB',
+                'foto_con_ine.max' => 'Hubo un problema al subir la imagen, revisa tu conexión o que el peso de tus imagenes no rebase de 2MB',
             ],
         );
         
         $nombre_ine_frente = 'INE_FRENTE-'.Str::slug($this->id_us).'.'.$this->ine_frente->getClientOriginalExtension();
         $nombre_ine_reverso = 'INE_REVERSO-'.Str::slug($this->id_us).'.'.$this->ine_reverso->getClientOriginalExtension();
-        $nombre_comp_dom = 'COMP_COM-'.Str::slug($this->id_us).'.'.$this->comp_dom->getClientOriginalExtension();
-        $nombre_foto_cine = 'FOTO_CON_INE-'.Str::slug($this->id_us).'.'.$this->foto_cine->getClientOriginalExtension();
+        $nombre_comprobante_de_domicilio = 'COMP_COM-'.Str::slug($this->id_us).'.'.$this->comprobante_de_domicilio->getClientOriginalExtension();
+        $nombre_foto_con_ine = 'FOTO_CON_INE-'.Str::slug($this->id_us).'.'.$this->foto_con_ine->getClientOriginalExtension();
         
-        /*$ruta1= $this->ine_frente->storeAs("posts/",$nombre_ine_frente,'public_posts',0644);
-        $ruta2= $this->ine_reverso->storeAs("posts/",$nombre_ine_reverso,'public_posts',0644);
-        $ruta3= $this->comp_dom->storeAs("posts/",$nombre_comp_dom,'public_posts',0644);
-        $ruta4= $this->foto_cine->storeAs("posts/",$nombre_foto_cine,'public_posts',0644);*/
         //Ine Frente
         $path_if = public_path('posts'.'/'.$nombre_ine_frente);
         $comp_if = Image::make($this->ine_frente->getRealPath());
@@ -264,12 +260,12 @@ class wizard extends Component
         $comp_ir = Image::make($this->ine_reverso->getRealPath());
         $comp_ir->save($path_ir,40);
         //Comprobante de Domicilio
-        $path_comp_d = public_path('posts'.'/'.$nombre_comp_dom);
-        $comp_comp_d = Image::make($this->comp_dom->getRealPath());
+        $path_comp_d = public_path('posts'.'/'.$nombre_comprobante_de_domicilio);
+        $comp_comp_d = Image::make($this->comprobante_de_domicilio->getRealPath());
         $comp_comp_d->save($path_comp_d,40);
         //Foto con INE
-        $path_fc = public_path('posts'.'/'.$nombre_foto_cine);
-        $comp_fc = Image::make($this->foto_cine->getRealPath());
+        $path_fc = public_path('posts'.'/'.$nombre_foto_con_ine);
+        $comp_fc = Image::make($this->foto_con_ine->getRealPath());
         $comp_fc->save($path_fc,40);
 
 
@@ -291,8 +287,8 @@ class wizard extends Component
             'password' => $password,
             'ine_frente' => '/posts'.'/'.$nombre_ine_frente,
             'ine_reverso' => '/posts'.'/'.$nombre_ine_reverso,
-            'comp_dom' => '/posts'.'/'.$nombre_comp_dom,
-            'foto_cine' => '/posts'.'/'.$nombre_foto_cine,
+            'comprobante_de_domicilio' => '/posts'.'/'.$nombre_comprobante_de_domicilio,
+            'foto_con_ine' => '/posts'.'/'.$nombre_foto_con_ine,
             'prestamo' =>  $consulta[0]->prestamo,
             'tiempo' => $consulta[0]->tiempo,
             'trabajo' => $consulta[0]->trabajo,
@@ -317,8 +313,6 @@ class wizard extends Component
                     return "Ocurrio un error, Login";
                 } 
                 $this->clearForm();
-        }else{
-            dd('error calculadora');
         }
     }
     
@@ -346,8 +340,8 @@ class wizard extends Component
                 'direccion' => null,
                 'ine_frente' => null,
                 'ine_reverso' => null,
-                'comp_dom' =>  null,
-                'foto_cine' => null,
+                'comprobante_de_domicilio' =>  null,
+                'foto_con_ine' => null,
                 'prestamo' =>  $consulta[0]->prestamo,
                 'tiempo' => $consulta[0]->tiempo,
                 'trabajo' => $consulta[0]->trabajo,
@@ -431,9 +425,11 @@ class wizard extends Component
         $this->password=''; 
         $this->ine_frente=''; 
         $this->ine_reverso=''; 
-        $this->comp_dom=''; 
-        $this->foto_cine='';
+        $this->comprobante_de_domicilio=''; 
+        $this->foto_con_ine='';
         
     }
+
+    
 
 }

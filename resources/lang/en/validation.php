@@ -144,6 +144,31 @@ return [
     |
     */
 
-    'attributes' => [],
+    
+    'attributes' => [
+        'num_credito' => 'Número de crédito',
+        'num_pagos' => 'Número de pago',
+        'interes_anual' => 'Interes Anual',
+        'prox_pago' => 'Proximo pago',
+        'pago_capital' => 'Pago capital',
+        'interes_o' => 'Interes Ordinario',
+        'iva_io' => 'IVA Interes Ordinario',
+        'comisiones' => 'Comisiones',
+        'pago_t_mensual' => 'Pago total mensual',
+        'n_credito' => 'Número de Crédito',
+        'numero_pagos' => 'Número de pago',
+        'fecha_pago' => 'Fecha de pago',
+        'monto_pago' => 'Monto pago',
+        'p_actual' => 'Contraseña actual',
+        'password' => 'Contraseña',
+        'password_confirmation' => 'Confirmación de contraseña',
+        'termino' => 'busqueda',
+        'The card was declined by the bank' => 'La tarjeta ha sido declinada por el banco.',
+        'kilobytes' => 'MB',
+        'ine_frente' => 'INE frente',
+        'ine_reverso' => 'INE reverso',
+        'comp_dom' => 'Comprobante de domicilio',
+        'foto_cine' =>'Foto con INE'
+    ],
 
 ];

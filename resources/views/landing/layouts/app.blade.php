@@ -9,8 +9,8 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    {{-- <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon"> --}}
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

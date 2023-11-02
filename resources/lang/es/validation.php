@@ -106,7 +106,7 @@ return [
     'same'                 => 'Los campos :attribute y :other deben coincidir.',
     'size'                 => [
         'numeric' => 'El campo :attribute debe ser :size.',
-        'file'    => 'El archivo :attribute debe pesar :size kilobytes.',
+        'file'    => 'El archivo :attribute debe pesar :size MB.',
         'string'  => 'El campo :attribute debe contener :size caracteres.',
         'array'   => 'El campo :attribute debe contener :size elementos.',
     ],
@@ -164,8 +164,12 @@ return [
         'password' => 'Contraseña',
         'password_confirmation' => 'Confirmación de contraseña',
         'termino' => 'busqueda',
-        'The card was declined by the bank' => 'La tarjeta ha sido declinada por el banco.'
-
+        'The card was declined by the bank' => 'La tarjeta ha sido declinada por el banco.',
+        'kilobytes' => 'MB',
+        'ine_frente' => 'INE frente',
+        'ine_reverso' => 'INE reverso',
+        'comp_dom' => 'Comprobante de domicilio',
+        'foto_cine' =>'Foto con INE'
     ],
 
 ];

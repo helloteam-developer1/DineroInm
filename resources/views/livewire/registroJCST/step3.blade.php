@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 {{--alerta de carga comprobante de docmicilio--}}
-                <div wire:loading wire:target="comp_dom" class="bg-[#EAF9EA] text-[#39A935] rounded-b px-4 py-3 shadow-md mb-6" role="alert">
+                <div wire:loading wire:target="comprobante_domicilio" class="bg-[#EAF9EA] text-[#39A935] rounded-b px-4 py-3 shadow-md mb-6" role="alert">
                     <div>
                         <div>
                             <center>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div wire:loading wire:target="foto_cine" class="bg-[#EAF9EA] text-[#39A935] rounded-b px-4 py-3 shadow-md mb-6" role="alert">
+                <div wire:loading wire:target="foto_con_ine" class="bg-[#EAF9EA] text-[#39A935] rounded-b px-4 py-3 shadow-md mb-6" role="alert">
                     <div>
                         <div>
                             <center>
@@ -74,7 +74,7 @@
                     <a class="btn btn-gris" onclick="document.getElementById('getFileine_frente').click()">Adjuntar
                         archivo</a>
                     <input type='file' id="getFileine_frente" style="display: none" name="ine_frente"
-                        wire:model.defer="ine_frente" accept="image/*" >
+                        wire:model="ine_frente" accept="image/*" >
                 </div>
             </div>
             <br />
@@ -95,48 +95,48 @@
                     <a class="btn btn-gris" onclick="document.getElementById('getFileine_reverso').click()">Adjuntar
                         archivo</a>
                     <input type='file' id="getFileine_reverso" style="display:none" name="ine_reverso"
-                        wire:model.defer="ine_reverso" accept="image/*">
+                        wire:model="ine_reverso" accept="image/*">
                 </div>
             </div>
             <br />
             {{--Comprobante de domicilio--}}
             <div class="row">
                 <div class="col-2">
-                    @if ($comp_dom)
-                        <img src="{{ $comp_dom->temporaryUrl() }}" width="75%" height="auto" />
+                    @if ($comprobante_de_domicilio)
+                        <img src="{{ $comprobante_de_domicilio->temporaryUrl() }}" width="75%" height="auto" />
                     @endif
                 </div>
                 <div class="col-5">
                     <p class="texto">Comprobante de domicilio</p>
-                    @if ($errors->has('comp_dom'))
-                        <span style="color:brown;text-align:initial; float:left;">{{ $errors->first('comp_dom') }}</span>
+                    @if ($errors->has('comprobante_de_domicilio'))
+                        <span style="color:brown;text-align:initial; float:left;">{{ $errors->first('comprobante_de_domicilio') }}</span>
                     @endif
                 </div>
                 <div class="col-5">
                     <a class="btn btn-gris" onclick="document.getElementById('getFilecomp_dom').click()">Adjuntar archivo</a>
                     <input type='file' id="getFilecomp_dom" style="display:none" name="comp_dom"
-                        wire:model.defer="comp_dom" accept="image/*">
+                        wire:model="comprobante_de_domicilio" accept="image/*">
                 </div>
             </div>
             <br />
             {{--Foto con ine --}}
             <div class="row">
                 <div class="col-2">
-                    @if ($foto_cine)
-                        <img src="{{ $foto_cine->temporaryUrl() }}" width="75%" height="auto" />
+                    @if ($foto_con_ine)
+                        <img src="{{ $foto_con_ine->temporaryUrl() }}" width="75%" height="auto" />
                     @endif
                 </div>
                 <div class="col-5"> 
                     <p class="texto">Tomate una foto con tu INE </p>
-                    @if ($errors->has('foto_cine'))
-                        <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('foto_cine') }}</span>
+                    @if ($errors->has('foto_con_ine'))
+                        <span style="color:brown; text-align:initial; float:left;">{{ $errors->first('foto_con_ine') }}</span>
                     @endif
                 </div>
                 <div class="col-5">
                     <a class="btn btn-gris" onclick="document.getElementById('getFilefoto_cine').click()">Adjuntar
                         archivo</a>
                     <input type='file' id="getFilefoto_cine" style="display:none" name="foto_cine"
-                        wire:model.defer="foto_cine" accept="image/*">
+                        wire:model="foto_con_ine" accept="image/*">
                 </div>
             </div>
             <br />

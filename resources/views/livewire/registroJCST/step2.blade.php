@@ -10,20 +10,20 @@
                     <p class="titulo-campo">Datos obligatorios (*)</p>
                 </div>
                 <div class="row empresa">
-                    <input type="tel" class="form-control" placeholder="* Teléfono de contacto" wire:model.defer="telefono_contacto" maxlength="10" required><br/>
+                    <input autocomplete="off" type="tel" class="form-control" placeholder="* Teléfono de contacto" wire:model.defer="telefono_contacto" maxlength="10" required><br/>
                     @if ($errors->has('telefono_contacto'))
                         <span style="color:brown;">{{ $errors->first('telefono_contacto') }}</span>
                     @endif 
                 </div>
                 <div class="row empresa">
-                    <input type="text" class="form-control" placeholder="* Correo electrónico" wire:model.defer="email" name="email" maxlength="50" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required><br/>
+                    <input autocomplete="off" type="text" class="form-control" placeholder="* Correo electrónico" wire:model.defer="email" name="email" maxlength="50" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required><br/>
                     @if ($errors->has('email'))
                         <span style="color:brown;">{{ $errors->first('email') }}</span>
                     @endif 
                 </div>
                 <div class="row empresa">
                     
-                    <input type="password" id="password" class="form-control empresa" placeholder="* Contraseña" wire:model.defer="password" name="password" maxlength="50" required>
+                    <input autocomplete="off" type="password" id="password" class="form-control empresa" placeholder="* Contraseña" wire:model.defer="password" name="password" maxlength="50" required>
                     
                     <input type="password" id="password2"class="form-control" placeholder="* Verificar contraseña" wire:model.defer="password_confirmation" name="password_confirmation" maxlength="50" required>
                     @if ($errors->has('password'))

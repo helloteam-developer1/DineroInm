@@ -42,7 +42,7 @@
           </div>
             <div class="col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-1 xl:col-span-1 mac:col-span-1 grid grid-cols-1">
                 <div class="mr-10">
-                    <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%" id="ImgIndex">
+                    <img class=""  src="{{ asset('img/landing/index/Content-Figure.png') }}" width="100%" id="ImgIndex" loading="eager">
                 </div>
                 <div>
                     <div class="w-full grid pb-4 px-2 " style=" background: #EBE7E8">
@@ -52,7 +52,7 @@
                         </div>
                         <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
                            <div>
-                                <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 56.png') }}" width="70px">
+                                <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 56.png') }}" width="70px" loading="lazy">
                            </div>
                             <div>
                                 <span class="texto-pequeno-gris">Regístrate</span>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
                            <div>
-                                <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 55.png') }}" width="70px">
+                                <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 55.png') }}" width="70px" loading="lazy">
                            </div>
                             <div>
                                 <span class="texto-pequeno-gris">Validaremos tu solicitud <br> de cr&eacute;dito</span>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-span-1 grid grid-cols-1 grid-rows-2 justify-items-center">
                            <div>
-                                <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 247.png') }}" width="70px">
+                                <img class="mb-3 images" src="{{ asset('img/landing/index/Grupo 247.png') }}" width="70px" loading="lazy">
                            </div>
                             <div>
                                 <span class="texto-pequeno-gris">Tienes el dinero <br> muy rápido</span>

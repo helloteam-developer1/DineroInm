@@ -14,7 +14,7 @@
                     <!--Input de CURP-->
                     <div class="row">
                         <div class="col-lg">
-                            <input type="text" placeholder="* CURP" class="form-control input-c" wire:model.defer="curp" name="curp" maxlength="18" required>
+                            <input autocomplete="off" type="text" placeholder="* CURP" class="form-control input-c" wire:model.defer="curp" name="curp" maxlength="18" required>
                         </div>   
                         <!--Link para el CURP-->
                         <div class="col-auto flex-right">
@@ -52,7 +52,7 @@
                     <!--Empresa donde trabajas -->    
                     <div class="row empresa" >
                         <div class="col-12">
-                        <input type="text" placeholder="* Empresa donde trabajas" class="form-control" wire:model.defer="empresa_trabajo" name="empresa_trabajo" maxlength="40" required>
+                        <input autocomplete="off" type="text" placeholder="* Empresa donde trabajas" class="form-control" wire:model.defer="empresa_trabajo" name="empresa_trabajo" maxlength="40" required>
                         @if ($errors->has('empresa_trabajo'))
                             <span style="color:brown;">{{ $errors->first('empresa_trabajo') }}</span>
                         @endif 
