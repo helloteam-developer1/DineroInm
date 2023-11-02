@@ -37,158 +37,161 @@
     {{--Pago--}}
         <link rel="stylesheet" href="{{asset('css/pago/pago.css')}}">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
-        <script type='text/javascript' src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                OpenPay.setId('{{env('OPENPAY_MERCHANT_ID')}}');
-                OpenPay.setApiKey('{{env('OPENPAY_APP_KEY_PC')}}');
-                OpenPay.setSandboxMode(true);
-                //Se genera el id de dispositivo
-                var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
+       
+        @if ($estado==3)
+            <script type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
+            <script type='text/javascript' src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    OpenPay.setId('{{env('OPENPAY_MERCHANT_ID')}}');
+                    OpenPay.setApiKey('{{env('OPENPAY_APP_KEY_PC')}}');
+                    OpenPay.setSandboxMode(true);
+                    //Se genera el id de dispositivo
+                    var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
 
-                $('#pay-button').on('click', function(event) {
-                    event.preventDefault();
-                    if ($("#pay-button").prop("disabled")) {
-                        return; // Evitar múltiples clics si el botón ya está deshabilitado
-                    }
-                    else{
-                        var cardNumberInput = $("#card_number");
-                        var cardNumberError = $("#card_number_error");
-                        var mesInput = $("#expiracion_mes");
-                        var yearInput = $("#expiracion_year");
-                        var cvInput = $("#cv");
-                        var dateError = $("#date_error");
-                        var cvError = $("#cv_error");
-                        
+                    $('#pay-button').on('click', function(event) {
+                        event.preventDefault();
+                        if ($("#pay-button").prop("disabled")) {
+                            return; // Evitar múltiples clics si el botón ya está deshabilitado
+                        }
+                        else{
+                            var cardNumberInput = $("#card_number");
+                            var cardNumberError = $("#card_number_error");
+                            var mesInput = $("#expiracion_mes");
+                            var yearInput = $("#expiracion_year");
+                            var cvInput = $("#cv");
+                            var dateError = $("#date_error");
+                            var cvError = $("#cv_error");
+                            
 
-                        const numberPattern = /^[0-9]/;
+                            const numberPattern = /^[0-9]/;
+                            
+                            if (!numberPattern.test(cardNumberInput.val())) {
+                                cardNumberError.text("El formato del número de tarjeta es incorrecto. Solo se permiten números");
+                                return;
+                            }
+
+                            if (cardNumberInput.val().length < 15) {
+                                cardNumberError.text("El número de tarjeta deber ser al menos 15 dígitos");
+                                return;
+                            }
+                            cardNumberError.text("");
+                            const mesvalidacion = /^(0[1-9]|1[0-2])$/;
+                            /* Validación fecha mes */
                         
-                        if (!numberPattern.test(cardNumberInput.val())) {
-                            cardNumberError.text("El formato del número de tarjeta es incorrecto. Solo se permiten números");
-                            return;
+                            if (mesInput.val().length!=2) {
+                                dateError.text("El mes de expiración son 2 dígitos.");         
+                                return;       
+                            }
+                            if(!mesvalidacion.test(mesInput.val())){
+                                dateError.text("El formato del campo mes es incorrecto, debe de ser entre 01 y 12");
+                                return;
+                            }
+                            
+                            if (!numberPattern.test(yearInput.val())) {
+                                dateError.text("El formato de año de expiración incorrecto. Solo se permiten números");
+                                return;
+                            }
+                            
+                            if (yearInput.val().length != 2) {
+                                dateError.text("El año de expiración son 2 dígitos.");             
+                                return;   
+                            }
+                            dateError.text("");
+                            
+                            if(cvInput.val().length<3){
+                                cvError.text("El cvv debe tener al menos 3 dígitos");
+                                return;
+                            }
+                            if(cvInput.val().length>4){
+                                cvError.text("El cvv debe tener maximo 4 dígitos");
+                                return;
+                            }
+                            cvError.text("");
+                            $("#pay-button").attr("disabled", true);
+                            $("#pay-button").prop("disabled", true).addClass("disabled-button");
+                            $("#loading-message").show();
+                            /* OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);     */            
+                            console.log('Pasa a API');
+                        }
+                        
+                    });
+
+                    var sucess_callbak = function(response) {
+                        $("#pay-button").prop("disabled", false);
+                        var token_id = response.data.id;
+                        $('#token_id').val(token_id);
+                        $('#payment-form').submit();
+                    };
+
+                    var error_callbak = function(response) {
+                        $('#payment-error').remove(); 
+                        var desc = response.data.description != undefined ? response.data.description : response.message;
+                        
+                        var descripcion;
+                        switch(desc){
+                            case "card_number is required, expiration_year expiration_month is required":
+                            descripcion = "El numero de tarjeta, es requerido, el año y mes de expiración es requerido.";
+                            break;
+                            case "card_number is required, card_number is required":
+                                descripcion = "El numero de tarjeta es requerido.";
+                            break;
+                            case "card_number length is invalid":
+                                descripcion = "La longitud del numero de tarjeta, es invalido.";
+                            break;
+                            case "The CVV2 security code is required":
+                                descripcion = "El CVV codigo de seguridad es requerido.";
+                            break;
+                            case "cvv2 length must be 3 digits":
+                                descripcion = "El CVV debe ser de 3 dígitos";
+                            break;
+                            case "The card number verification digit is invalid":
+                                descripcion = "El dígito de verificación del número de tarjeta no es válido";
+                            break;
+                            case "expiration_year expiration_month is required":
+                                descripcion = "La año y mes de expiración es requerido";
+                            break;
+                            case "The expiration date has expired":
+                                descripcion = "La fecha de expiración de la tarjeta es anterior a la fecha actual.";
+                                break;
+                            case "Card product type not supported":
+                                descripcion = "Tipo de tarjeta no soportada.";
+                                break;
+                            case "The card was declined by the bank":
+                                descripcion = "La tarjeta fue declinada por el banco.";
+                                break;
+                            case "The card has expired":
+                                descripcion = "La tarjeta ha expirado.";
+                                break;
+                            case "The card was reported as stolen":
+                                descripcion = "Tarjeta declinada";
+                                break;
+                            case "Fraud risk detected by anti-fraud system --- Found in blacklist":
+                                descripcion = "La tarjeta ha sido rechazada por el sistema antifraudes/ Rechazada por coincidir con registros en lista negra";
+                                break;
+                            case "The card was reported as lost":
+                                descripcion = "Tarjeta declinada";
+                                break;
+                            case "The bank has restricted the card":
+                                descripcion = "El banco ha restringido la tarjeta.";
+                                break;
+                            case "Bank authorization is required for this charge":
+                                descripcion = "Se requiere solicitar al banco autorización para realizar este pago.";
+                                break;
+                            default: 
+                                descripcion = desc;
+                            break;
                         }
 
-                        if (cardNumberInput.val().length < 15) {
-                            cardNumberError.text("El número de tarjeta deber ser al menos 15 dígitos");
-                            return;
-                        }
-                        cardNumberError.text("");
-                        const mesvalidacion = /^(0[1-9]|1[0-2])$/;
-                        /* Validación fecha mes */
-                    
-                        if (mesInput.val().length!=2) {
-                            dateError.text("El mes de expiración son 2 dígitos.");         
-                            return;       
-                        }
-                        if(!mesvalidacion.test(mesInput.val())){
-                            dateError.text("El formato del campo mes es incorrecto, debe de ser entre 01 y 12");
-                            return;
-                        }
-                        
-                        if (!numberPattern.test(yearInput.val())) {
-                            dateError.text("El formato de año de expiración incorrecto. Solo se permiten números");
-                            return;
-                        }
-                        
-                        if (yearInput.val().length != 2) {
-                            dateError.text("El año de expiración son 2 dígitos.");             
-                            return;   
-                        }
-                        dateError.text("");
-                        
-                        if(cvInput.val().length<3){
-                            cvError.text("El cvv debe tener al menos 3 dígitos");
-                            return;
-                        }
-                        if(cvInput.val().length>4){
-                            cvError.text("El cvv debe tener maximo 4 dígitos");
-                            return;
-                        }
-                        cvError.text("");
-                        $("#pay-button").attr("disabled", true);
-                        $("#pay-button").prop("disabled", true).addClass("disabled-button");
-                        $("#loading-message").show();
-                        /* OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);     */            
-                        console.log('Pasa a API');
-                    }
-                    
+                        $('#divtarjeta').after(`<div class="text-left"><small class="text-danger erorrs" id="payment-error">`+descripcion+`</small></div>`);
+                        $("#pay-button").attr("disabled", false);
+                        $("#loading-message").hide();
+                    };
+
+
                 });
-
-                var sucess_callbak = function(response) {
-                    $("#pay-button").prop("disabled", false);
-                    var token_id = response.data.id;
-                    $('#token_id').val(token_id);
-                    $('#payment-form').submit();
-                };
-
-                var error_callbak = function(response) {
-                    $('#payment-error').remove(); 
-                    var desc = response.data.description != undefined ? response.data.description : response.message;
-                    
-                    var descripcion;
-                    switch(desc){
-                        case "card_number is required, expiration_year expiration_month is required":
-                           descripcion = "El numero de tarjeta, es requerido, el año y mes de expiración es requerido.";
-                        break;
-                        case "card_number is required, card_number is required":
-                            descripcion = "El numero de tarjeta es requerido.";
-                        break;
-                        case "card_number length is invalid":
-                            descripcion = "La longitud del numero de tarjeta, es invalido.";
-                        break;
-                        case "The CVV2 security code is required":
-                            descripcion = "El CVV codigo de seguridad es requerido.";
-                        break;
-                        case "cvv2 length must be 3 digits":
-                            descripcion = "El CVV debe ser de 3 dígitos";
-                        break;
-                        case "The card number verification digit is invalid":
-                            descripcion = "El dígito de verificación del número de tarjeta no es válido";
-                        break;
-                        case "expiration_year expiration_month is required":
-                            descripcion = "La año y mes de expiración es requerido";
-                        break;
-                        case "The expiration date has expired":
-                            descripcion = "La fecha de expiración de la tarjeta es anterior a la fecha actual.";
-                            break;
-                        case "Card product type not supported":
-                            descripcion = "Tipo de tarjeta no soportada.";
-                            break;
-                        case "The card was declined by the bank":
-                            descripcion = "La tarjeta fue declinada por el banco.";
-                            break;
-                        case "The card has expired":
-                            descripcion = "La tarjeta ha expirado.";
-                            break;
-                        case "The card was reported as stolen":
-                            descripcion = "Tarjeta declinada";
-                            break;
-                        case "Fraud risk detected by anti-fraud system --- Found in blacklist":
-                            descripcion = "La tarjeta ha sido rechazada por el sistema antifraudes/ Rechazada por coincidir con registros en lista negra";
-                            break;
-                        case "The card was reported as lost":
-                            descripcion = "Tarjeta declinada";
-                            break;
-                        case "The bank has restricted the card":
-                            descripcion = "El banco ha restringido la tarjeta.";
-                            break;
-                        case "Bank authorization is required for this charge":
-                            descripcion = "Se requiere solicitar al banco autorización para realizar este pago.";
-                            break;
-                        default: 
-                            descripcion = desc;
-                        break;
-                    }
-
-                    $('#divtarjeta').after(`<div class="text-left"><small class="text-danger erorrs" id="payment-error">`+descripcion+`</small></div>`);
-                    $("#pay-button").attr("disabled", false);
-                    $("#loading-message").hide();
-                };
-
-
-            });
-        </script>
+            </script>
+        @endif
     {{--Pago--}}
     @stack('css')
     {{-- <script src="https://cdn.tailwindcss.com"></script>
