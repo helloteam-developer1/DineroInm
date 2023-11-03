@@ -689,7 +689,12 @@
                         @include('appCliente.pago.metodo-pago')
                     @endif
                 @else
-                    <p>En esta sección podrás agregar tu forma de pago para transferirte el préstamo,<strong> te recordamos que debe ser la tarjeta de donde descontaremos periódicamente la aportación al crédito.</strong></p>
+                    @if (auth()->user()->informacion_pago)
+                        @livewire('app-cliente.datos-bancarios')
+                    @else
+                        <p>En esta sección podrás agregar tu forma de pago para transferirte el préstamo,<strong> te recordamos que debe ser la tarjeta de donde descontaremos periódicamente la aportación al crédito.</strong></p>
+                    @endif
+                    
                     
                 @endif
             </div>
