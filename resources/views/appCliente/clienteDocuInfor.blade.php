@@ -111,7 +111,7 @@
                             $("#pay-button").attr("disabled", true);
                             $("#pay-button").prop("disabled", true).addClass("disabled-button");
                             $("#loading-message").show();
-                            /* OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);     */            
+                            OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
                             console.log('Pasa a API');
                         }
                         
