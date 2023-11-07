@@ -1,0 +1,193 @@
+/*Efecto*/
+:root{
+    --green: #4A9D22;
+    --naranja: #F29100;
+    --negro: #3C3C3B;
+}
+
+.modalmask {
+    position: fixed;
+    font-family: Arial, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.pointer-none{
+  pointer-events: none;
+}
+.pointer-auto{
+  pointer-events: auto;
+}
+.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Formato de la ventana */
+.modalbox {
+    max-width: 80%;
+    position: relative;
+    padding: 5px 20px 13px 20px;
+    background: #fff;
+    border-radius: 3px;
+    -webkit-transition: all 500ms ease-in;
+    -moz-transition: all 500ms ease-in;
+    transition: all 500ms ease-in;
+    pointer-events: auto;
+}
+.botones{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.button-verde-modal-r{
+  color: white;
+  background-color: var(--green);
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 3px;
+  font-weight: bold;
+}
+/*Movimientos*/
+.movedown {
+    margin: 0 auto;
+}
+.resize {
+    margin: 10% auto;
+    width:0;
+    height:0;
+}
+.modalmask:target .movedown{       
+    margin:10% auto;
+}
+.modalmask:target .resize{
+    width:400px;
+    height:200px;
+}
+/*Boton de cerrar*/
+.close {
+    color: gray;
+    line-height: 25px;
+    position: absolute;
+    right: 1px;
+    text-align: center;
+    top: 1px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius:3px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.close:hover {
+    color:#222;
+    cursor: pointer;
+}
+.titulo{
+    color: var(--green);
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.head h2, h3{
+  text-align: center;
+}
+.subtitulo{
+  color: #F29100;
+  margin-top: 20px;
+}
+.texto-bold{
+  font-weight: bold;
+  text-align:unset;
+  margin: 30px 10px;
+}
+
+.button-verde-modal{
+  color: white;
+  background-color: var(--green);
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.button-naranja-modal{
+  color: white;
+  background-color: var(--naranja);
+  border: none;
+  padding: 10px;
+  width:100%;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.botonera-modal{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 10px;
+}
+
+@media (min-width:640px) {
+  .botonera-modal{
+    grid-template-columns: repeat(1,1fr);
+    gap: 10px;
+  }
+  .modalbox{
+    max-width: 70%;
+  }
+}
+@media (min-width:768px) {
+  .botonera-modal{
+    grid-template-columns: repeat(1,1fr);
+    gap: 10px;
+  }
+  .modalbox{
+    max-width: 65%;
+  }
+  .button-verde-modal{
+    width: auto;
+    
+  }
+  .button-naranja-modal{
+    width: 100%;
+    
+  }
+  .button-verde-modal-r{
+    width: max-content;
+  }
+}
+@media (min-width:1024px) {
+  .botonera-modal{
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+  }
+  .modalbox{
+    max-width: 40%;
+  }
+  .button-verde-modal{
+    width: auto;
+    
+  }
+  .button-naranja-modal{
+    width: 100%;
+    
+  }
+}
+
+
+
+

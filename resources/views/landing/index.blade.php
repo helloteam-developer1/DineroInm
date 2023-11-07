@@ -83,13 +83,16 @@
 
    @include('landing.components.porque-elegirnos')
    @section('modales')
-
+    @include('landing.registro.modal.credito-aprobado')
     @include('landing.registro.modales.credito-rechazado')
     @include('landing.registro.modales.credito-aprobado')
     @include('landing.registro.modales.abandonar-linea')
+    @include('landing.registro.modal.credito-rechazado')
+    @include('landing.registro.modal.otromomento')
+    
    @endsection
    @push('js')
-
+    <script src="{{asset('js/modalesmac/modal.js')}}"></script>
     <script>
 
 
@@ -180,11 +183,11 @@
         const acreditaIngresoMnesual = getIngresoMensual(ingesoMensual, 2);
 
         if( tarjetaNomina && acreditaIngresoMnesual ){
-            openModal('credito-aprobado');
-            
+            /* openModal('credito-aprobado'); */
+            modalaprobado();
         }
         else{
-            openModal('credito-rechazado');
+            modalrechazo();
         }
 
       }
