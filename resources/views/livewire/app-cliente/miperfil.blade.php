@@ -52,7 +52,7 @@
             <div class="col-4 col-md-5 offset-md-0"><label class="form-label " style="float: right;">Telefono: </label>  
             </div>
             <div class="col-8 col-md-7">
-                <input type="tel" wire:model="telefono_contacto" class="form-control email" placeholder="Telefono de contacto" max="10">
+                <input type="tel" wire:model="telefono_contacto" class="form-control email" placeholder="Telefono de contacto" maxlength="10">
                 @error('telefono_contacto')
                     <div class="row" style="margin-top: 5px; margin-bottom:5px;">
                         <span style="color:brown; text-align:initial; float:left;">{{ $message }}</span>

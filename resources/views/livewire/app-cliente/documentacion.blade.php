@@ -77,22 +77,26 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-        @switch($documentacion)
-          @case(1)
-            @include('appCliente.documentacion.documentacionexitosa')
-          @break
-          @case(2)
-            @include('appCliente.documentacion.formularioimg')
-          @break
-          @case(3)
-            @include('appCliente.documentacion.formularioimg')
-          @break
-          @case(4)
-            @include('appCliente.documentacion.formularioimg')
-          @break
-          @default
-            @include('appCliente.documentacion.documentacionrevision')
-        @endswitch
+        @if ($documentacion==null)
+          @include('appCliente.documentacion.formularioimg')
+        @else
+          @switch($documentacion)
+            @case(1)
+              @include('appCliente.documentacion.documentacionexitosa')
+            @break
+            @case(2)
+              @include('appCliente.documentacion.formularioimg')
+            @break
+            @case(3)
+              @include('appCliente.documentacion.formularioimg')
+            @break
+            @case(4)
+              @include('appCliente.documentacion.formularioimg')
+            @break
+            @default
+              @include('appCliente.documentacion.documentacionrevision')
+          @endswitch
+        @endif
     </div>
   </div>
   
@@ -129,7 +133,7 @@
           @if ($documentacion == 1)
               <a class="btn btn-Guardar btn-block w-100">Guardar</a>
           @endif
-          @if ($documentacion == 3 || $documentacion == 4)
+          @if ($documentacion == 3 || $documentacion == 4 || $documentacion==null)
               <a class="btn btn-Guardar btn-block w-100" wire:click="subirIMG">Guardar</a>
           @endif
             @if ($documentacion==2)

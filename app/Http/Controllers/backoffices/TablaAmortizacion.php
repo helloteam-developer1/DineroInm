@@ -70,7 +70,6 @@ class TablaAmortizacion extends Controller
     }
     //actualización de un registro
     public function update(Request $request,$id){
-        
         $validate = $request->validate([
             'num_credito' => 'required|min:6|numeric',
             'numero_pagos' =>'required|regex:[^[0-9]+([,][0-9]+)?$]',
@@ -91,30 +90,36 @@ class TablaAmortizacion extends Controller
         $comisiones = str_replace(',',"",$request->comisiones);
         $pago_total_men = str_replace(',',"",$request->pago_total_men);
         if(Amortizacion::where('id_amortizacion','=',$id)->exists()){
-            $num_cred = Amortizacion::where('id_amortizacion','=',$id)->value('num_credito');
-            if($request->num_credito==$num_cred){
-                Amortizacion::where('id_amortizacion','=',$id)->update([
-                    'num_credito' => $request->num_credito,
-                    'numero_pagos' => $num_pagos,
-                    'prox_pago' => $request->prox_pago,
-                    'interes_anual' =>$interes_anual,
-                    'pag_capital' =>$pag_capital,
-                    'interes_ordinarios' => $interes_ordinarios,
-                    'iva_io' => $iva_io,
-                    'comisiones' =>$comisiones,
-                    'pago_total_men' =>$pago_total_men
-                ]); 
+            if(Amortizacion::where('id_amortizacion','=',$id)->value('cobro') != 1){
+                $num_cred = Amortizacion::where('id_amortizacion','=',$id)->value('num_credito');
+                if($request->num_credito==$num_cred){
+                    Amortizacion::where('id_amortizacion','=',$id)->update([
+                        'num_credito' => $request->num_credito,
+                        'numero_pagos' => $num_pagos,
+                        'prox_pago' => $request->prox_pago,
+                        'interes_anual' =>$interes_anual,
+                        'pag_capital' =>$pag_capital,
+                        'interes_ordinarios' => $interes_ordinarios,
+                        'iva_io' => $iva_io,
+                        'comisiones' =>$comisiones,
+                        'pago_total_men' =>$pago_total_men
+                    ]); 
 
-                $fecha_inicio = Amortizacion::where('num_credito','=',$num_cred)->orderby('id_amortizacion','asc')->value('prox_pago');
-                $fecha_termino = Amortizacion::where('num_credito','=',$num_cred)->orderby('id_amortizacion','desc')->value('prox_pago');
-                Credito::where('num_credito','=',$request->num_credito)->update(['fecha_termino'=>$fecha_termino,'fecha_inicio'=>$fecha_inicio]);
+                    $fecha_inicio = Amortizacion::where('num_credito','=',$num_cred)->orderby('id_amortizacion','asc')->value('prox_pago');
+                    $fecha_termino = Amortizacion::where('num_credito','=',$num_cred)->orderby('id_amortizacion','desc')->value('prox_pago');
+                    Credito::where('num_credito','=',$request->num_credito)->update(['fecha_termino'=>$fecha_termino,'fecha_inicio'=>$fecha_inicio]);
 
-                session()->flash('success');
-                return redirect()->route('tablaAmortizacion',$num_cred);
+                    session()->flash('success');
+                    return redirect()->route('tablaAmortizacion',$num_cred);
+                }else{
+                    session()->flash('error');
+                    return back();
+                }
             }else{
-                session()->flash('error');
+                session()->flash('modificado');
                 return back();
             }
+            
         }else{
             session()->flash('error');
             return back();

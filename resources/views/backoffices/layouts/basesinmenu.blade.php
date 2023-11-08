@@ -66,6 +66,26 @@
     <h1 class="text-center my-5">@yield('subtitulo')</h1>
     @yield('contenido')
 
+    @if (session('modificado'))
+    <script>
+        Swal.fire({
+            title: "Registro cobrado",
+            text: "Los registros cobrados no pueden ser modificados.",
+            icon: "error"
+        });
+    </script>
+    @endif
+    @if (session('cobrosuccess'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Cobro realizado con Exito!',
+            footer:'Espere...',
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    </script>
+    @endif
     @if (session('success'))
     <script>
         Swal.fire({

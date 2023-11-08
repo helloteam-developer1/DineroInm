@@ -163,7 +163,8 @@
                 <small>El servicio respondió con un error en este momento. Por favor, inténtelo de nuevo más tarde</small>
             @break
             @default
-                <p>Por favor, contacta a soporte técnico</p>
+                <strong>Por favor, contacta a soporte técnico</strong>
+            @break
         @endswitch
     </div>
 </div>

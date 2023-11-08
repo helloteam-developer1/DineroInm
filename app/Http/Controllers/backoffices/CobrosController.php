@@ -47,49 +47,53 @@ class CobrosController extends Controller
         $pago =  $amort->pago_total_men;
         
         /* Optengo el ID de la tarjeta a cobrar */
-        $informacion = $amort->credito->usuario->informacion_pago->data;
+        $informacion = $amort->credito->usuario->informacion_pago;
         /* Desencripto del id de la tarjeta */
-        $card = Crypt::decrypt($informacion);
-        /* ID de openpay del usuario a cobrar */
-        $id_openpay = $amort->credito->usuario->openpay_id;
-        /*Genero un numero de orden unico con el numero de credito y el numero de pago que se cobra*/
-        $orden = 'ORDEN-'.$amort->num_credito.'Pg'.$amort->numero_pagos;
-        try{
-            $openpay = Openpay::getInstance(env('OPENPAY_MERCHANT_ID'), env('OPENPAY_APP_KEY_PV'));
-            $chargeData = array(
-                'source_id' => $card,
-                'method' => 'card',
-                'amount' => $pago,
-                'description' => 'Pago credito:'.$amort->num_credito.',Dinero Inmediato',
-                'order_id' => $orden,
-                'device_session_id' => $request->deviceIdHiddenFieldName
-            );
-            
-            $customer = $openpay->customers->get($id_openpay);
-            $charge = $customer->charges->create($chargeData);
-            
-            
-        } catch (OpenpayApiTransactionError $e) {
-            $error = "Error de transacción, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (OpenpayApiRequestError $e) {
-            $error = "Error de solicitud, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (OpenpayApiConnectionError $e) {
-            $error = "Error de conexión, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (OpenpayApiAuthError $e) {
-            echo $error = "Error de autenticación, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (OpenpayApiError $e) {
-            echo $error = "Error de OpenPay, codigo:".$e->getErrorCode();
-            return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
-        } catch (Exception $e) {
-            echo $error = "Error general" .$e->getMessage();            
-            return redirect()->route('cobros.index')->with('mensaje',$error);
+        if($informacion!=null){
+            $card = Crypt::decrypt($informacion->data);
+            /* ID de openpay del usuario a cobrar */
+            $id_openpay = $amort->credito->usuario->openpay_id;
+            /*Genero un numero de orden unico con el numero de credito y el numero de pago que se cobra*/
+            $orden = 'ORDEN-'.$amort->num_credito.'-Pg-'.$amort->numero_pagos;
+            try{
+                $openpay = Openpay::getInstance(env('OPENPAY_MERCHANT_ID'), env('OPENPAY_APP_KEY_PV'));
+                $chargeData = array(
+                    'source_id' => $card,
+                    'method' => 'card',
+                    'amount' => $pago,
+                    'description' => 'Pago credito:'.$amort->num_credito.',Dinero Inmediato',
+                    'order_id' => $orden,
+                    'device_session_id' => $request->deviceIdHiddenFieldName
+                );
+                
+                $customer = $openpay->customers->get($id_openpay);
+                $charge = $customer->charges->create($chargeData);
+                
+                
+            } catch (OpenpayApiTransactionError $e) {
+                $error = "Error de transacción, codigo:".$e->getErrorCode();
+                return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
+            } catch (OpenpayApiRequestError $e) {
+                $error = "Error de solicitud, codigo:".$e->getErrorCode();
+                return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
+            } catch (OpenpayApiConnectionError $e) {
+                $error = "Error de conexión, codigo:".$e->getErrorCode();
+                return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
+            } catch (OpenpayApiAuthError $e) {
+                echo $error = "Error de autenticación, codigo:".$e->getErrorCode();
+                return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
+            } catch (OpenpayApiError $e) {
+                echo $error = "Error de OpenPay, codigo:".$e->getErrorCode();
+                return redirect()->route('cobros.index')->with('mensaje',$error)->with('codigo',$e->getErrorCode());
+            } catch (Exception $e) {
+                echo $error = "Error general" .$e->getMessage();            
+                return redirect()->route('cobros.index')->with('mensaje',$error);
+            }
+            $amort = Amortizacion::where('id_amortizacion',$request->id)->update(['cobro'=>1]);
+            return redirect()->route('cobros.index')->with('cobrosuccess','Cobro realizado con exito');
+        }else{
+            return redirect()->route('cobros.index')->with('mensaje','El usuario no tiene una tarjeta de crédito registrada');
         }
-        $amort = Amortizacion::where('id_amortizacion',$request->id)->update(['cobro'=>1]);
-        return redirect()->route('cobros.index')->with('success','Cobro realizaco con exito');
     }
 
     public function metodo($id){
