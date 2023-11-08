@@ -77,15 +77,14 @@
                             <span style="color:red;">{{ $message }}</span>
                         @enderror
                     </div>
-
                 </div>
                 <div class="mb-4 mx-3">
-
+                    
                     <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
 
 
                     <button type="button" class="btn btn-guardar"
-                        wire:click="registroT({{ $num_credito }})">Guardar</button>
+                        wire:click="registroT({{ $num_credito }})" wire:loading.attr="disabled">Guardar</button>
 
                 </div>
             </div>
