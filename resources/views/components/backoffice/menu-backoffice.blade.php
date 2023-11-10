@@ -1,15 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand navbar-light border shadow">
     <div class="container-fluid">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="row">
-                <div class=" col-4 col-sm-4 col-md-3 col-lg-1 offset-sm-4 offset-md-4 offset-lg-1 me-5" id="logoDI">
+            <div class="row justify-content-md-between">
+                <div class="col-4 col-sm-4 col-md-3 col-lg-1 offset-sm-4 offset-md-4 offset-lg-1 me-5" id="logoDI">
                     <img src="{{ asset('img/logo.png') }}" width="120" class="my-2" alt="logo"
                         onclick="window.location='{{ route('dashboard.backoffice') }}'" style="cursor: pointer;">
                 </div>
-                <div class=" col-4 col-sm-10 col-md-9 col-lg-5 offset-1 offset-sm-1 offset-md-2 offset-lg-4 mt-4">
+                {{-- <div class=" col-5 col-sm-12 col-md-12 col-lg-5 offset-1 offset-sm-2 offset-md-2 offset-lg-4 mt-5"> --}}
+                <div class="col-auto mt-4" style="margin-right: 7.8rem;">
+                
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav navDestop">
-                            <li class="nav-item ms-3">
+                            <li class="nav-item ms-5">
                                 @if (Request::is('clientes'))
                                     <a class="nav-link" href="{{ route('dashboard.backoffice') }}"
                                         style="color:#38a937;">
@@ -23,7 +25,7 @@
                                     </a>
                                 @endif
                             </li>
-                            <li class="nav-item ms-3">
+                            <li class="nav-item ms-5">
                                 @if (Request::is('cobro'))
                                     <a class="nav-link" href="{{ route('cobros.index') }}"
                                         style="color:#38a937;">
@@ -37,7 +39,7 @@
                                     </a>
                                 @endif
                             </li>
-                            <li class="nav-item dropdown ms-3">
+                            <li class="nav-item dropdown ms-5">
                                 @livewire('backoffice.buzon')
                             </li>
                             {{-- <li class="nav-item ms-3">
@@ -55,7 +57,7 @@
                                 @endif
                                 @livewire('backoffice.buzon')
                             </li> --}}
-                            <li class="nav-item ms-3">
+                            <li class="nav-item ms-5">
                                 @if (Request::is('notificaciones'))
                                     <a class="nav-link {{ Request::is('notificaciones') ? 'disabled' : null }}"
                                         href="/notificaciones" style="color:#38a937;">
@@ -72,7 +74,7 @@
                                     </a>
                                 @endif
                             </li>
-                            <li class="nav-item dropdown ms-3">
+                            <li class="nav-item dropdown ms-5">
                                 <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="{{ asset('img/backoffices/ICONO AJUSTES.svg') }}" width="20"
